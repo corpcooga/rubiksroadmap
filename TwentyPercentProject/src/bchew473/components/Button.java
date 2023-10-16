@@ -9,14 +9,15 @@ public class Button {
 	
 	String text;
 	double x, y, width, height;
-	int borderWidth, borderRound;
-	Color fillColor, borderColor;
+	int borderWidth, borderRound, textSize;
+	Color fillColor, borderColor, textColor;
 	
 	
 //	Constructors
 	
 	public Button(String text, double x, double y, double width, double height, int bWidth, int bRound, Color fCol, Color bCol)
 	{
+//		TODO: set textSize and textColor
 		this.text = text;
 		this.x = x;
 		this.y = y;

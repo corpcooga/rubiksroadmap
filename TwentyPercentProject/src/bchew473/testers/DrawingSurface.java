@@ -1,6 +1,7 @@
 package bchew473.testers;
 
 import processing.core.PApplet;
+import bchew473.components.Button;
 
 public class DrawingSurface extends PApplet
 {
@@ -23,6 +24,10 @@ public class DrawingSurface extends PApplet
 		fill(220);
 		text("Rubik's Roadmap", width / 2, 60);
 		pop();
+		
+		Button testButton = new Button("test", width / 2, height / 2, 100, 50);
+		testButton.draw(this);
+		System.out.println(testButton);
 	}
 	
 	public void draw()
