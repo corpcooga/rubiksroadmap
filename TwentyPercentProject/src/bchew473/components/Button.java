@@ -9,13 +9,13 @@ public class Button {
 	
 	String text;
 	double x, y, width, height;
-	int borderWidth;
+	int borderWidth, borderRound;
 	Color fillColor, borderColor;
 	
 	
 //	Constructors
 	
-	public Button(String text, double x, double y, double width, double height, int bWidth, Color fCol, Color bCol)
+	public Button(String text, double x, double y, double width, double height, int bWidth, int bRound, Color fCol, Color bCol)
 	{
 		this.text = text;
 		this.x = x;
@@ -23,18 +23,19 @@ public class Button {
 		this.width = width;
 		this.height = height;
 		borderWidth = bWidth;
+		borderRound = bRound;
 		fillColor = fCol;
 		borderColor = bCol;
 	}
 	
-	public Button(String text, double x, double y, double width, double height, int bWidth)
+	public Button(String text, double x, double y, double width, double height, int bWidth, int bRound)
 	{
-		this(text, x, y, width, height, bWidth, Color.white, Color.black);
+		this(text, x, y, width, height, bWidth, bRound, Color.white, Color.black);
 	}
 	
 	public Button(String text, double x, double y, double width, double height)
 	{
-		this(text, x, y, width, height, 1);
+		this(text, x, y, width, height, 1, 10);
 	}
 	
 	public Button()
@@ -57,7 +58,8 @@ public class Button {
 	public String toString()
 	{
 		return "text: " + text + "\ncoordinates: ("+x+", "+y+")"
-				+ "\ndimensions: " + width + "x" + height + "\nborder weight: "
-				+ borderWidth;
+				+ "\ndimensions: " + width + "x" + height + "\nborderWidth: " + borderWidth
+				+ "\nfillColor: " + fillColor + "\nborderColor: " + borderColor
+				+ "\nborderRound: " + borderRound;
 	}
 }
