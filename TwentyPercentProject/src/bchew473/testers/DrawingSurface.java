@@ -16,7 +16,13 @@ public class DrawingSurface extends PApplet
 	
 	public void setup()
 	{
-		
+		background(60, 60, 60);
+		push();
+		textAlign(CENTER);
+		textSize(50);
+		fill(220);
+		text("Rubik's Roadmap", width / 2, 60);
+		pop();
 	}
 	
 	public void draw()
