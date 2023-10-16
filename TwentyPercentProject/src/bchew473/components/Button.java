@@ -7,6 +7,7 @@ public class Button {
 	
 //	Fields
 	
+	String text;
 	double x, y, width, height;
 	int borderWidth;
 	Color fillColor, borderColor;
@@ -14,8 +15,9 @@ public class Button {
 	
 //	Constructors
 	
-	public Button(double x, double y, double width, double height, int bWidth, Color fCol, Color bCol)
+	public Button(String text, double x, double y, double width, double height, int bWidth, Color fCol, Color bCol)
 	{
+		this.text = text;
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -25,19 +27,19 @@ public class Button {
 		borderColor = bCol;
 	}
 	
-	public Button(double x, double y, double width, double height, int bWidth)
+	public Button(String text, double x, double y, double width, double height, int bWidth)
 	{
-		this(x, y, width, height, bWidth, Color.white, Color.black);
+		this(text, x, y, width, height, bWidth, Color.white, Color.black);
 	}
 	
-	public Button(double x, double y, double width, double height)
+	public Button(String text, double x, double y, double width, double height)
 	{
-		this(x, y, width, height, 1);
+		this(text, x, y, width, height, 1);
 	}
 	
 	public Button()
 	{
-		this(0, 0, 0, 0);
+		this("", 0, 0, 0, 0);
 	}
 	
 	
