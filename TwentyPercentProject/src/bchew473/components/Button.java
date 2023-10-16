@@ -45,6 +45,19 @@ public class Button {
 	
 //	Methods
 	
+	public void draw(PApplet drawer)
+	{
+		drawer.push();
+		drawer.rect((float)x, (float)y, (float)width, (float)height, 20);
+		drawer.textAlign(PApplet.CENTER, PApplet.CENTER);
+		drawer.text(text, (float)x, (float)y);
+		drawer.pop();
+	}
 	
-	
+	public String toString()
+	{
+		return "text: " + text + "\ncoordinates: ("+x+", "+y+")"
+				+ "\ndimensions: " + width + "x" + height + "\nborder weight: "
+				+ borderWidth;
+	}
 }
