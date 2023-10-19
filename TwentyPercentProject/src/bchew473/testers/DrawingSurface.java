@@ -25,7 +25,7 @@ public class DrawingSurface extends PApplet
 		text("Rubik's Roadmap", width / 2, 60);
 		pop();
 		
-		Button testButton = new Button("test", width / 2, height / 2, 100, 50);
+		Button testButton = new Button("test", width / 2 - 50, height / 2 - 25, 100, 50);
 		testButton.draw(this);
 		System.out.println(testButton);
 	}

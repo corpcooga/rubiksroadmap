@@ -7,17 +7,17 @@ public class Button {
 	
 //	Fields
 	
-	String text;
-	double x, y, width, height;
-	int borderWidth, borderRound, textSize;
-	Color fillColor, borderColor, textColor;
+	private String text;
+	private float x, y, width, height;
+	private int borderWidth, borderRound, textSize;
+	private Color fillColor, borderColor, textColor;
 	
 	
 //	Constructors
 	
-	public Button(String text, double x, double y, double width, double height, int bWidth, int bRound, Color fCol, Color bCol)
+	public Button(String text, float x, float y, float width, float height,
+			int bWidth, int bRound, int tSize, Color fCol, Color bCol, Color tCol)
 	{
-//		TODO: set textSize and textColor
 		this.text = text;
 		this.x = x;
 		this.y = y;
@@ -25,19 +25,23 @@ public class Button {
 		this.height = height;
 		borderWidth = bWidth;
 		borderRound = bRound;
+		textSize = tSize;
+		textColor = tCol;
 		fillColor = fCol;
 		borderColor = bCol;
 	}
 	
-	public Button(String text, double x, double y, double width, double height, int bWidth, int bRound)
+	public Button(String text, float x, float y, float width, float height, int bWidth, int bRound, int tSize)
 	{
-		this(text, x, y, width, height, bWidth, bRound, Color.white, Color.black);
+		this(text, x, y, width, height, bWidth, bRound, tSize, Color.white, Color.black, Color.black);
 	}
 	
-	public Button(String text, double x, double y, double width, double height)
+	public Button(String text, float x, float y, float width, float height)
 	{
-		this(text, x, y, width, height, 1, 10);
+		this(text, x, y, width, height, 5, 10, (int)(height * 0.5));
 	}
+	
+//	TODO: maybe add constructor that calculates width and height based on text
 	
 	public Button()
 	{
@@ -50,14 +54,25 @@ public class Button {
 	public void draw(PApplet drawer)
 	{
 		drawer.push();
-		drawer.rect((float)x, (float)y, (float)width, (float)height, 20);
+		
+//		Button body
+		drawer.strokeWeight(borderWidth);
+		drawer.fill(fillColor.getRGB());
+		drawer.stroke(borderColor.getRGB());
+		drawer.rect(x, y, width, height, borderRound);
+		
+//		Button text
+		drawer.textSize(textSize);
 		drawer.textAlign(PApplet.CENTER, PApplet.CENTER);
-		drawer.text(text, (float)x, (float)y);
+		drawer.fill(textColor.getRGB());
+		drawer.text(text, x + width / 2, y + height / 2);
+		
 		drawer.pop();
 	}
 	
 	public String toString()
 	{
+//		TODO: add new fields and fix color print
 		return "text: " + text + "\ncoordinates: ("+x+", "+y+")"
 				+ "\ndimensions: " + width + "x" + height + "\nborderWidth: " + borderWidth
 				+ "\nfillColor: " + fillColor + "\nborderColor: " + borderColor
