@@ -72,10 +72,9 @@ public class Button {
 	
 	public String toString()
 	{
-//		TODO: add new fields and fix color print
 		return "text: " + text + "\ncoordinates: ("+x+", "+y+")"
 				+ "\ndimensions: " + width + "x" + height + "\nborderWidth: " + borderWidth
-				+ "\nfillColor: " + fillColor + "\nborderColor: " + borderColor
-				+ "\nborderRound: " + borderRound;
+				+ "\nborderRound: " + borderRound + "\ntextSize: " + textSize + "\nfillColor: "
+				+ fillColor + "\nborderColor: " + borderColor + "\ntextColor: " + textColor;
 	}
 }
