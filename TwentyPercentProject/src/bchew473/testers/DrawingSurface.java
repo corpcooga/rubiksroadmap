@@ -8,13 +8,14 @@ public class DrawingSurface extends PApplet
 //	Fields
 	
 	private Button backButton, nextButton;
+	private int page;
 	
 	
 //	Constructors
 	
 	public DrawingSurface()
 	{
-		
+		page = 0;
 	}
 	
 	
@@ -45,6 +46,15 @@ public class DrawingSurface extends PApplet
 		
 		backButton.draw(this);
 		nextButton.draw(this);
+		System.out.println(page);
+	}
+	
+	public void mousePressed()
+	{
+		if (nextButton.pointOver(mouseX, mouseY))
+			page += 1;
+		else if (backButton.pointOver(mouseX, mouseY))
+			page -= 1;
 	}
 
 }
