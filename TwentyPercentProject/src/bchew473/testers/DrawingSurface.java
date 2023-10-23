@@ -36,17 +36,35 @@ public class DrawingSurface extends PApplet
 	{
 		background(60, 60, 60);
 		
-//		Title
 		push();
-		textAlign(CENTER);
-		textSize(50);
-		fill(220);
-		text("Rubik's Roadmap", width / 2, 60);
+		textSize(20);
+		text(""+page, 10, 30);
 		pop();
 		
-		backButton.draw(this);
+		switch(page) {
+			case 0:
+				push();
+				textAlign(CENTER);
+				textSize(50);
+				fill(240);
+				text("Rubik's Roadmap", width / 2, 60);
+				pop();
+				break;
+			case 1:
+				push();
+				textAlign(CENTER);
+				textSize(50);
+				fill(240);
+				text("Introduction", width / 2, 60);
+				pop();
+				break;
+			default:
+				text("Invalid page", width / 2, height / 2);
+		}
+		
+		if (page > 0)
+			backButton.draw(this);
 		nextButton.draw(this);
-		System.out.println(page);
 	}
 	
 	public void mousePressed()
@@ -54,7 +72,8 @@ public class DrawingSurface extends PApplet
 		if (nextButton.pointOver(mouseX, mouseY))
 			page += 1;
 		else if (backButton.pointOver(mouseX, mouseY))
-			page -= 1;
+			if (page > 0)
+				page -= 1;
 	}
 
 }
