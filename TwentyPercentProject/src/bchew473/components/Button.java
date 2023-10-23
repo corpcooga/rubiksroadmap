@@ -51,6 +51,14 @@ public class Button {
 	
 //	Methods
 	
+	public boolean pointOver(double x, double y)
+	{
+		if (x >= this.x && x <= this.x + width &&
+				y >= this.y && y <= this.y + this.height)
+			return true;
+		return false;
+	}
+	
 	public void draw(PApplet drawer)
 	{
 		drawer.push();
