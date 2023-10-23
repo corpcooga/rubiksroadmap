@@ -41,7 +41,13 @@ public class Button {
 		this(text, x, y, width, height, 5, 10, (int)(height * 0.5));
 	}
 	
-//	TODO: maybe add constructor that calculates width and height based on text
+//	FIXME: find out how to make this work
+//	public Button(String text, float x, float y)
+//	{
+//		this(text, x, y, 0, 0);
+//		setWidth(textWidth(text));
+//		setHeight(textSize);
+//	}
 	
 	public Button()
 	{
@@ -57,6 +63,16 @@ public class Button {
 				y >= this.y && y <= this.y + this.height)
 			return true;
 		return false;
+	}
+	
+	public void setWidth(float newWidth)
+	{
+		width = newWidth;
+	}
+	
+	public void setHeight(float newHeight)
+	{
+		height = newHeight;
 	}
 	
 	public void draw(PApplet drawer)
