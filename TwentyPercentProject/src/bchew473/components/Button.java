@@ -60,8 +60,11 @@ public class Button {
 	public boolean pointOver(double x, double y)
 	{
 		if (x >= this.x && x <= this.x + width &&
-				y >= this.y && y <= this.y + this.height)
+				y >= this.y && y <= this.y + this.height) {
+			setFillColor(new Color(220, 220, 220));
 			return true;
+		}
+		setFillColor(Color.white);
 		return false;
 	}
 	
@@ -75,6 +78,11 @@ public class Button {
 		height = newHeight;
 	}
 	
+	public void setFillColor(Color c)
+	{
+		fillColor = c;
+	}
+	
 	public void draw(PApplet drawer)
 	{
 		drawer.push();
@@ -82,6 +90,14 @@ public class Button {
 //		Button body
 		drawer.strokeWeight(borderWidth);
 		drawer.fill(fillColor.getRGB());
+		if (pointOver(drawer.mouseX, drawer.mouseY)) {
+			drawer.fill(fillColor.getRed() * 3/4, fillColor.getGreen() * 3/4,
+					fillColor.getBlue() * 3/4);
+			if (drawer.mousePressed)
+				drawer.fill(fillColor.getRed() / 2, fillColor.getGreen() / 2,
+						fillColor.getBlue() / 2);
+		}
+		
 		drawer.stroke(borderColor.getRGB());
 		drawer.rect(x, y, width, height, borderRound);
 		
