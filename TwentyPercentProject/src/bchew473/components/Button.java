@@ -36,6 +36,7 @@ public class Button {
 		this(text, x, y, width, height, bWidth, bRound, tSize, Color.white, Color.black, Color.black);
 	}
 	
+//	TODO: make borderRound and borderWidth scale to button width and height
 	public Button(String text, float x, float y, float width, float height)
 	{
 		this(text, x, y, width, height, 5, 10, (int)(height * 0.5));
@@ -68,9 +69,14 @@ public class Button {
 		return false;
 	}
 	
-	public void setWidth(float newWidth)
+	public void setX(float newX)
 	{
-		width = newWidth;
+		x = newX;
+	}
+	
+	public void setY(float newY)
+	{
+		y = newY;
 	}
 	
 	public void setHeight(float newHeight)

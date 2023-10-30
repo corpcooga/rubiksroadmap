@@ -8,6 +8,7 @@ public class RubiksRoadmap
 	{
 		DrawingSurface drawing = new DrawingSurface();
 		PApplet.runSketch(new String[]{""}, drawing);
+//		TODO: Make window resizable
 	}
 
 }

@@ -7,7 +7,7 @@ public class DrawingSurface extends PApplet
 {
 //	Fields
 	
-	private Button backButton, nextButton;
+	private Button goButton, backButton, nextButton;
 	private int page;
 	
 	
@@ -28,6 +28,7 @@ public class DrawingSurface extends PApplet
 	
 	public void setup()
 	{
+		goButton = new Button("Go!", width / 2 - 100, 650, 200, 100);
 		backButton = new Button("Back", 40, height - 80, 100, 50);
 		nextButton = new Button("Next", width - 140, height - 80, 100, 50);
 	}
@@ -36,44 +37,76 @@ public class DrawingSurface extends PApplet
 	{
 		background(60, 60, 60);
 		
-		push();
-		textSize(20);
-		text(""+page, 10, 30);
-		pop();
-		
-		switch(page) {
-			case 0:
-				push();
-				textAlign(CENTER);
-				textSize(50);
-				fill(240);
-				text("Rubik's Roadmap", width / 2, 60);
-				pop();
-				break;
-			case 1:
-				push();
-				textAlign(CENTER);
-				textSize(50);
-				fill(240);
-				text("Introduction", width / 2, 60);
-				pop();
-				break;
-			default:
-				text("Invalid page", width / 2, height / 2);
+		if (page > 0) {
+			push();
+			textSize(20);
+			text(""+page, 10, 30);
+			pop();
 		}
 		
-		if (page > 0)
+		displayPage();
+		
+		if (page == 0)
+			goButton.draw(this);
+		if (page >= 1)
+			nextButton.draw(this);
+		if (page >= 2)
 			backButton.draw(this);
-		nextButton.draw(this);
+	}
+	
+	public void displayPage()
+	{
+		push();
+		switch(page) {
+		case 0:
+			textAlign(CENTER);
+			textSize(100);
+			fill(240);
+			text("Rubik's Roadmap", width / 2, 130);
+			imageMode(CENTER);
+			image(loadImage("rubik's_cube.png"), width / 2, 400, 600, 600);
+			break;
+		case 1:
+			textAlign(CENTER);
+			textSize(50);
+			fill(240);
+			text("Introduction", width / 2, 60);
+			break;
+		case 2:
+			textAlign(CENTER);
+			textSize(50);
+			fill(240);
+			text("Step 1: The Cross", width / 2, 60);
+			break;
+		case 3:
+			textAlign(CENTER);
+			textSize(50);
+			fill(240);
+			text("Step 2: First Layer", width / 2, 60);
+			break;
+		case 4:
+			textAlign(CENTER);
+			textSize(50);
+			fill(240);
+			text("Step 3: Second Layer", width / 2, 60);
+			break;
+		default:
+			textAlign(CENTER);
+			textSize(50);
+			fill(240);
+			text("Invalid Page", width / 2, height / 2);
+		}
+		pop();
 	}
 	
 	public void mousePressed()
 	{
-		if (nextButton.pointOver(mouseX, mouseY))
+		if (page == 0 && goButton.pointOver(mouseX, mouseY))
 			page += 1;
-		else if (backButton.pointOver(mouseX, mouseY))
-			if (page > 0)
-				page -= 1;
+		else if (page >= 1 && nextButton.pointOver(mouseX, mouseY))
+			page += 1;
+		else if (page >= 2 && backButton.pointOver(mouseX, mouseY))
+			page -= 1;
 	}
 
 }
