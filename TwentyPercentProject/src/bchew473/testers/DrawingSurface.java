@@ -57,43 +57,38 @@ public class DrawingSurface extends PApplet
 	public void displayPage()
 	{
 		push();
+		textAlign(CENTER);
+		textSize(50);
+		fill(240);
 		switch(page) {
 		case 0:
-			textAlign(CENTER);
 			textSize(100);
-			fill(240);
 			text("Rubik's Roadmap", width / 2, 130);
 			imageMode(CENTER);
 			image(loadImage("rubik's_cube.png"), width / 2, 400, 600, 600);
 			break;
 		case 1:
-			textAlign(CENTER);
-			textSize(50);
-			fill(240);
 			text("Introduction", width / 2, 60);
 			break;
 		case 2:
-			textAlign(CENTER);
-			textSize(50);
-			fill(240);
-			text("Step 1: The Cross", width / 2, 60);
+			text("1 - The Cross", width / 2, 60);
 			break;
 		case 3:
-			textAlign(CENTER);
-			textSize(50);
-			fill(240);
-			text("Step 2: First Layer", width / 2, 60);
+			text("2 - The First Layer", width / 2, 60);
 			break;
 		case 4:
-			textAlign(CENTER);
-			textSize(50);
-			fill(240);
-			text("Step 3: Second Layer", width / 2, 60);
+			text("3 - The Second Layer", width / 2, 60);
+			break;
+		case 5:
+			text("4 - The Cross 2.0", width / 2, 60);
+			break;
+		case 6:
+			text("5 - The Corners", width / 2, 60);
+			break;
+		case 7:
+			text("6 - The Great Rotation", width / 2, 60);
 			break;
 		default:
-			textAlign(CENTER);
-			textSize(50);
-			fill(240);
 			text("Invalid Page", width / 2, height / 2);
 		}
 		pop();
