@@ -61,11 +61,8 @@ public class Button {
 	public boolean pointOver(double x, double y)
 	{
 		if (x >= this.x && x <= this.x + width &&
-				y >= this.y && y <= this.y + this.height) {
-			setFillColor(new Color(220, 220, 220));
+				y >= this.y && y <= this.y + this.height)
 			return true;
-		}
-		setFillColor(Color.white);
 		return false;
 	}
 	
@@ -103,7 +100,6 @@ public class Button {
 				drawer.fill(fillColor.getRed() / 2, fillColor.getGreen() / 2,
 						fillColor.getBlue() / 2);
 		}
-		
 		drawer.stroke(borderColor.getRGB());
 		drawer.rect(x, y, width, height, borderRound);
 		
