@@ -73,6 +73,12 @@ public class DrawingSurface extends PApplet
 			break;
 		case 1:
 			text("Introduction", DRAWING_WIDTH / 2, 60);
+			textSize(20);
+			textAlign(LEFT);
+			text("The Rubik's Cube is very misunderstood. Most people say things like, \"I just peel the stickers off,\"\n"
+					+ "\"I can solve 5 sides,\" and \"Wow, you must be really smart if you can solve the Rubix (incorrect spelling) Cube!\"\n\n"
+					+ "These things make cubers (people who solve the Rubik's Cube) cringe because they are common\n"
+					+ "misconceptions that non-cubers (people who don't solve the Rubik's Cube) say to sound smart.", 50, 120);
 			break;
 		case 2:
 			text("1 - The Cross", DRAWING_WIDTH / 2, 60);
