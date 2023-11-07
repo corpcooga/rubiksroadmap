@@ -1,5 +1,6 @@
 package bchew473.components;
 
+import bchew473.testers.DrawingSurface;
 import processing.core.PApplet;
 import java.awt.Color;
 
@@ -36,19 +37,10 @@ public class Button {
 		this(text, x, y, width, height, bWidth, bRound, tSize, Color.white, Color.black, Color.black);
 	}
 	
-//	TODO: make borderRound and borderWidth scale to button width and height
 	public Button(String text, float x, float y, float width, float height)
 	{
-		this(text, x, y, width, height, 5, 10, (int)(height * 0.5));
+		this(text, x, y, width, height, (int)(width / 20), (int)(height / 3), (int)(height * 0.55));
 	}
-	
-//	FIXME: find out how to make this work
-//	public Button(String text, float x, float y)
-//	{
-//		this(text, x, y, 0, 0);
-//		setWidth(textWidth(text));
-//		setHeight(textSize);
-//	}
 	
 	public Button()
 	{
@@ -93,7 +85,8 @@ public class Button {
 //		Button body
 		drawer.strokeWeight(borderWidth);
 		drawer.fill(fillColor.getRGB());
-		if (pointOver(drawer.mouseX, drawer.mouseY)) {
+		if (pointOver(drawer.mouseX * DrawingSurface.DRAWING_WIDTH / drawer.width, 
+				drawer.mouseY * DrawingSurface.DRAWING_HEIGHT / drawer.height)) {
 			drawer.fill(fillColor.getRed() * 3/4, fillColor.getGreen() * 3/4,
 					fillColor.getBlue() * 3/4);
 			if (drawer.mousePressed)

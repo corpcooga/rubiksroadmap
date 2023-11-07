@@ -7,7 +7,10 @@ public class DrawingSurface extends PApplet
 {
 //	Fields
 	
+	public static final int DRAWING_WIDTH = 1000, DRAWING_HEIGHT = 800;
+	
 	private Button goButton, backButton, nextButton;
+	private double uMouseX, uMouseY;
 	private int page;
 	
 	
@@ -23,18 +26,19 @@ public class DrawingSurface extends PApplet
 	
 	public void settings()
 	{
-		setSize(1000, 800);
+		setSize(DRAWING_WIDTH, DRAWING_HEIGHT);
 	}
 	
 	public void setup()
 	{
-		goButton = new Button("Go!", width / 2 - 100, 650, 200, 100);
-		backButton = new Button("Back", 40, height - 80, 100, 50);
-		nextButton = new Button("Next", width - 140, height - 80, 100, 50);
+		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
+		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
+		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
 	}
 	
 	public void draw()
 	{
+		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
 		background(60, 60, 60);
 		
 		if (page > 0) {
@@ -63,45 +67,62 @@ public class DrawingSurface extends PApplet
 		switch(page) {
 		case 0:
 			textSize(100);
-			text("Rubik's Roadmap", width / 2, 130);
+			text("Rubik's Roadmap", DRAWING_WIDTH / 2, 130);
 			imageMode(CENTER);
-			image(loadImage("rubik's_cube.png"), width / 2, 400, 600, 600);
+			image(loadImage("rubik's_cube.png"), DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 1:
-			text("Introduction", width / 2, 60);
+			text("Introduction", DRAWING_WIDTH / 2, 60);
 			break;
 		case 2:
-			text("1 - The Cross", width / 2, 60);
+			text("1 - The Cross", DRAWING_WIDTH / 2, 60);
 			break;
 		case 3:
-			text("2 - The First Layer", width / 2, 60);
+			text("2 - The First Layer", DRAWING_WIDTH / 2, 60);
 			break;
 		case 4:
-			text("3 - The Second Layer", width / 2, 60);
+			text("3 - The Second Layer", DRAWING_WIDTH / 2, 60);
 			break;
 		case 5:
-			text("4 - The Cross 2.0", width / 2, 60);
+			text("4 - The Cross 2.0", DRAWING_WIDTH / 2, 60);
 			break;
 		case 6:
-			text("5 - The Corners", width / 2, 60);
+			text("5 - The Corners", DRAWING_WIDTH / 2, 60);
 			break;
 		case 7:
-			text("6 - The Great Rotation", width / 2, 60);
+			text("6 - The Great Rotation", DRAWING_WIDTH / 2, 60);
 			break;
 		default:
-			text("Invalid Page", width / 2, height / 2);
+			text("Invalid Page", DRAWING_WIDTH / 2, DRAWING_HEIGHT / 2);
 		}
 		pop();
 	}
 	
 	public void mousePressed()
 	{
-		if (page == 0 && goButton.pointOver(mouseX, mouseY))
+		updateUnscaledMouse();
+		if (page == 0 && goButton.pointOver(uMouseX, uMouseY))
 			page += 1;
-		else if (page >= 1 && nextButton.pointOver(mouseX, mouseY))
+		else if (page >= 1 && nextButton.pointOver(uMouseX, uMouseY))
 			page += 1;
-		else if (page >= 2 && backButton.pointOver(mouseX, mouseY))
+		else if (page >= 2 && backButton.pointOver(uMouseX, uMouseY))
 			page -= 1;
+	}
+	
+	public void updateUnscaledMouse()
+	{
+		uMouseX = mouseX * DRAWING_WIDTH / width;
+		uMouseY = mouseY * DRAWING_HEIGHT / height;
+	}
+	
+	public double getUMouseX()
+	{
+		return mouseX * DRAWING_WIDTH / width;
+	}
+	
+	public double getUMouseY()
+	{
+		return mouseY * DRAWING_HEIGHT / height;
 	}
 
 }
