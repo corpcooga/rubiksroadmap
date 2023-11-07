@@ -114,15 +114,5 @@ public class DrawingSurface extends PApplet
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
 	}
-	
-	public double getUMouseX()
-	{
-		return mouseX * DRAWING_WIDTH / width;
-	}
-	
-	public double getUMouseY()
-	{
-		return mouseY * DRAWING_HEIGHT / height;
-	}
 
 }
