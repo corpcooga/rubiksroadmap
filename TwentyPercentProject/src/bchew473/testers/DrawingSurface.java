@@ -7,7 +7,7 @@ public class DrawingSurface extends PApplet
 {
 //	Fields
 	
-	public static final int DRAWING_WIDTH = 1000, DRAWING_HEIGHT = 800;
+	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
 	private Button goButton, backButton, nextButton;
 	private double uMouseX, uMouseY;
@@ -73,12 +73,26 @@ public class DrawingSurface extends PApplet
 			break;
 		case 1:
 			text("Introduction", DRAWING_WIDTH / 2, 60);
-			textSize(20);
+			textSize(24);
 			textAlign(LEFT);
-			text("The Rubik's Cube is very misunderstood. Most people say things like, \"I just peel the stickers off,\"\n"
-					+ "\"I can solve 5 sides,\" and \"Wow, you must be really smart if you can solve the Rubix (incorrect spelling) Cube!\"\n\n"
-					+ "These things make cubers (people who solve the Rubik's Cube) cringe because they are common\n"
-					+ "misconceptions that non-cubers (people who don't solve the Rubik's Cube) say to sound smart.", 50, 120);
+			text("The Rubik's Cube is very misunderstood. Most people say things like, \"I just peel the stickers off,\" "
+					+ "\"I can solve 5 sides,\" and \"Wow, you must be really smart if you can solve the Rubix (incorrect spelling) Cube!\" "
+					+ "These things make cubers (people who solve the Rubik's Cube) cringe because they are common "
+					+ "misconceptions that non-cubers (people who don't solve the Rubik's Cube) say to sound smart.\n\n"
+					+ "You're probably wondering why this matters. It doesn't. Just don't go around doing these things if "
+					+ "you don't know what you're talking about.\n\n"
+					+ "Anyway, what is the Rubik's Cube? It's a simple puzzle that can be turned and configured in many "
+					+ "different ways. When it is put into a \"scrambled\" state, it can be extremely difficult, nearly "
+					+ "impossible, to solve without any guidance. Luckily, many methods have been created to make this process "
+					+ "easier, and now pretty much anyone can solve it, including you!\n\n"
+					+ "I'll be going over a method for beginners that is easy to understand, so if you're scared or think "
+					+ "you're not capable or \"not smart enough\", don't worry! I even taught my dog how to do it*!\n\n"
+					+ "So buckle up and get your cube out, because this will be a fun, easy, and relaxing experience. "
+					+ "Also, did I forget to mention that there are more than 43 quintillion possible configurations of the "
+					+ "Rubik's Cube? OOPS...", 
+					100, 120, DRAWING_WIDTH - 200, DRAWING_HEIGHT - 100);
+			textSize(16);
+			text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 100, DRAWING_HEIGHT - 100);
 			break;
 		case 2:
 			text("1 - The Cross", DRAWING_WIDTH / 2, 60);
