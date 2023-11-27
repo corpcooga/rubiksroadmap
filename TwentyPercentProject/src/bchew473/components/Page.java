@@ -16,7 +16,7 @@ public class Page
 	public Page()
 	{
 		pageNum = 0;
-//		TODO: incorporate titlePages into displayPage(), and use in DrawingSurface for when to use go button
+//		TODO: incorporate titlePages into displayPage()
 		titlePages = new int[] {0};
 	}
 	

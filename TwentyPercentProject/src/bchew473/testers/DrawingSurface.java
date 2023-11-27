@@ -53,22 +53,28 @@ public class DrawingSurface extends PApplet
 		
 		if (page.onTitlePage())
 			goButton.draw(this);
-		if (page.getPage() >= 1)
-			nextButton.draw(this);
-		if (page.getPage() >= 2)
-			backButton.draw(this);
+		else {
+			if (page.getPage() >= 1)
+				nextButton.draw(this);
+			if (page.getPage() >= 2)
+				backButton.draw(this);
+		}
 	}
 	
 	public void mousePressed()
 	{
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
-		if (page.onTitlePage() && goButton.pointOver(uMouseX, uMouseY))
-			page.changePage(1);
-		else if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
-			page.changePage(1);
-		else if (page.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY))
-			page.changePage(-1);
+		if (page.onTitlePage()) {
+			if (goButton.pointOver(uMouseX, uMouseY))
+				page.changePage(1);
+		} else {
+			if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
+				page.changePage(1);
+//			TODO: make a way to navigate through title pages; currently gets stuck after title pages
+			if (page.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY))
+				page.changePage(-1);
+		}
 	}
 
 }
