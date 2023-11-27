@@ -51,7 +51,7 @@ public class DrawingSurface extends PApplet
 		
 		page.displayPage(this);
 		
-		if (page.getPage() == 0)
+		if (page.onTitlePage())
 			goButton.draw(this);
 		if (page.getPage() >= 1)
 			nextButton.draw(this);
@@ -63,7 +63,7 @@ public class DrawingSurface extends PApplet
 	{
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
-		if (page.getPage() == 0 && goButton.pointOver(uMouseX, uMouseY))
+		if (page.onTitlePage() && goButton.pointOver(uMouseX, uMouseY))
 			page.changePage(1);
 		else if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
 			page.changePage(1);

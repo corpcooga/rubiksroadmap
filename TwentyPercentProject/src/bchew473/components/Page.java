@@ -8,6 +8,7 @@ public class Page
 //	Fields
 	
 	private int pageNum;
+	private int[] titlePages;
 	
 	
 //	Constructors
@@ -15,6 +16,8 @@ public class Page
 	public Page()
 	{
 		pageNum = 0;
+//		TODO: incorporate titlePages into displayPage(), and use in DrawingSurface for when to use go button
+		titlePages = new int[] {0};
 	}
 	
 	
@@ -92,6 +95,14 @@ public class Page
 	public void changePage(int amount)
 	{
 		pageNum += amount;
+	}
+	
+	public boolean onTitlePage()
+	{
+		for (int x : titlePages)
+			if (pageNum == x)
+				return true;
+		return false;
 	}
 	
 }
