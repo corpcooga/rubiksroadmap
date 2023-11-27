@@ -3,9 +3,24 @@ package bchew473.components;
 import processing.core.PApplet;
 import bchew473.testers.DrawingSurface;
 
-public class Page {
+public class Page
+{
+//	Fields
 	
-	public void displayPage(PApplet p, int pageNum)
+	private int pageNum;
+	
+	
+//	Constructors
+	
+	public Page()
+	{
+		pageNum = 0;
+	}
+	
+	
+//	Methods
+	
+	public void displayPage(PApplet p)
 	{
 		p.push();
 		p.textAlign(PApplet.CENTER);
@@ -43,6 +58,10 @@ public class Page {
 			break;
 		case 2:
 			p.text("1 - The Cross", DrawingSurface.DRAWING_WIDTH / 2, 60);
+			p.textSize(24);
+			p.textAlign(PApplet.LEFT);
+			p.text("", 
+					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 		case 3:
 			p.text("2 - The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 60);
@@ -63,6 +82,16 @@ public class Page {
 			p.text("Invalid Page", DrawingSurface.DRAWING_WIDTH / 2, DrawingSurface.DRAWING_HEIGHT / 2);
 		}
 		p.pop();
+	}
+	
+	public int getPage()
+	{
+		return pageNum;
+	}
+	
+	public void changePage(int amount)
+	{
+		pageNum += amount;
 	}
 	
 }
