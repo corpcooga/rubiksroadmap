@@ -42,7 +42,7 @@ public class DrawingSurface extends PApplet
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
 		background(60, 60, 60);
 		
-		if (page.getPage() > 0) {
+		if (!page.onTitlePage()) {
 			push();
 			textSize(20);
 			text(""+page.getPage(), 10, 30);
