@@ -17,7 +17,7 @@ public class Page
 	{
 		pageNum = 0;
 //		TODO: incorporate titlePages into displayPage()
-		titlePages = new int[] {0};
+		titlePages = new int[] {0, 3};
 	}
 	
 	
@@ -27,17 +27,19 @@ public class Page
 	{
 		p.push();
 		p.textAlign(PApplet.CENTER);
-		p.textSize(50);
+		if (onTitlePage())
+			p.textSize(100);
+		else
+			p.textSize(50);
 		p.fill(240);
 		switch(pageNum) {
 		case 0:
-			p.textSize(100);
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, 130);
 			p.imageMode(PApplet.CENTER);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 1:
-			p.text("Introduction", DrawingSurface.DRAWING_WIDTH / 2, 60);
+			p.text("Introduction", DrawingSurface.DRAWING_WIDTH / 2, 75);
 			p.textSize(24);
 			p.textAlign(PApplet.LEFT);
 			p.text("The Rubik's Cube is very misunderstood. Most people say things like, \"I just peel the stickers off,\" "
@@ -52,35 +54,65 @@ public class Page
 					+ "easier, and now pretty much anyone can solve it, including you!\n\n"
 					+ "I'll be going over a method for beginners that is easy to understand, so if you're scared or think "
 					+ "you're not capable or \"not smart enough\", don't worry! I even taught my dog how to do it*!\n\n"
-					+ "So buckle up and get your cube out, because this will be a fun, easy, and relaxing experience. "
-					+ "Also, did I forget to mention that there are more than 43 quintillion possible configurations of the "
-					+ "Rubik's Cube? OOPS...", 
+					+ "If you're excited to solve your first Rubik's Cube, that's great! But before we get into how to solve it,"
+					+ "you'll have to know a few important things.",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.textSize(16);
 			p.text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 100, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 		case 2:
-			p.text("1 - The Cross", DrawingSurface.DRAWING_WIDTH / 2, 60);
+			p.text("Introduction", DrawingSurface.DRAWING_WIDTH / 2, 75);
 			p.textSize(24);
 			p.textAlign(PApplet.LEFT);
-			p.text("", 
+			p.text("First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to solve the cube by getting one side "
+					+ "at a time makes it much more difficult. This is what a solved side versus a solved layer looks like:",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			TODO: change images
+			p.push();
+			p.textAlign(PApplet.CENTER);
+			p.imageMode(PApplet.CENTER);
+			p.textSize(36);
+			p.text("Side", DrawingSurface.DRAWING_WIDTH / 2 - 200, 220);
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 200, 320, 200, 200);
+			p.text("Layer", DrawingSurface.DRAWING_WIDTH / 2 + 200, 220);
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 200, 200);
+			p.pop();
+			p.text("In the solved side, the entire face is white, but the parts on the edge around it don't line up. In the solved layer, "
+					+ "the difference is that the part along the edge does line up.\n\n"
+					+ "If that was a bit hard to understand, here's some piece nomenclature to ",
+					100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			+ "So buckle up and get your cube out, because this will be a fun, easy, and relaxing experience. "
+//			+ "Also, did I forget to mention that there are more than 43 quintillion possible configurations of the"
+//			+ "Rubik's Cube? OOPS...", 
 			break;
 		case 3:
-			p.text("2 - The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 60);
+			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 130);
+			p.imageMode(PApplet.CENTER);
+//			TODO Find better photo
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 4:
-			p.text("3 - The Second Layer", DrawingSurface.DRAWING_WIDTH / 2, 60);
+			p.text("1 - The Cross", DrawingSurface.DRAWING_WIDTH / 2, 75);
+			p.textSize(24);
+			p.textAlign(PApplet.LEFT);
+			p.text("The first step to solving the Rubik's Cube is by making a white cross-shaped pattern ", 
+					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
-		case 5:
-			p.text("4 - The Cross 2.0", DrawingSurface.DRAWING_WIDTH / 2, 60);
-			break;
-		case 6:
-			p.text("5 - The Corners", DrawingSurface.DRAWING_WIDTH / 2, 60);
-			break;
-		case 7:
-			p.text("6 - The Great Rotation", DrawingSurface.DRAWING_WIDTH / 2, 60);
-			break;
+//		case 3:
+//			p.text("2 - The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
+//			break;
+//		case 4:
+//			p.text("3 - The Second Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
+//			break;
+//		case 5:
+//			p.text("4 - The Cross 2.0", DrawingSurface.DRAWING_WIDTH / 2, 75);
+//			break;
+//		case 6:
+//			p.text("5 - The Corners", DrawingSurface.DRAWING_WIDTH / 2, 75);
+//			break;
+//		case 7:
+//			p.text("6 - The Great Rotation", DrawingSurface.DRAWING_WIDTH / 2, 75);
+//			break;
 		default:
 			p.text("Invalid Page", DrawingSurface.DRAWING_WIDTH / 2, DrawingSurface.DRAWING_HEIGHT / 2);
 		}
