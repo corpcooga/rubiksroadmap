@@ -87,6 +87,7 @@ public class Page
 			p.textAlign(PApplet.CENTER);
 			p.imageMode(PApplet.CENTER);
 			p.textSize(30);
+//			TODO: change images
 			p.text("Center piece", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 120, 120);
 			p.text("Edge piece", DrawingSurface.DRAWING_WIDTH / 2, 620);
@@ -94,22 +95,28 @@ public class Page
 			p.text("Corner piece", DrawingSurface.DRAWING_WIDTH / 2 + 300, 620);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 120, 120);
 			p.pop();
+			break;
+		case 3:
+			p.text("Introduction", DrawingSurface.DRAWING_WIDTH / 2, 75);
+			p.textSize(24);
+			p.textAlign(PApplet.LEFT);
+			p.text("Lastly, you need to learn about turning notation. Each of the six sides has a letter representing it, and "
+					+ "indicates a turn to that side. It should be turned clockwise from the perspective of that side.\n\n"
+					+ "F - Front side\nB - Back side\nR - Right side\nL - Left side\nU - Top side\nD - Bottom side\n\n"
+					+ "These turns can be reversed by an apostrophe (prime symbol) afterwards, which makes it turn counter-clockwise. "
+					+ "The number 2 after means to turn the side twice.",
+					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 //			+ "So buckle up and get your cube out, because this will be a fun, easy, and relaxing experience. "
 //			+ "Also, did I forget to mention that there are more than 43 quintillion possible configurations of the"
 //			+ "Rubik's Cube? OOPS...", 
 			break;
-		case 3:
+		case 4:
 			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 130);
 			p.imageMode(PApplet.CENTER);
 //			TODO Find better photo
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
-			break;
-		case 4:
-			p.text("1 - The Cross", DrawingSurface.DRAWING_WIDTH / 2, 75);
-			p.textSize(24);
-			p.textAlign(PApplet.LEFT);
-			p.text("The first step to solving the Rubik's Cube is by making a white cross-shaped pattern ", 
-					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			p.text("The first step to solving the Rubik's Cube is by making a white cross-shaped pattern ", 
+//					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 //		case 3:
 //			p.text("2 - The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
