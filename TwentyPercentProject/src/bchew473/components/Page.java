@@ -17,7 +17,7 @@ public class Page
 	{
 		pageNum = 0;
 //		TODO: incorporate titlePages into displayPage()
-		titlePages = new int[] {0, 3};
+		titlePages = new int[] {0, 4};
 	}
 	
 	
