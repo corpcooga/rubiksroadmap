@@ -77,10 +77,23 @@ public class Page
 			p.text("Layer", DrawingSurface.DRAWING_WIDTH / 2 + 200, 220);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 200, 200);
 			p.pop();
-			p.text("In the solved side, the entire face is white, but the parts on the edge around it don't line up. In the solved layer, "
-					+ "the difference is that the part along the edge does line up.\n\n"
-					+ "If that was a bit hard to understand, here's some piece nomenclature to ",
+			p.text("In the solved side, the entire face is white, but the parts along its edge don't match up. In the solved layer, "
+					+ "the difference is that the colors along the edge do line up.\n\n"
+					+ "That may have been a bit confusing, but don't worry! This idea of solving in layers is built into this "
+					+ "tutorial, so it will happen naturally. Also, here's some quick nomenclature that I'll be using to identify "
+					+ "certain pieces:",
 					100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.push();
+			p.textAlign(PApplet.CENTER);
+			p.imageMode(PApplet.CENTER);
+			p.textSize(30);
+			p.text("Center piece", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 120, 120);
+			p.text("Edge piece", DrawingSurface.DRAWING_WIDTH / 2, 620);
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 680, 120, 120);
+			p.text("Corner piece", DrawingSurface.DRAWING_WIDTH / 2 + 300, 620);
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 120, 120);
+			p.pop();
 //			+ "So buckle up and get your cube out, because this will be a fun, easy, and relaxing experience. "
 //			+ "Also, did I forget to mention that there are more than 43 quintillion possible configurations of the"
 //			+ "Rubik's Cube? OOPS...", 
