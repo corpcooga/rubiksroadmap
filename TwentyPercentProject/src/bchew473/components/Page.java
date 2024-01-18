@@ -27,6 +27,7 @@ public class Page
 	{
 		p.push();
 		p.textAlign(PApplet.CENTER);
+		p.imageMode(PApplet.CENTER);
 		if (onTitlePage())
 			p.textSize(100);
 		else
@@ -35,7 +36,6 @@ public class Page
 		switch(pageNum) {
 		case 0:
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, 130);
-			p.imageMode(PApplet.CENTER);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 1:
@@ -70,7 +70,6 @@ public class Page
 //			TODO: change images
 			p.push();
 			p.textAlign(PApplet.CENTER);
-			p.imageMode(PApplet.CENTER);
 			p.textSize(36);
 			p.text("Side", DrawingSurface.DRAWING_WIDTH / 2 - 200, 220);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 200, 320, 200, 200);
@@ -85,7 +84,6 @@ public class Page
 					100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.push();
 			p.textAlign(PApplet.CENTER);
-			p.imageMode(PApplet.CENTER);
 			p.textSize(30);
 //			TODO: change images
 			p.text("Center piece", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
@@ -103,24 +101,35 @@ public class Page
 			p.text("Lastly, you need to learn about turning notation. Each of the six sides has a letter representing it, and "
 					+ "indicates a turn to that side. It should be turned clockwise from the perspective of that side.\n\n"
 					+ "F - Front side\nB - Back side\nR - Right side\nL - Left side\nU - Top side\nD - Bottom side\n\n"
-					+ "These turns can be reversed by an apostrophe (prime symbol) afterwards, which makes it turn counter-clockwise. "
-					+ "The number 2 after means to turn the side twice.",
+					+ "These turns can be reversed by an apostrophe (prime) afterwards, which makes it turn counter-clockwise. "
+					+ "The number 2 after means to turn the side twice.\n\n"
+					+ "And that's all you really need to know about for now. So buckle up and get your cube out, because this "
+					+ "is going to be a fun, easy, and relaxing experience. Also, did I forget to mention that there are more "
+					+ "than 43 quintillion possible configurations of the Rubik's Cube? OOPS...",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
-//			+ "So buckle up and get your cube out, because this will be a fun, easy, and relaxing experience. "
-//			+ "Also, did I forget to mention that there are more than 43 quintillion possible configurations of the"
-//			+ "Rubik's Cube? OOPS...", 
 			break;
 		case 4:
 			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 130);
-			p.imageMode(PApplet.CENTER);
 //			TODO Find better photo
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
-//			p.text("The first step to solving the Rubik's Cube is by making a white cross-shaped pattern ", 
-//					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
-//		case 3:
-//			p.text("2 - The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
-//			break;
+		case 5:
+			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 75);
+			p.textSize(24);
+			p.textAlign(PApplet.LEFT);
+			p.text("The first step to solving the Rubik's Cube is by making a white cross-shaped pattern.\n\n"
+					+ "The pattern, as shown in the photo, is made up of a white center piece, and four white edge "
+					+ "pieces (edge pieces with the white and another color). But one very important thing to notice "
+					+ "is that the other color on the white edge pieces line up with the center pieces on the other sides. ",
+					100, 120, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
+			p.text("To accomplish this, you will mostly have to use your intuition. Luckily, I can give you a bit of help "
+					+ "to make this easier. Instead of putting the white edge pieces directly into position, you can line "
+					+ "them up around the yellow center piece, opposite of the white one. This pattern is known as the daisy: ",
+					100, 312, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.text("While doing this, you don't need to worry about having them also line up with the ",
+					100, 500, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			break;
 //		case 4:
 //			p.text("3 - The Second Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
 //			break;
