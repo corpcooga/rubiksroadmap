@@ -15,7 +15,7 @@ public class Page
 	
 	public Page()
 	{
-		pageNum = 0;
+		pageNum = 5;
 //		TODO: incorporate titlePages into displayPage()
 		titlePages = new int[] {0, 4};
 	}
@@ -28,12 +28,14 @@ public class Page
 		p.push();
 		p.textAlign(PApplet.CENTER);
 		p.imageMode(PApplet.CENTER);
+		p.fill(240);
 		if (onTitlePage())
 			p.textSize(100);
 		else
 			p.textSize(50);
-		p.fill(240);
-		switch(pageNum) {
+		
+		switch(pageNum)
+		{
 		case 0:
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, 130);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
@@ -125,10 +127,17 @@ public class Page
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
 			p.text("To accomplish this, you will mostly have to use your intuition. Luckily, I can give you a bit of help "
 					+ "to make this easier. Instead of putting the white edge pieces directly into position, you can line "
-					+ "them up around the yellow center piece, opposite of the white one. This pattern is known as the daisy: ",
-					100, 312, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.text("While doing this, you don't need to worry about having them also line up with the ",
-					100, 500, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+					+ "them up around the yellow center piece, opposite of the white one. This pattern is known as the \"daisy\", "
+					+ "shown on the left.\n\n"
+					+ "As you can see, the white edge pieces don't have to be lined up with the adjacent center pieces. "
+					+ "This pattern is a bit easier to make without that restriction.",
+					300, 316, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.image(p.loadImage("rubik's_cube.png"), 180, 410, 200, 200);
+			p.text("Once you get the white edge pieces lined up, all you have to do is rotate them into place. To do this, "
+					+ "turn the yellow side around until one of the white edge pieces lines up with the adjacent center piece. "
+					+ "Then, turn that side twice! Repeat this for all other three edge pieces.\n\n"
+					+ "If you've done everything right, you should have completed The Cross!",
+					100, 540, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 //		case 4:
 //			p.text("3 - The Second Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
@@ -151,6 +160,11 @@ public class Page
 	public int getPage()
 	{
 		return pageNum;
+	}
+	
+	public int[] getTitlePages()
+	{
+		return titlePages;
 	}
 	
 	public void changePage(int amount)
