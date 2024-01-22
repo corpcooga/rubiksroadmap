@@ -15,9 +15,9 @@ public class Page
 	
 	public Page()
 	{
-		pageNum = 5;
+		pageNum = 0;
 //		TODO: incorporate titlePages into displayPage()
-		titlePages = new int[] {0, 4};
+		titlePages = new int[] {0, 4, 6};
 	}
 	
 	
@@ -69,7 +69,7 @@ public class Page
 			p.text("First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to solve the cube by getting one side "
 					+ "at a time makes it much more difficult. This is what a solved side versus a solved layer looks like:",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
-//			TODO: change images
+//			TODO Change image
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(36);
@@ -87,7 +87,7 @@ public class Page
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(30);
-//			TODO: change images
+//			TODO Change image
 			p.text("Center piece", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 120, 120);
 			p.text("Edge piece", DrawingSurface.DRAWING_WIDTH / 2, 620);
@@ -112,7 +112,7 @@ public class Page
 			break;
 		case 4:
 			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 130);
-//			TODO Find better photo
+//			TODO Change image
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 5:
@@ -138,6 +138,18 @@ public class Page
 					+ "Then, turn that side twice! Repeat this for all other three edge pieces.\n\n"
 					+ "If you've done everything right, you should have completed The Cross!",
 					100, 540, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			break;
+		case 6:
+			p.text("The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 130);
+//			TODO Change image
+			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
+			break;
+		case 7:
+			p.text("The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
+			p.textSize(24);
+			p.textAlign(PApplet.LEFT);
+			p.text("",
+					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 //		case 4:
 //			p.text("3 - The Second Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
