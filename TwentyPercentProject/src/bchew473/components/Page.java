@@ -145,6 +145,7 @@ public class Page
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 7:
+//			TODO Make this text write automatically based on title page
 			p.text("The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 75);
 			p.textSize(24);
 			p.textAlign(PApplet.LEFT);
