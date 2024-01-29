@@ -38,7 +38,7 @@ public class Page
 		{
 		case 0:
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, 130);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
+			p.image(p.loadImage("roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
 			break;
 		case 1:
 			p.text("Introduction", DrawingSurface.DRAWING_WIDTH / 2, 75);
@@ -69,14 +69,13 @@ public class Page
 			p.text("First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to solve the cube by getting one side "
 					+ "at a time makes it much more difficult. This is what a solved side versus a solved layer looks like:",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
-//			TODO Change image
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(36);
 			p.text("Side", DrawingSurface.DRAWING_WIDTH / 2 - 200, 220);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 200, 320, 200, 200);
+			p.image(p.loadImage("solved_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 200, 320, 180, 180);
 			p.text("Layer", DrawingSurface.DRAWING_WIDTH / 2 + 200, 220);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 200, 200);
+			p.image(p.loadImage("solved_layer.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 180, 180);
 			p.pop();
 			p.text("In the solved side, the entire face is white, but the parts along its edge don't match up. In the solved layer, "
 					+ "the difference is that the colors along the edge do line up.\n\n"
@@ -88,12 +87,12 @@ public class Page
 			p.textAlign(PApplet.CENTER);
 			p.textSize(30);
 //			TODO Change image
-			p.text("Center piece", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 120, 120);
-			p.text("Edge piece", DrawingSurface.DRAWING_WIDTH / 2, 620);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 680, 120, 120);
-			p.text("Corner piece", DrawingSurface.DRAWING_WIDTH / 2 + 300, 620);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 120, 120);
+			p.text("Center pieces", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
+			p.image(p.loadImage("center_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 100, 100);
+			p.text("Edge pieces", DrawingSurface.DRAWING_WIDTH / 2, 620);
+			p.image(p.loadImage("edge_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2, 680, 100, 100);
+			p.text("Corner pieces", DrawingSurface.DRAWING_WIDTH / 2 + 300, 620);
+			p.image(p.loadImage("corner_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 100, 100);
 			p.pop();
 			break;
 		case 3:
