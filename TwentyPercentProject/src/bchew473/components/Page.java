@@ -86,7 +86,6 @@ public class Page
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(30);
-//			TODO Change image
 			p.text("Center pieces", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
 			p.image(p.loadImage("center_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 100, 100);
 			p.text("Edge pieces", DrawingSurface.DRAWING_WIDTH / 2, 620);
@@ -100,18 +99,35 @@ public class Page
 			p.textSize(24);
 			p.textAlign(PApplet.LEFT);
 			p.text("Lastly, you need to learn about turning notation. Each of the six sides has a letter representing it, and "
-					+ "indicates a turn to that side. It should be turned clockwise from the perspective of that side.\n\n"
-					+ "F - Front side\nB - Back side\nR - Right side\nL - Left side\nU - Top side\nD - Bottom side\n\n"
-					+ "These turns can be reversed by an apostrophe (prime) afterwards, which makes it turn counter-clockwise. "
-					+ "The number 2 after means to turn the side twice.\n\n"
+					+ "indicates a turn to that side. It should be turned clockwise from the perspective of that side.",
+					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.push();
+			p.textAlign(PApplet.CENTER);
+			p.textSize(40);
+			p.image(p.loadImage("front_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 500, 250, 100, 100);
+			p.text("F", DrawingSurface.DRAWING_WIDTH / 2 - 500, 335);
+			p.image(p.loadImage("back_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 250, 100, 100);
+			p.text("B", DrawingSurface.DRAWING_WIDTH / 2 - 300, 335);
+			p.image(p.loadImage("up_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 100, 250, 100, 100);
+			p.text("U", DrawingSurface.DRAWING_WIDTH / 2 - 100, 335);
+			p.image(p.loadImage("down_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 100, 250, 100, 100);
+			p.text("D", DrawingSurface.DRAWING_WIDTH / 2 + 100, 335);
+			p.image(p.loadImage("left_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 250, 100, 100);
+			p.text("L", DrawingSurface.DRAWING_WIDTH / 2 + 300, 335);
+			p.image(p.loadImage("right_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 500, 250, 100, 100);
+			p.text("R", DrawingSurface.DRAWING_WIDTH / 2 + 500, 335);
+			p.pop();
+			
+			p.text("These turns can be reversed by an apostrophe (prime) afterwards, which makes it turn counter-clockwise. "
+					+ "The number 2 after means to turn the side twice. For example, 'B means to turn the back side "
+					+ "counter-clockwise. 2R means to turn the right side twice.\n\n"
 					+ "And that's all you really need to know about for now. So buckle up and get your cube out, because this "
 					+ "is going to be a fun, easy, and relaxing experience. Also, did I forget to mention that there are more "
 					+ "than 43 quintillion possible configurations of the Rubik's Cube? OOPS...",
-					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+					100, 380, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 		case 4:
 			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 130);
-//			TODO Change image
 			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
 			break;
 		case 5:
