@@ -132,7 +132,7 @@ public class Page
 			break;
 		case 4:
 			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 130);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
+			p.image(p.loadImage("the_cross.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
 			break;
 		case 5:
 			p.text("The Cross", DrawingSurface.DRAWING_WIDTH / 2, 75);
