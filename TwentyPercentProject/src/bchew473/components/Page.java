@@ -143,7 +143,7 @@ public class Page
 					+ "pieces (edge pieces with the white and another color). But one very important thing to notice "
 					+ "is that the other color on the white edge pieces line up with the center pieces on the other sides. ",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
+			p.image(p.loadImage("the_cross.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
 			p.text("To accomplish this, you will mostly have to use your intuition. Luckily, I can give you a bit of help "
 					+ "to make this easier. Instead of putting the white edge pieces directly into position, you can line "
 					+ "them up around the yellow center piece, opposite of the white one. This pattern is known as the \"daisy\", "
@@ -151,7 +151,7 @@ public class Page
 					+ "As you can see, the white edge pieces don't have to be lined up with the adjacent center pieces. "
 					+ "This pattern is a bit easier to make without that restriction.",
 					300, 316, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("rubik's_cube.png"), 180, 410, 200, 200);
+			p.image(p.loadImage("the_daisy.png"), 180, 410, 200, 200);
 			p.text("Once you get the white edge pieces lined up, all you have to do is rotate them into place. To do this, "
 					+ "turn the yellow side around until one of the white edge pieces lines up with the adjacent center piece. "
 					+ "Then, turn that side twice! Repeat this for all other three edge pieces.\n\n"
@@ -160,8 +160,7 @@ public class Page
 			break;
 		case 6:
 			p.text("The First Layer", DrawingSurface.DRAWING_WIDTH / 2, 130);
-//			TODO Change image
-			p.image(p.loadImage("rubik's_cube.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 600, 600);
+			p.image(p.loadImage("first_layer.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
 			break;
 		case 7:
 //			TODO Make this text write automatically based on title page
