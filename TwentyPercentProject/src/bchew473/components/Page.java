@@ -26,7 +26,6 @@ public class Page
 //	Methods
 	
 	
-//	TODO make things spaced so that it's easier to understand
 	public void displayPage(PApplet p)
 	{
 		p.push();
@@ -54,6 +53,7 @@ public class Page
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
 			p.image(p.loadImage("roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
 			break;
+			
 		case 1:
 			p.text("The Rubik's Cube is very misunderstood. Most people say things like, \"I just "
 					+ "peel the stickers off,\" \"I can solve 5 sides,\" and \"Wow, you must be "
@@ -74,14 +74,17 @@ public class Page
 					+ "If you're excited to solve your first Rubik's Cube, that's great! But before "
 					+ "we get into how to solve it, you'll have to know a few important things.",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			
 			p.textSize(16);
 			p.text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 100, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
+			
 		case 2:
 			p.text("First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to "
 					+ "solve the cube by getting one side at a time makes it much more difficult. "
 					+ "This is what a solved side versus a solved layer looks like:",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(36);
@@ -90,6 +93,7 @@ public class Page
 			p.text("Layer", DrawingSurface.DRAWING_WIDTH / 2 + 200, 220);
 			p.image(p.loadImage("solved_layer.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 180, 180);
 			p.pop();
+			
 			p.text("In the solved side, the entire face is white, but the parts along its edge "
 					+ "don't match up. In the solved layer, the difference is that the colors along "
 					+ "the edge do line up.\n\n"
@@ -97,6 +101,7 @@ public class Page
 					+ "layers is built into this tutorial, so it will happen naturally. Also, here's "
 					+ "some quick nomenclature that I'll be using to identify certain pieces:",
 					100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(30);
@@ -107,7 +112,9 @@ public class Page
 			p.text("Corner pieces", DrawingSurface.DRAWING_WIDTH / 2 + 300, 620);
 			p.image(p.loadImage("corner_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 100, 100);
 			p.pop();
+			
 			break;
+			
 		case 3:
 			p.text("Lastly, you need to learn about turning notation. Each of the six sides has a "
 					+ "letter representing it, and indicates a turn to that side. It should be "
@@ -143,11 +150,13 @@ public class Page
 					+ "your cube out, because this is going to be a fun, easy, and relaxing "
 					+ "experience. Also, did I forget to mention that there are more than 43 "
 					+ "quintillion possible configurations of the Rubik's Cube? OOPS...",
-					100, 400, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+					100, 390, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
+			
 		case 4:
 			p.image(p.loadImage("the_cross.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
 			break;
+			
 		case 5:
 			p.text("The first step to solving the Rubik's Cube is by making a white cross-shaped "
 					+ "pattern.\n\n"
@@ -157,6 +166,7 @@ public class Page
 					+ "pieces line up with the center pieces on the other sides. ",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.image(p.loadImage("the_cross.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
+			
 			p.text("To accomplish this, you will mostly have to use your intuition. Luckily, I can "
 					+ "give you a bit of help to make this easier. Instead of putting the white "
 					+ "edge pieces directly into position, you can line them up around the yellow "
@@ -167,6 +177,7 @@ public class Page
 					+ "restriction.",
 					300, 316, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.image(p.loadImage("the_daisy.png"), 180, 410, 200, 200);
+			
 			p.text("Once you get the white edge pieces lined up, all you have to do is rotate "
 					+ "them into place. To do this, turn the yellow side around until one of the "
 					+ "white edge pieces lines up with the adjacent center piece. Then, turn that "
@@ -174,13 +185,16 @@ public class Page
 					+ "If you've done everything right, you should have completed The Cross!",
 					100, 540, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
+			
 		case 6:
 			p.image(p.loadImage("first_layer.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
 			break;
+			
 		case 7:
 			p.text("",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
+			
 		default:
 			p.text("Invalid Page", DrawingSurface.DRAWING_WIDTH / 2, DrawingSurface.DRAWING_HEIGHT / 2);
 		}
