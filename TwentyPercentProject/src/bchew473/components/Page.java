@@ -8,7 +8,7 @@ public class Page
 //	Fields
 	
 	private int pageNum;
-	private int[] titlePages;
+	private final int[] titlePages = {0, 4, 6};
 	private final String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
 											"The Second Layer", "The Cross 2.0", "The Corners", 
 											"The Great Rotation", "Conclusion"};
@@ -18,8 +18,7 @@ public class Page
 	
 	public Page()
 	{
-		pageNum = 0;
-		titlePages = new int[] {0, 4, 6};
+		pageNum = 7;
 	}
 	
 	
@@ -179,9 +178,10 @@ public class Page
 			p.image(p.loadImage("the_daisy.png"), 180, 410, 200, 200);
 			
 			p.text("Once you get the white edge pieces lined up, all you have to do is rotate "
-					+ "them into place. To do this, turn the yellow side around until one of the "
-					+ "white edge pieces lines up with the adjacent center piece. Then, turn that "
-					+ "side twice! Repeat this for all other three edge pieces.\n\n"
+					+ "them into place. To do this, turn the daisy around until one of its white "
+					+ "edge pieces' colored part lines up with the color of the adjacent center "
+					+ "piece. Then, turn that side twice! Repeat this for all other three edge "
+					+ "pieces.\n\n"
 					+ "If you've done everything right, you should have completed The Cross!",
 					100, 540, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
@@ -191,8 +191,18 @@ public class Page
 			break;
 			
 		case 7:
-			p.text("",
+			p.text("The next step is filling out a layer. To do this, we just need to insert white "
+					+ "corner pieces between parts of The Cross. First, make sure you're holding "
+					+ "the cube so that The Cross is pointing down. This might be a bit confusing "
+					+ "at first, but it will make things easier.",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.text("Then, find a white corner piece. It should have white and two other colors "
+					+ "on it, like the one shown in the photo (it doesn't have to be blue and "
+					+ "orange). If the piece you found is already lined up next to the yellow "
+					+ "center piece, you can skip this next part. Otherwise, make sure to follow "
+					+ "along.",
+					100, 230, DrawingSurface.DRAWING_WIDTH - 350, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.image(p.loadImage("roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH - 150, 290, 120, 120);
 			break;
 			
 		default:
