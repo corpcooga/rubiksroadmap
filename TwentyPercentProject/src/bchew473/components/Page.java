@@ -202,7 +202,14 @@ public class Page
 					+ "center piece, you can skip this next part. Otherwise, make sure to follow "
 					+ "along.",
 					100, 230, DrawingSurface.DRAWING_WIDTH - 350, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH - 150, 290, 120, 120);
+			p.image(p.loadImage("example_corner_piece.png"), DrawingSurface.DRAWING_WIDTH - 160, 290, 140, 140);
+			p.text("The corner piece should be in in the position as shown on the left. Make sure "
+					+ "you hold your cube as positioned on the right (left side in front) while "
+					+ "executing the following algorigthm: R U R' U'", 
+					250, 380, DrawingSurface.DRAWING_WIDTH - 500, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.image(p.loadImage("first_layer_corner_up.png"), 160, 440, 140, 140);
+			p.image(p.loadImage("first_layer_corner_down.png"), DrawingSurface.DRAWING_WIDTH - 160, 440, 140, 140);
+
 			break;
 			
 		default:
