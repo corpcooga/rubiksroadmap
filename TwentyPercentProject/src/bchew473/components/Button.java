@@ -39,7 +39,7 @@ public class Button {
 	
 	public Button(String text, float x, float y, float width, float height)
 	{
-		this(text, x, y, width, height, (int)(width / 20), (int)(height / 3), (int)(height * 0.55));
+		this(text, x, y, width, height, (int)(width / 20), (int)(height / 3), (int)(height * 0.5));
 	}
 	
 	public Button()

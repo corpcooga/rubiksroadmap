@@ -35,6 +35,7 @@ public class DrawingSurface extends PApplet
 		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
 		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
 		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
+		textFont(createFont("Avenir Regular.ttf", 69));
 	}
 	
 	public void draw()
@@ -44,7 +45,7 @@ public class DrawingSurface extends PApplet
 		
 		if (!page.onTitlePage()) {
 			push();
-			textSize(20);
+			textSize(18);
 			text(""+page.getPage(), 10, 30);
 			pop();
 		}

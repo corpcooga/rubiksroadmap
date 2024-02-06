@@ -9,6 +9,7 @@ public class Page
 	
 	private int pageNum;
 	private final int[] titlePages = {0, 4, 6};
+//	TODO make better names for the sections
 	private final String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
 											"The Second Layer", "The Cross 2.0", "The Corners", 
 											"The Great Rotation", "Conclusion"};
@@ -18,7 +19,7 @@ public class Page
 	
 	public Page()
 	{
-		pageNum = 7;
+		pageNum = 0;
 	}
 	
 	
@@ -43,14 +44,14 @@ public class Page
 		if (pageNum > 0) {
 			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
 			p.textAlign(PApplet.LEFT);
-			p.textSize(24);
+			p.textSize(22);
 		}
 		
 		switch(pageNum)
 		{
 		case 0:
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
-			p.image(p.loadImage("roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
+			p.image(p.loadImage("roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 1:
@@ -74,7 +75,7 @@ public class Page
 					+ "we get into how to solve it, you'll have to know a few important things.",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
-			p.textSize(16);
+			p.textSize(15);
 			p.text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 100, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 			
@@ -124,7 +125,7 @@ public class Page
 			
 			p.push();
 			p.textAlign(PApplet.CENTER);
-			p.textSize(40);
+			p.textSize(36);
 			p.image(p.loadImage("front_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 500, 270, 100, 100);
 			p.text("F", DrawingSurface.DRAWING_WIDTH / 2 - 500, 355);
 			p.image(p.loadImage("back_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 270, 100, 100);
@@ -153,7 +154,7 @@ public class Page
 			break;
 			
 		case 4:
-			p.image(p.loadImage("the_cross.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
+			p.image(p.loadImage("the_cross.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 5:
@@ -187,7 +188,7 @@ public class Page
 			break;
 			
 		case 6:
-			p.image(p.loadImage("first_layer.png"), DrawingSurface.DRAWING_WIDTH / 2, 400, 550, 550);
+			p.image(p.loadImage("first_layer.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 7:
