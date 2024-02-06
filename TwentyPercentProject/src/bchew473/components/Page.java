@@ -9,10 +9,9 @@ public class Page
 	
 	private int pageNum;
 	private final int[] titlePages = {0, 4, 6};
-//	TODO make better names for the sections
 	private final String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
-											"The Second Layer", "The Cross 2.0", "The Corners", 
-											"The Great Rotation", "Conclusion"};
+											"The Second Layer", "The Cross 2.0", "The Corner Fix", 
+											"The Solve", "Conclusion"};
 	
 	
 //	Constructors
@@ -76,7 +75,8 @@ public class Page
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.textSize(15);
-			p.text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 100, DrawingSurface.DRAWING_HEIGHT - 100);
+			p.text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 
+					100, 670);
 			break;
 			
 		case 2:
