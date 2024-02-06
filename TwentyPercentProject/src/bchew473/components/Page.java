@@ -199,16 +199,18 @@ public class Page
 			p.text("Then, find a white corner piece. It should have white and two other colors "
 					+ "on it, like the one shown in the photo (it doesn't have to be blue and "
 					+ "orange). If the piece you found is already lined up next to the yellow "
-					+ "center piece, you can skip this next part. Otherwise, make sure to follow "
-					+ "along.",
+					+ "center piece, you don't need to worry about this next part. Otherwise, "
+					+ "make sure to follow along.",
 					100, 230, DrawingSurface.DRAWING_WIDTH - 350, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.image(p.loadImage("example_corner_piece.png"), DrawingSurface.DRAWING_WIDTH - 160, 290, 140, 140);
+			p.image(p.loadImage("first_layer_corner_up.png"), 160, 450, 140, 140);
 			p.text("The corner piece should be in in the position as shown on the left. Make sure "
-					+ "you hold your cube as positioned on the right (left side in front) while "
-					+ "executing the following algorigthm: R U R' U'", 
+					+ "you hold your cube as shown on the right, so that the corner piece is on "
+					+ "the bottom right, and execute the following algorigthm: [R U R' U']. This "
+					+ "algorithm orients the corner piece next to the yellow center piece. Get "
+					+ "used to doing this algorithm, as it comes up a lot.", 
 					250, 380, DrawingSurface.DRAWING_WIDTH - 500, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("first_layer_corner_up.png"), 160, 440, 140, 140);
-			p.image(p.loadImage("first_layer_corner_down.png"), DrawingSurface.DRAWING_WIDTH - 160, 440, 140, 140);
+			p.image(p.loadImage("first_layer_corner_down.png"), DrawingSurface.DRAWING_WIDTH - 160, 450, 140, 140);
 
 			break;
 			
