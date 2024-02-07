@@ -24,7 +24,7 @@ public class Page
 	
 //	Methods
 	
-	
+//	TODO make this use text files to write the text
 	public void displayPage(PApplet p)
 	{
 		p.push();
@@ -58,10 +58,10 @@ public class Page
 					+ "peel the stickers off,\" \"I can solve 5 sides,\" and \"Wow, you must be "
 					+ "really smart if you can solve the Rubix (incorrect spelling) Cube!\" These "
 					+ "things make cubers (people who solve the Rubik's Cube) cringe because they "
-					+ "are common misconceptions that non-cubers (people who don't solve the Rubik's "
-					+ "Cube) say to sound smart.\n\n"
-					+ "You're probably wondering why this matters. It doesn't. Just don't go around "
-					+ "doing these things if you don't know what you're talking about.\n\n"
+					+ "are common misconceptions that non-cubers (people who don't solve the "
+					+ "Rubik's Cube) say to sound smart.\n\n"
+					+ "You're probably wondering why this matters. It doesn't. Just don't go "
+					+ "around doing these things if you don't know what you're talking about.\n\n"
 					+ "Anyway, what is the Rubik's Cube? It's a simple puzzle that can be turned "
 					+ "and configured in many different ways. When it is put into a \"scrambled\" "
 					+ "state, it can be extremely difficult, nearly impossible, to solve without "
@@ -70,8 +70,9 @@ public class Page
 					+ "I'll be going over a method for beginners that is easy to understand, so if "
 					+ "you're scared or think you're not capable or \"not smart enough\", don't "
 					+ "worry! I even taught my dog how to do it*!\n\n"
-					+ "If you're excited to solve your first Rubik's Cube, that's great! But before "
-					+ "we get into how to solve it, you'll have to know a few important things.",
+					+ "If you're excited to solve your first Rubik's Cube, that's great! But "
+					+ "before we get into how to solve it, you'll have to know a few important "
+					+ "things.",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.textSize(15);
@@ -80,9 +81,9 @@ public class Page
 			break;
 			
 		case 2:
-			p.text("First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to "
-					+ "solve the cube by getting one side at a time makes it much more difficult. "
-					+ "This is what a solved side versus a solved layer looks like:",
+			p.text("First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying "
+					+ "to solve the cube by getting one side at a time makes it much more "
+					+ "difficult. This is what a solved side versus a solved layer looks like:",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.push();
@@ -94,12 +95,13 @@ public class Page
 			p.image(p.loadImage("img/solved_layer.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 180, 180);
 			p.pop();
 			
-			p.text("In the solved side, the entire face is white, but the parts along its edge "
-					+ "don't match up. In the solved layer, the difference is that the colors along "
-					+ "the edge do line up.\n\n"
-					+ "That may have been a bit confusing, but don't worry! This idea of solving in "
-					+ "layers is built into this tutorial, so it will happen naturally. Also, here's "
-					+ "some quick nomenclature that I'll be using to identify certain pieces:",
+			p.text("In the solved side, the entire face is yellow, but the parts along its edge "
+					+ "don't match up. In the solved layer, the difference is that the colors "
+					+ "along the edge do line up.\n\n"
+					+ "That may have been a bit confusing, but don't worry! This idea of solving "
+					+ "in layers is built into this tutorial, so it will happen naturally. Also, "
+					+ "here's some quick nomenclature that I'll be using to identify certain "
+					+ "pieces:",
 					100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.push();
@@ -141,11 +143,11 @@ public class Page
 			p.pop();
 			
 			p.text("These letters represent the sides: Front, Back, Up, Down, Left, Right. These "
-					+ "can be reversed by an apostrophe (known as a \"prime\" symbol) following it, "
-					+ "which makes it turn counter-clockwise. The number 2 following it means to "
-					+ "turn the side twice.\n\n"
-					+ "For example, B' means to turn the back side (second image) counter-clockwise. "
-					+ "2R means to turn the right side (last image) twice.\n\n"
+					+ "can be reversed by an apostrophe (known as a \"prime\" symbol) following "
+					+ "it, which makes it turn counter-clockwise. The number 2 following it means "
+					+ "to turn the side twice.\n\n"
+					+ "For example, B' means to turn the back side (second image) "
+					+ "counter-clockwise. 2R means to turn the right side (last image) twice.\n\n"
 					+ "And that's all you really need to know about for now. So buckle up and get "
 					+ "your cube out, because this is going to be a fun, easy, and relaxing "
 					+ "experience. Also, did I forget to mention that there are more than 43 "
@@ -162,8 +164,8 @@ public class Page
 					+ "pattern.\n\n"
 					+ "The pattern, as shown in the photo, is made up of a white center piece, and "
 					+ "four white edge pieces (edge pieces with the white and another color). But "
-					+ "one very important thing to notice is that the other color on the white edge "
-					+ "pieces line up with the center pieces on the other sides. ",
+					+ "one very important thing to notice is that the other color on the white "
+					+ "edge pieces line up with the center pieces on the other sides. ",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.image(p.loadImage("img/the_cross.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
 			
