@@ -246,7 +246,7 @@ public class Page
 		return false;
 	}
 	
-//	TODO use this method in DrawingSurface somehow
+//	TODO use this method in DrawingSurface to change the background color based on the section
 	public int getSection()
 	{
 		int section = -1;

@@ -10,6 +10,7 @@ public class DrawingSurface extends PApplet
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
+//	private Color[] sectionColors = {new Color()};
 	private Page page;
 	private Button goButton, backButton, nextButton;
 	private double uMouseX, uMouseY;
