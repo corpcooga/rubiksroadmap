@@ -4,13 +4,16 @@ import processing.core.PApplet;
 import bchew473.components.Button;
 import bchew473.components.Page;
 
+import java.awt.Color;
 public class DrawingSurface extends PApplet
 {
 //	Fields
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
-//	private Color[] sectionColors = {new Color()};
+//	TODO update the section colors while making new sections
+	private Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
+									new Color(80, 60, 40), new Color(40, 80, 40)};
 	private Page page;
 	private Button goButton, backButton, nextButton;
 	private double uMouseX, uMouseY;
@@ -42,7 +45,7 @@ public class DrawingSurface extends PApplet
 	public void draw()
 	{
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
-		background(60, 60, 60);
+		background(sectionColors[page.getSection()].getRGB());
 		
 		if (!page.onTitlePage()) {
 			push();
