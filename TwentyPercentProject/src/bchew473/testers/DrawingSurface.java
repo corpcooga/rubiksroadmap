@@ -5,18 +5,29 @@ import bchew473.components.Button;
 import bchew473.components.Page;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class DrawingSurface extends PApplet
 {
 //	Fields
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
-//	TODO update the section colors while making new sections
-	private Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
-									new Color(80, 60, 40), new Color(40, 80, 40)};
 	private Page page;
 	private Button goButton, backButton, nextButton;
 	private double uMouseX, uMouseY;
+	
+//	TODO update the section colors while making new sections
+	private Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
+									new Color(80, 60, 40), new Color(40, 80, 40)};
+	
+	private JsonNode fileNode;
+	private ArrayList<String> displayText;
 	
 	
 //	Constructors
@@ -24,6 +35,26 @@ public class DrawingSurface extends PApplet
 	public DrawingSurface()
 	{
 		page = new Page();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+//			TODO make a text file to read from
+			fileNode = mapper.readTree(new File("data/textinfo.json"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		displayText = new ArrayList<String>();
+//		TODO make this properly add string text to the ArrayList
+//		displayText.add(new String(100,50,600,75,fileNode.get("intro").asText()));
+//		displayText.add(new Textbox(100,150,600,75,fileNode.get("instruction1").asText()));
+		
+//		for(JsonNode n : fileNode.get("jsonexplain")) {
+//			displayText.add(new Textbox(x,y,250,100,n.asText()));
+//		}
+		
+//		textboxes.add(new Textbox(725,50,375,400,"The text file we're using looks like this:\n" + fileNode.toPrettyString(),Color.WHITE));
 	}
 	
 	
@@ -54,6 +85,7 @@ public class DrawingSurface extends PApplet
 			pop();
 		}
 		
+//		TODO make this method take in a text object to use to write
 		page.displayPage(this);
 		
 		if (page.onTitlePage())
