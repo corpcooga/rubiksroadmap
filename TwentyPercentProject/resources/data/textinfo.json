@@ -1,0 +1,12 @@
+{
+	"intro": 
+		"This demo is showing how to read data from a JSON file easily. JSON is a handy way to store data in a file so that the data is labeled/listed in a way that resembles Java objects and arrays.",
+	"instruction1":
+		"We're using a JSON parser called Jackson here. Just add all 3 jars from the lib folder into your project.",
+	"jsonexplain":
+		[
+			"You can use JSON to store things that look like \"objects\" - these are surrounded by curly brackets in the text file.",
+			"You can also store lists (arrays or arraylists). These are surrounded by square brackets in the file.",
+			"The main difference is really just whether you want to be able to loop through data, or if you want a text \"name\" for it (like a field)."
+		]
+}

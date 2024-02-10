@@ -40,7 +40,7 @@ public class DrawingSurface extends PApplet
 		
 		try {
 //			TODO make a text file to read from
-			fileNode = mapper.readTree(new File("data/textinfo.json"));
+			fileNode = mapper.readTree(new File("resources/data/textinfo.json"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -70,7 +70,7 @@ public class DrawingSurface extends PApplet
 		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
 		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
 		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
-		textFont(createFont("Avenir Regular.ttf", 69));
+		textFont(createFont("resources/fonts/avenir.ttf", 69));
 	}
 	
 	public void draw()

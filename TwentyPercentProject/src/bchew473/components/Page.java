@@ -50,7 +50,7 @@ public class Page
 		{
 		case 0:
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
-			p.image(p.loadImage("img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
+			p.image(p.loadImage("resources/img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 1:
@@ -90,9 +90,9 @@ public class Page
 			p.textAlign(PApplet.CENTER);
 			p.textSize(36);
 			p.text("Side", DrawingSurface.DRAWING_WIDTH / 2 - 200, 220);
-			p.image(p.loadImage("img/solved_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 200, 320, 180, 180);
+			p.image(p.loadImage("resources/img/solved_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 200, 320, 180, 180);
 			p.text("Layer", DrawingSurface.DRAWING_WIDTH / 2 + 200, 220);
-			p.image(p.loadImage("img/solved_layer.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 180, 180);
+			p.image(p.loadImage("resources/img/solved_layer.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 180, 180);
 			p.pop();
 			
 			p.text("In the solved side, the entire face is yellow, but the parts along its edge "
@@ -108,11 +108,11 @@ public class Page
 			p.textAlign(PApplet.CENTER);
 			p.textSize(30);
 			p.text("Center pieces", DrawingSurface.DRAWING_WIDTH / 2 - 300, 620);
-			p.image(p.loadImage("img/center_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 100, 100);
+			p.image(p.loadImage("resources/img/center_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 680, 100, 100);
 			p.text("Edge pieces", DrawingSurface.DRAWING_WIDTH / 2, 620);
-			p.image(p.loadImage("img/edge_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2, 680, 100, 100);
+			p.image(p.loadImage("resources/img/edge_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2, 680, 100, 100);
 			p.text("Corner pieces", DrawingSurface.DRAWING_WIDTH / 2 + 300, 620);
-			p.image(p.loadImage("img/corner_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 100, 100);
+			p.image(p.loadImage("resources/img/corner_pieces.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 680, 100, 100);
 			p.pop();
 			
 			break;
@@ -128,17 +128,17 @@ public class Page
 			p.push();
 			p.textAlign(PApplet.CENTER);
 			p.textSize(36);
-			p.image(p.loadImage("img/front_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 500, 270, 100, 100);
+			p.image(p.loadImage("resources/img/front_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 500, 270, 100, 100);
 			p.text("F", DrawingSurface.DRAWING_WIDTH / 2 - 500, 355);
-			p.image(p.loadImage("img/back_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 270, 100, 100);
+			p.image(p.loadImage("resources/img/back_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 300, 270, 100, 100);
 			p.text("B", DrawingSurface.DRAWING_WIDTH / 2 - 300, 355);
-			p.image(p.loadImage("img/up_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 100, 270, 100, 100);
+			p.image(p.loadImage("resources/img/up_side.png"), DrawingSurface.DRAWING_WIDTH / 2 - 100, 270, 100, 100);
 			p.text("U", DrawingSurface.DRAWING_WIDTH / 2 - 100, 355);
-			p.image(p.loadImage("img/down_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 100, 270, 100, 100);
+			p.image(p.loadImage("resources/img/down_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 100, 270, 100, 100);
 			p.text("D", DrawingSurface.DRAWING_WIDTH / 2 + 100, 355);
-			p.image(p.loadImage("img/left_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 270, 100, 100);
+			p.image(p.loadImage("resources/img/left_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 300, 270, 100, 100);
 			p.text("L", DrawingSurface.DRAWING_WIDTH / 2 + 300, 355);
-			p.image(p.loadImage("img/right_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 500, 270, 100, 100);
+			p.image(p.loadImage("resources/img/right_side.png"), DrawingSurface.DRAWING_WIDTH / 2 + 500, 270, 100, 100);
 			p.text("R", DrawingSurface.DRAWING_WIDTH / 2 + 500, 355);
 			p.pop();
 			
@@ -156,7 +156,7 @@ public class Page
 			break;
 			
 		case 4:
-			p.image(p.loadImage("img/the_cross.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
+			p.image(p.loadImage("resources/img/the_cross.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 5:
@@ -167,7 +167,7 @@ public class Page
 					+ "one very important thing to notice is that the other color on the white "
 					+ "edge pieces line up with the center pieces on the other sides. ",
 					100, 120, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("img/the_cross.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
+			p.image(p.loadImage("resources/img/the_cross.png"), DrawingSurface.DRAWING_WIDTH - 200, 200, 200, 200);
 			
 			p.text("To accomplish this, you will mostly have to use your intuition. Luckily, I can "
 					+ "give you a bit of help to make this easier. Instead of putting the white "
@@ -178,7 +178,7 @@ public class Page
 					+ "adjacent center pieces. This pattern is a bit easier to make without that "
 					+ "restriction.",
 					300, 316, DrawingSurface.DRAWING_WIDTH - 400, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("img/the_daisy.png"), 180, 410, 200, 200);
+			p.image(p.loadImage("resources/img/the_daisy.png"), 180, 410, 200, 200);
 			
 			p.text("Once you get the white edge pieces lined up, all you have to do is rotate "
 					+ "them into place. To do this, turn the daisy around until one of its white "
@@ -190,7 +190,7 @@ public class Page
 			break;
 			
 		case 6:
-			p.image(p.loadImage("img/first_layer.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
+			p.image(p.loadImage("resources/img/first_layer.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 7:
@@ -205,15 +205,15 @@ public class Page
 					+ "center piece, you don't need to worry about this next part. Otherwise, "
 					+ "make sure to follow along.",
 					100, 230, DrawingSurface.DRAWING_WIDTH - 350, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("img/example_corner_piece.png"), DrawingSurface.DRAWING_WIDTH - 160, 290, 140, 140);
-			p.image(p.loadImage("img/first_layer_corner_up.png"), 160, 450, 140, 140);
+			p.image(p.loadImage("resources/img/example_corner_piece.png"), DrawingSurface.DRAWING_WIDTH - 160, 290, 140, 140);
+			p.image(p.loadImage("resources/img/first_layer_corner_up.png"), 160, 450, 140, 140);
 			p.text("The corner piece should be in in the position as shown on the left. Make sure "
 					+ "you hold your cube as shown on the right, so that the corner piece is on "
 					+ "the bottom right, and execute the following algorigthm: [R U R' U']. This "
 					+ "algorithm orients the corner piece next to the yellow center piece. Get "
 					+ "used to doing this algorithm, as it comes up a lot.", 
 					250, 380, DrawingSurface.DRAWING_WIDTH - 500, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.image(p.loadImage("img/first_layer_corner_down.png"), DrawingSurface.DRAWING_WIDTH - 160, 450, 140, 140);
+			p.image(p.loadImage("resources/img/first_layer_corner_down.png"), DrawingSurface.DRAWING_WIDTH - 160, 450, 140, 140);
 
 			break;
 			
