@@ -27,7 +27,7 @@ public class DrawingSurface extends PApplet
 									new Color(80, 60, 40), new Color(40, 80, 40)};
 	
 	private JsonNode fileNode;
-	private ArrayList<String> displayText;
+	private ArrayList<String[]> displayText;
 	
 	
 //	Constructors
@@ -36,25 +36,24 @@ public class DrawingSurface extends PApplet
 	{
 		page = new Page();
 		
+//		json file text reading system
 		ObjectMapper mapper = new ObjectMapper();
-		
 		try {
-//			TODO make a text file to read from
 			fileNode = mapper.readTree(new File("resources/data/textinfo.json"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		displayText = new ArrayList<String>();
-//		TODO make this properly add string text to the ArrayList
-//		displayText.add(new String(100,50,600,75,fileNode.get("intro").asText()));
-//		displayText.add(new Textbox(100,150,600,75,fileNode.get("instruction1").asText()));
+		displayText = new ArrayList<String[]>();
 		
-//		for(JsonNode n : fileNode.get("jsonexplain")) {
-//			displayText.add(new Textbox(x,y,250,100,n.asText()));
-//		}
-		
-//		textboxes.add(new Textbox(725,50,375,400,"The text file we're using looks like this:\n" + fileNode.toPrettyString(),Color.WHITE));
+		String[] add;
+		int i = 0;
+		add = new String[fileNode.get("Introduction").size()];
+		for (JsonNode n : fileNode.get("Introduction")) {
+			add[i] = n.asText();
+			i++;
+		}
+		displayText.add(add);
 	}
 	
 	
