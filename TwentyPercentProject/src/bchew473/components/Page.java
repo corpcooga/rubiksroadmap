@@ -2,6 +2,7 @@ package bchew473.components;
 
 import processing.core.PApplet;
 import bchew473.testers.DrawingSurface;
+import java.util.ArrayList;
 
 public class Page
 {
@@ -24,8 +25,7 @@ public class Page
 	
 //	Methods
 	
-//	TODO make this use text files to write the text
-	public void displayPage(PApplet p)
+	public void displayPage(PApplet p, ArrayList<String[]> text)
 	{
 		p.push();
 		
@@ -54,30 +54,9 @@ public class Page
 			break;
 			
 		case 1:
-			p.text("The Rubik's Cube is very misunderstood. Most people say things like, \"I just "
-					+ "peel the stickers off,\" \"I can solve 5 sides,\" and \"Wow, you must be "
-					+ "really smart if you can solve the Rubix (incorrect spelling) Cube!\" These "
-					+ "things make cubers (people who solve the Rubik's Cube) cringe because they "
-					+ "are common misconceptions that non-cubers (people who don't solve the "
-					+ "Rubik's Cube) say to sound smart.\n\n"
-					+ "You're probably wondering why this matters. It doesn't. Just don't go "
-					+ "around doing these things if you don't know what you're talking about.\n\n"
-					+ "Anyway, what is the Rubik's Cube? It's a simple puzzle that can be turned "
-					+ "and configured in many different ways. When it is put into a \"scrambled\" "
-					+ "state, it can be extremely difficult, nearly impossible, to solve without "
-					+ "any guidance. Luckily, many methods have been created to make this process "
-					+ "easier, and now pretty much anyone can solve it, including you!\n\n"
-					+ "I'll be going over a method for beginners that is easy to understand, so if "
-					+ "you're scared or think you're not capable or \"not smart enough\", don't "
-					+ "worry! I even taught my dog how to do it*!\n\n"
-					+ "If you're excited to solve your first Rubik's Cube, that's great! But "
-					+ "before we get into how to solve it, you'll have to know a few important "
-					+ "things.",
-					100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
-			
+			p.text(text.get(0)[0], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			p.textSize(15);
-			p.text("*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 
-					100, 670);
+			p.text(text.get(0)[1], 100, 670);
 			break;
 			
 		case 2:

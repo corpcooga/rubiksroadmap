@@ -85,7 +85,7 @@ public class DrawingSurface extends PApplet
 		}
 		
 //		TODO make this method take in a text object to use to write
-		page.displayPage(this);
+		page.displayPage(this, displayText);
 		
 		if (page.onTitlePage())
 			goButton.draw(this);
