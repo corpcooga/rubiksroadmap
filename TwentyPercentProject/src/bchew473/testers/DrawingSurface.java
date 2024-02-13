@@ -45,11 +45,28 @@ public class DrawingSurface extends PApplet
 		}
 		
 		displayText = new ArrayList<String[]>();
-		
 		String[] add;
-		int i = 0;
+		int i;
+		
+		i = 0;
 		add = new String[fileNode.get("Introduction").size()];
 		for (JsonNode n : fileNode.get("Introduction")) {
+			add[i] = n.asText();
+			i++;
+		}
+		displayText.add(add);
+		
+		i = 0;
+		add = new String[fileNode.get("The Cross").size()];
+		for (JsonNode n : fileNode.get("The Cross")) {
+			add[i] = n.asText();
+			i++;
+		}
+		displayText.add(add);
+		
+		i = 0;
+		add = new String[fileNode.get("The First Layer").size()];
+		for (JsonNode n : fileNode.get("The First Layer")) {
 			add[i] = n.asText();
 			i++;
 		}
