@@ -20,14 +20,14 @@ public class DrawingSurface extends PApplet
 	
 	private Page page;
 	private Button goButton, backButton, nextButton;
-	private double uMouseX, uMouseY;
-	
 //	TODO update the section colors while making new sections
 	private Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
 									new Color(80, 60, 40), new Color(40, 80, 40)};
 	
 	private JsonNode fileNode;
 	private ArrayList<String[]> displayText;
+	
+	private double uMouseX, uMouseY;
 	
 	
 //	Constructors
@@ -85,7 +85,6 @@ public class DrawingSurface extends PApplet
 			pop();
 		}
 		
-//		TODO make this method take in a text object to use to write
 		page.displayPage(this, displayText);
 		
 		if (page.onTitlePage())
