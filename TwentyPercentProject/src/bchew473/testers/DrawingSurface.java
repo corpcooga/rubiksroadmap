@@ -18,14 +18,14 @@ public class DrawingSurface extends PApplet
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
+//	TODO update the section colors while making new sections
+	private final Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
+											new Color(80, 60, 40), new Color(40, 80, 40)};
+	
 	private Page page;
 	private Button goButton, backButton, nextButton;
-//	TODO update the section colors while making new sections
-	private Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
-									new Color(80, 60, 40), new Color(40, 80, 40)};
-	
-	private JsonNode fileNode;
 	private ArrayList<String[]> displayText;
+	private JsonNode fileNode;
 	
 	private double uMouseX, uMouseY;
 	
@@ -55,6 +55,8 @@ public class DrawingSurface extends PApplet
 			}
 			displayText.add(add);
 		}
+		
+		textFont(createFont("resources/fonts/avenir.ttf", 69));
 	}
 	
 	
@@ -70,7 +72,6 @@ public class DrawingSurface extends PApplet
 		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
 		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
 		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
-		textFont(createFont("resources/fonts/avenir.ttf", 69));
 	}
 	
 	public void draw()

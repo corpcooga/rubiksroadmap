@@ -26,6 +26,7 @@ public class Page
 	
 //	Methods
 	
+//	TODO add buttons that interact with certain elements
 	public void displayPage(PApplet p, ArrayList<String[]> text)
 	{
 		p.push();
