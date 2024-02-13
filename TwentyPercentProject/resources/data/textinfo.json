@@ -19,5 +19,20 @@
 			"The next step is filling out a layer. To do this, we just need to insert white corner pieces between parts of The Cross. First, make sure you're holding the cube so that The Cross is pointing down. This might be a bit confusing at first, but it will make things easier.",
 			"Then, find a white corner piece. It should have white and two other colors on it, like the one shown in the photo (it doesn't have to be blue and orange). If the piece you found is already lined up next to the yellow center piece, you don't need to worry about this next part. Otherwise, make sure to follow along.",
 			"The corner piece should be in in the position as shown on the left. Make sure you hold your cube as shown on the right, so that the corner piece is on the bottom right, and execute the following algorigthm: [R U R' U']. This algorithm orients the corner piece next to the yellow center piece. Get used to doing this algorithm, as it comes up a lot."
+		],
+	"The Second Layer":
+		[
+		],
+	"The Cross 2.0":
+		[
+		],
+	"The Corner Fix":
+		[
+		],
+	"The Solve":
+		[
+		],
+	"Conclusion":
+		[
 		]
 }

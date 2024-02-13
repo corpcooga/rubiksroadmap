@@ -45,32 +45,16 @@ public class DrawingSurface extends PApplet
 		}
 		
 		displayText = new ArrayList<String[]>();
-		String[] add;
-		int i;
 		
-		i = 0;
-		add = new String[fileNode.get("Introduction").size()];
-		for (JsonNode n : fileNode.get("Introduction")) {
-			add[i] = n.asText();
-			i++;
+		for (String sectionName : Page.sectionNames) {
+			int i = 0;
+			String[] add = new String[fileNode.get(sectionName).size()];
+			for (JsonNode n : fileNode.get(sectionName)) {
+				add[i] = n.asText();
+				i++;
+			}
+			displayText.add(add);
 		}
-		displayText.add(add);
-		
-		i = 0;
-		add = new String[fileNode.get("The Cross").size()];
-		for (JsonNode n : fileNode.get("The Cross")) {
-			add[i] = n.asText();
-			i++;
-		}
-		displayText.add(add);
-		
-		i = 0;
-		add = new String[fileNode.get("The First Layer").size()];
-		for (JsonNode n : fileNode.get("The First Layer")) {
-			add[i] = n.asText();
-			i++;
-		}
-		displayText.add(add);
 	}
 	
 	
@@ -125,7 +109,7 @@ public class DrawingSurface extends PApplet
 			if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
 				page.changePage(1);
 			if (page.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY)) {
-				for (int x : page.getTitlePages())
+				for (int x : Page.titlePages)
 					if (page.getPage() == x + 1) {
 						page.changePage(-1);
 						break;

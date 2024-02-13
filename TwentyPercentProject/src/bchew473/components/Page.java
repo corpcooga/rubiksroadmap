@@ -8,11 +8,12 @@ public class Page
 {
 //	Fields
 	
+	public static final String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
+												"The Second Layer", "The Cross 2.0", 
+												"The Corner Fix", "The Solve", "Conclusion"};
+	public static final int[] titlePages = {0, 4, 6};
+	
 	private int pageNum;
-	private final int[] titlePages = {0, 4, 6};
-	private final String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
-											"The Second Layer", "The Cross 2.0", "The Corner Fix", 
-											"The Solve", "Conclusion"};
 	
 	
 //	Constructors
@@ -145,11 +146,6 @@ public class Page
 	public int getPage()
 	{
 		return pageNum;
-	}
-	
-	public int[] getTitlePages()
-	{
-		return titlePages;
 	}
 	
 	public void changePage(int amount)
