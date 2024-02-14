@@ -58,26 +58,6 @@ public class Button {
 		return false;
 	}
 	
-	public void setX(float newX)
-	{
-		x = newX;
-	}
-	
-	public void setY(float newY)
-	{
-		y = newY;
-	}
-	
-	public void setHeight(float newHeight)
-	{
-		height = newHeight;
-	}
-	
-	public void setFillColor(Color c)
-	{
-		fillColor = c;
-	}
-	
 	public void draw(PApplet drawer)
 	{
 		drawer.push();
