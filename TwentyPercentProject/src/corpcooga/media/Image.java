@@ -27,7 +27,7 @@ public class Image extends Media
 	
 //	Methods
 	
-	public void display(PApplet p)
+	public void draw(PApplet p)
 	{
 		p.image(image, getX(), getY(), getWidth(), getHeight());
 	}

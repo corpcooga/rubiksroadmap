@@ -1,7 +1,7 @@
 package corpcooga.canvas;
 
 import corpcooga.components.Button;
-import corpcooga.components.Page;
+import corpcooga.components.X;
 
 import processing.core.PApplet;
 
@@ -19,11 +19,7 @@ public class DrawingSurface extends PApplet
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
-//	TODO update the section colors while making new sections
-	private static final Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
-													new Color(80, 60, 40), new Color(40, 80, 40)};
-	
-	private Page page;
+	private X page;
 	private Button goButton, backButton, nextButton;
 	private ArrayList<String[]> displayText;
 //	private String[] displayText;
@@ -36,7 +32,7 @@ public class DrawingSurface extends PApplet
 	
 	public DrawingSurface()
 	{
-		page = new Page();
+		page = new X();
 		
 //		json file text reading system
 		ObjectMapper mapper = new ObjectMapper();
@@ -50,7 +46,7 @@ public class DrawingSurface extends PApplet
 		displayText = new ArrayList<String[]>();
 //		displayText = new String[1];
 		
-		for (String sectionName : Page.sectionNames) {
+		for (String sectionName : X.sectionNames) {
 			int i = 0;
 			String[] add = new String[fileNode.get(sectionName).size()];
 			for (JsonNode n : fileNode.get(sectionName)) {
@@ -112,7 +108,7 @@ public class DrawingSurface extends PApplet
 			if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
 				page.changePage(1);
 			if (page.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY)) {
-				for (int x : Page.titlePages)
+				for (int x : X.titlePages)
 					if (page.getPage() == x + 1) {
 						page.changePage(-1);
 						break;

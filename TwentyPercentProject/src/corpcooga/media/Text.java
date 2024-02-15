@@ -26,7 +26,7 @@ public class Text extends Media
 	
 //	Methods
 	
-	public void display(PApplet p)
+	public void draw(PApplet p)
 	{
 		p.text(text, getX(), getY(), getWidth(), getHeight());
 	}

@@ -47,6 +47,6 @@ public abstract class Media
 		return height;
 	}
 	
-	public abstract void display(PApplet p);
+	public abstract void draw(PApplet p);
 	
 }
