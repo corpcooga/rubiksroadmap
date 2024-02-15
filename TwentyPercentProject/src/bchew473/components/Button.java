@@ -4,8 +4,8 @@ import bchew473.testers.DrawingSurface;
 import processing.core.PApplet;
 import java.awt.Color;
 
-public class Button {
-	
+public class Button
+{
 //	Fields
 	
 	private String text;
