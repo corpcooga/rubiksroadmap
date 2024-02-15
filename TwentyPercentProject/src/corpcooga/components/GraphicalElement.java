@@ -2,7 +2,7 @@ package corpcooga.components;
 
 import processing.core.PApplet;
 
-public abstract class GraphicalElement 
+public abstract class GraphicalElement extends PApplet
 {
 //	Fields
 	

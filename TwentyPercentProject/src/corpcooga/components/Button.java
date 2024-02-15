@@ -4,6 +4,7 @@ import corpcooga.canvas.DrawingSurface;
 import java.awt.Color;
 import processing.core.PApplet;
 
+//TODO use PApplet methods somehow in this class
 public class Button extends GraphicalElement
 {
 //	Fields
