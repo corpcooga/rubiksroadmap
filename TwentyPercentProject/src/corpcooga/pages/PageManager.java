@@ -19,24 +19,28 @@ public class PageManager
 	
 //	Constructors
 	
-	public PageManager(Page[] pages, int[] titlePages, String[] sectionNames)
+	public PageManager(Page[] pages, int[] titlePages, String[] sectionNames, Color[] sectionColors)
 	{
 		this.pages = pages;
 		this.titlePages = titlePages;
 		this.sectionNames = sectionNames;
+		this.sectionColors = sectionColors;
 		pageNum = 0;
-	}
-	
-	public PageManager(Page[] pages)
-	{
-		this(pages, null, null);
 	}
 	
 	
 //	Methods
 	
-	public void drawPage(PApplet p)
+	public void draw(PApplet p)
 	{
+		p.background(sectionColors[getSection()].getRGB());
+		
+		if (!onTitlePage()) {
+			p.push();
+			p.textSize(18);
+			p.text(""+pageNum, 10, 30);
+			p.pop();
+		}
 		pages[pageNum].draw(p);
 	}
 	
@@ -45,14 +49,24 @@ public class PageManager
 		return pageNum;
 	}
 	
-	public void changePage(int amount)
+	public int[] getTitlePages()
 	{
-		pageNum += amount;
+		return titlePages;
+	}
+	
+	public String[] getSectionNames()
+	{
+		return sectionNames;
 	}
 	
 	public Color[] getSectionColors()
 	{
 		return sectionColors;
+	}
+	
+	public void changePage(int amount)
+	{
+		pageNum += amount;
 	}
 	
 	public boolean onTitlePage()

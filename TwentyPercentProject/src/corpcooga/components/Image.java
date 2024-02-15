@@ -13,17 +13,17 @@ public class Image extends GraphicalElement
 	
 //	Constructors
 	
+	public Image(float x, float y, float width, float height, PImage image)
+	{
+		super(x, y, width, height);
+		this.image = image;
+	}
+	
 	public Image(float x, float y, float width, float height, String imagePath)
 	{
 		super(x, y, width, height);
 		this.imagePath = imagePath;
 		this.image = null;
-	}
-	
-	public Image(float x, float y, float width, float height, PImage image)
-	{
-		super(x, y, width, height);
-		this.image = image;
 	}
 	
 	public Image(float x, float y, float width, float height)
@@ -34,7 +34,6 @@ public class Image extends GraphicalElement
 	
 	public Image()
 	{
-		super();
 		this.image = null;
 	}
 	

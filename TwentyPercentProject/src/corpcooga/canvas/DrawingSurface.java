@@ -1,7 +1,7 @@
 package corpcooga.canvas;
 
-import corpcooga.pages.Button;
-import corpcooga.pages.X;
+import corpcooga.components.Button;
+import corpcooga.pages.PageManager;
 
 import java.awt.Color;
 import java.io.File;
@@ -18,7 +18,7 @@ public class DrawingSurface extends PApplet
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
-	private X page;
+	private PageManager page;
 	private Button goButton, backButton, nextButton;
 	private ArrayList<String[]> displayText;
 //	private String[] displayText;
@@ -31,8 +31,6 @@ public class DrawingSurface extends PApplet
 	
 	public DrawingSurface()
 	{
-		page = new X();
-		
 //		json file text reading system
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -45,7 +43,7 @@ public class DrawingSurface extends PApplet
 		displayText = new ArrayList<String[]>();
 //		displayText = new String[1];
 		
-		for (String sectionName : X.sectionNames) {
+		for (String sectionName : page.getSectionNames()) {
 			int i = 0;
 			String[] add = new String[fileNode.get(sectionName).size()];
 			for (JsonNode n : fileNode.get(sectionName)) {
@@ -54,6 +52,9 @@ public class DrawingSurface extends PApplet
 			}
 			displayText.add(add);
 		}
+		
+//		TODO add required arguments
+//		page = new PageManager();
 	}
 	
 	
@@ -75,16 +76,16 @@ public class DrawingSurface extends PApplet
 	public void draw()
 	{
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
-		background(sectionColors[page.getSection()].getRGB());
+//		background(sectionColors[page.getSection()].getRGB());
 		
-		if (!page.onTitlePage()) {
-			push();
-			textSize(18);
-			text(""+page.getPage(), 10, 30);
-			pop();
-		}
+//		page.displayPage(this, displayText);
 		
-		page.displayPage(this, displayText);
+//		if (!page.onTitlePage()) {
+//			push();
+//			textSize(18);
+//			text(""+page.getPage(), 10, 30);
+//			pop();
+//		}
 		
 		if (page.onTitlePage())
 			goButton.draw(this);
@@ -100,6 +101,7 @@ public class DrawingSurface extends PApplet
 	{
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
+		
 		if (page.onTitlePage()) {
 			if (goButton.pointOver(uMouseX, uMouseY))
 				page.changePage(1);
@@ -107,7 +109,7 @@ public class DrawingSurface extends PApplet
 			if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
 				page.changePage(1);
 			if (page.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY)) {
-				for (int x : X.titlePages)
+				for (int x : page.getTitlePages())
 					if (page.getPage() == x + 1) {
 						page.changePage(-1);
 						break;

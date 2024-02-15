@@ -1,17 +1,16 @@
-package corpcooga.pages;
+package corpcooga.components;
 
 import corpcooga.canvas.DrawingSurface;
 import java.awt.Color;
 import processing.core.PApplet;
 
-public class Button
+public class Button extends GraphicalElement
 {
 //	Fields
 	
 	private String text;
-	private float x, y, width, height;
-	private int borderWidth, borderRound, textSize;
 	private Color fillColor, borderColor, textColor;
+	private int borderWidth, borderRound, textSize;
 	
 	
 //	Constructors
@@ -19,11 +18,8 @@ public class Button
 	public Button(String text, float x, float y, float width, float height,
 			int bWidth, int bRound, int tSize, Color fCol, Color bCol, Color tCol)
 	{
+		super(x, y, width, height);
 		this.text = text;
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
 		borderWidth = bWidth;
 		borderRound = bRound;
 		textSize = tSize;
@@ -52,8 +48,7 @@ public class Button
 	
 	public boolean pointOver(double x, double y)
 	{
-		if (x >= this.x && x <= this.x + width &&
-				y >= this.y && y <= this.y + this.height)
+		if (x >= getX() && x <= getX() + getWidth() && y >= getY() && y <= getY() + getHeight())
 			return true;
 		return false;
 	}
@@ -72,21 +67,21 @@ public class Button
 				p.fill(fillColor.getRed() / 2, fillColor.getGreen() / 2, fillColor.getBlue() / 2);
 		}
 		p.stroke(borderColor.getRGB());
-		p.rect(x, y, width, height, borderRound);
+		p.rect(getX(), getY(), getWidth(), getHeight(), borderRound);
 		
 //		Button text
 		p.textSize(textSize);
 		p.textAlign(PApplet.CENTER, PApplet.CENTER);
 		p.fill(textColor.getRGB());
-		p.text(text, x + width / 2, y + height / 2);
+		p.text(text, getX() + getWidth() / 2, getY() + getHeight() / 2);
 		
 		p.pop();
 	}
 	
 	public String toString()
 	{
-		return "text: " + text + "\ncoordinates: ("+x+", "+y+")"
-				+ "\ndimensions: " + width + "x" + height + "\nborderWidth: " + borderWidth
+		return "text: " + text + "\ncoordinates: ("+getX()+", "+getY()+")"
+				+ "\ndimensions: " + getWidth() + "x" + getHeight() + "\nborderWidth: " + borderWidth
 				+ "\nborderRound: " + borderRound + "\ntextSize: " + textSize + "\nfillColor: "
 				+ fillColor + "\nborderColor: " + borderColor + "\ntextColor: " + textColor;
 	}
