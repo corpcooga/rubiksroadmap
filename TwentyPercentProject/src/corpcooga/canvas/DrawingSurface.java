@@ -1,8 +1,9 @@
-package bchew473.testers;
+package corpcooga.canvas;
+
+import corpcooga.components.Button;
+import corpcooga.components.Page;
 
 import processing.core.PApplet;
-import bchew473.components.Button;
-import bchew473.components.Page;
 
 import java.awt.Color;
 import java.io.File;
@@ -19,12 +20,13 @@ public class DrawingSurface extends PApplet
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
 //	TODO update the section colors while making new sections
-	private final Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
-											new Color(80, 60, 40), new Color(40, 80, 40)};
+	private static final Color[] sectionColors = {new Color(60, 60, 60), new Color(80, 40, 40),
+													new Color(80, 60, 40), new Color(40, 80, 40)};
 	
 	private Page page;
 	private Button goButton, backButton, nextButton;
 	private ArrayList<String[]> displayText;
+//	private String[] displayText;
 	private JsonNode fileNode;
 	
 	private double uMouseX, uMouseY;
@@ -44,7 +46,9 @@ public class DrawingSurface extends PApplet
 			e.printStackTrace();
 		}
 		
+//		TODO Use a 2D array instead of arraylist of arrays 
 		displayText = new ArrayList<String[]>();
+//		displayText = new String[1];
 		
 		for (String sectionName : Page.sectionNames) {
 			int i = 0;

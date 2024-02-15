@@ -1,18 +1,19 @@
-package bchew473.components;
+package corpcooga.components;
+
+import corpcooga.canvas.DrawingSurface;
 
 import processing.core.PApplet;
-import bchew473.testers.DrawingSurface;
 import java.util.ArrayList;
 
 public class Page
 {
 //	Fields
-	
-	public static final String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
-												"The Second Layer", "The Cross 2.0", 
-												"The Corner Fix", "The Solve", "Conclusion"};
-	public static final int[] titlePages = {0, 4, 6};
-	
+
+	private String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
+									"The Second Layer", "The Cross 2.0", 
+									"The Corner Fix", "The Solve", "Conclusion"};
+	private int[] titlePages = {0, 4, 6};
+			
 	private int pageNum;
 	
 	

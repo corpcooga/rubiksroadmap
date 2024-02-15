@@ -1,6 +1,8 @@
 package corpcooga.media;
 
-public class Media 
+import processing.core.PApplet;
+
+public abstract class Media 
 {
 //	Fields
 	
@@ -44,4 +46,7 @@ public class Media
 	{
 		return height;
 	}
+	
+	public abstract void display(PApplet p);
+	
 }

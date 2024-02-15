@@ -1,8 +1,9 @@
-package bchew473.components;
+package corpcooga.components;
 
-import bchew473.testers.DrawingSurface;
 import processing.core.PApplet;
 import java.awt.Color;
+
+import corpcooga.canvas.DrawingSurface;
 
 public class Button
 {

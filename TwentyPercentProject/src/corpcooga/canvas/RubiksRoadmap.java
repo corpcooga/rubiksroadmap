@@ -1,4 +1,4 @@
-package bchew473.testers;
+package corpcooga.canvas;
 
 import processing.core.PApplet;
 
