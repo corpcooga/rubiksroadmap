@@ -1,8 +1,8 @@
-package corpcooga.media;
+package corpcooga.components;
 
 import processing.core.PApplet;
 
-public class Text extends Media
+public class Text extends GraphicalElement
 {
 //	Fields
 	

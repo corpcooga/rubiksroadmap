@@ -1,15 +1,14 @@
 package corpcooga.canvas;
 
-import corpcooga.components.Button;
-import corpcooga.components.X;
-
-import processing.core.PApplet;
+import corpcooga.pages.Button;
+import corpcooga.pages.X;
 
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import processing.core.PApplet;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -1,8 +1,7 @@
-package corpcooga.components;
+package corpcooga.pages;
 
-import corpcooga.media.Text;
-import corpcooga.media.Image;
-
+import corpcooga.components.Image;
+import corpcooga.components.Text;
 import processing.core.PApplet;
 
 public class Page

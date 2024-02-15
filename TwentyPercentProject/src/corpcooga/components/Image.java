@@ -1,9 +1,9 @@
-package corpcooga.media;
+package corpcooga.components;
 
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Image extends Media
+public class Image extends GraphicalElement
 {
 //	Fields
 	
@@ -16,6 +16,12 @@ public class Image extends Media
 	{
 		super(x, y, width, height);
 		this.image = image;
+	}
+	
+	public Image(float x, float y, float width, float height)
+	{
+		super(x, y, width, height);
+		this.image = null;
 	}
 	
 	public Image()

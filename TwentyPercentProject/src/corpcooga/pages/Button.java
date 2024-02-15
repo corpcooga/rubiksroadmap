@@ -1,9 +1,8 @@
-package corpcooga.components;
-
-import processing.core.PApplet;
-import java.awt.Color;
+package corpcooga.pages;
 
 import corpcooga.canvas.DrawingSurface;
+import java.awt.Color;
+import processing.core.PApplet;
 
 public class Button
 {
@@ -59,31 +58,29 @@ public class Button
 		return false;
 	}
 	
-	public void draw(PApplet drawer)
+	public void draw(PApplet p)
 	{
-		drawer.push();
+		p.push();
 		
 //		Button body
-		drawer.strokeWeight(borderWidth);
-		drawer.fill(fillColor.getRGB());
-		if (pointOver(drawer.mouseX * DrawingSurface.DRAWING_WIDTH / drawer.width, 
-				drawer.mouseY * DrawingSurface.DRAWING_HEIGHT / drawer.height)) {
-			drawer.fill(fillColor.getRed() * 3/4, fillColor.getGreen() * 3/4,
-					fillColor.getBlue() * 3/4);
-			if (drawer.mousePressed)
-				drawer.fill(fillColor.getRed() / 2, fillColor.getGreen() / 2,
-						fillColor.getBlue() / 2);
+		p.strokeWeight(borderWidth);
+		p.fill(fillColor.getRGB());
+		if (pointOver(p.mouseX * DrawingSurface.DRAWING_WIDTH / p.width, 
+				p.mouseY * DrawingSurface.DRAWING_HEIGHT / p.height)) {
+			p.fill(fillColor.getRed() * 3/4, fillColor.getGreen() * 3/4, fillColor.getBlue() * 3/4);
+			if (p.mousePressed)
+				p.fill(fillColor.getRed() / 2, fillColor.getGreen() / 2, fillColor.getBlue() / 2);
 		}
-		drawer.stroke(borderColor.getRGB());
-		drawer.rect(x, y, width, height, borderRound);
+		p.stroke(borderColor.getRGB());
+		p.rect(x, y, width, height, borderRound);
 		
 //		Button text
-		drawer.textSize(textSize);
-		drawer.textAlign(PApplet.CENTER, PApplet.CENTER);
-		drawer.fill(textColor.getRGB());
-		drawer.text(text, x + width / 2, y + height / 2);
+		p.textSize(textSize);
+		p.textAlign(PApplet.CENTER, PApplet.CENTER);
+		p.fill(textColor.getRGB());
+		p.text(text, x + width / 2, y + height / 2);
 		
-		drawer.pop();
+		p.pop();
 	}
 	
 	public String toString()
@@ -93,4 +90,5 @@ public class Button
 				+ "\nborderRound: " + borderRound + "\ntextSize: " + textSize + "\nfillColor: "
 				+ fillColor + "\nborderColor: " + borderColor + "\ntextColor: " + textColor;
 	}
+	
 }

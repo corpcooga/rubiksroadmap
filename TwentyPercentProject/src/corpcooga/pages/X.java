@@ -1,4 +1,4 @@
-package corpcooga.components;
+package corpcooga.pages;
 
 import corpcooga.canvas.DrawingSurface;
 

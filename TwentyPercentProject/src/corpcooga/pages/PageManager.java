@@ -1,7 +1,6 @@
-package corpcooga.components;
+package corpcooga.pages;
 
 import java.awt.Color;
-
 import processing.core.PApplet;
 
 public class PageManager 

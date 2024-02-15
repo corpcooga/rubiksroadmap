@@ -1,8 +1,8 @@
-package corpcooga.media;
+package corpcooga.components;
 
 import processing.core.PApplet;
 
-public abstract class Media 
+public abstract class GraphicalElement 
 {
 //	Fields
 	
@@ -11,7 +11,7 @@ public abstract class Media
 	
 //	Constructors
 	
-	public Media(float x, float y, float width, float height)
+	public GraphicalElement(float x, float y, float width, float height)
 	{
 		this.x = x;
 		this.y = y;
@@ -19,7 +19,7 @@ public abstract class Media
 		this.height = height;
 	}
 	
-	public Media()
+	public GraphicalElement()
 	{
 		this(0, 0, 0, 0);
 	}
