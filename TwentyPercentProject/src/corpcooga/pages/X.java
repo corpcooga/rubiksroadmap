@@ -9,19 +9,19 @@ public class X
 {
 //	Fields
 
-	private String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
-									"The Second Layer", "The Cross 2.0", 
-									"The Corner Fix", "The Solve", "Conclusion"};
-	private int[] titlePages = {0, 4, 6};
-			
-	private int pageNum;
+//	private String[] sectionNames = {"Introduction", "The Cross", "The First Layer", 
+//									"The Second Layer", "The Cross 2.0", 
+//									"The Corner Fix", "The Solve", "Conclusion"};
+//	private int[] titlePages = {0, 4, 6};
+//			
+//	private int pageNum;
 	
 	
 //	Constructors
 	
 	public X()
 	{
-		pageNum = 0;
+//		pageNum = 0;
 	}
 	
 	

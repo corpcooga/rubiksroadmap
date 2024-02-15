@@ -53,8 +53,15 @@ public class DrawingSurface extends PApplet
 			displayText.add(add);
 		}
 		
-//		TODO add required arguments
-//		page = new PageManager();
+//		TODO add pages
+//		TODO find a way to make specific adjustments to pages (text size, positioning, etc.)
+//		TODO update the section colors while making new sections
+		page = new PageManager(null, new int[]{0, 4, 6}, 
+				new String[]{"Introduction", "The Cross", "The First Layer", 
+							"The Second Layer", "The Cross 2.0", 
+							"The Corner Fix", "The Solve", "Conclusion"}, 
+				new Color[] {new Color(60, 60, 60), new Color(80, 40, 40), 
+							new Color(80, 60, 40), new Color(40, 80, 40)});
 	}
 	
 	

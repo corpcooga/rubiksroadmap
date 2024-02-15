@@ -7,9 +7,7 @@ public class PageManager
 {
 //	Fields
 	
-//	TODO update the section colors while making new sections
 	private Color[] sectionColors;
-//		{new Color(60, 60, 60), new Color(80, 40, 40), new Color(80, 60, 40), new Color(40, 80, 40)}
 	private Page[] pages;
 	private String[] sectionNames;
 	private int[] titlePages;
