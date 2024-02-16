@@ -1,12 +1,12 @@
 package corpcooga.canvas;
 
 import corpcooga.components.Button;
+import corpcooga.pages.Page;
 import corpcooga.pages.PageManager;
 
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import processing.core.PApplet;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -18,11 +18,9 @@ public class DrawingSurface extends PApplet
 	
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
-	private PageManager page;
+	private PageManager pageManager;
 	private Button goButton, backButton, nextButton;
-	private ArrayList<String[]> displayText;
-//	private String[] displayText;
-	private JsonNode fileNode;
+	private JsonNode textNode, sectionsNode;
 	
 	private double uMouseX, uMouseY;
 	
@@ -31,37 +29,54 @@ public class DrawingSurface extends PApplet
 	
 	public DrawingSurface()
 	{
-//		json file text reading system
+//		JSON file text reading system
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			fileNode = mapper.readTree(new File("resources/data/textinfo.json"));
+			textNode = mapper.readTree(new File("resources/data/textinfo.json"));
+			sectionsNode = mapper.readTree(new File("resources/data/sectioninfo.json"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-//		TODO Use a 2D array instead of arraylist of arrays 
-		displayText = new ArrayList<String[]>();
-//		displayText = new String[1];
+		int idx;
 		
-		for (String sectionName : page.getSectionNames()) {
+		idx = 0;
+		String[] sectionNames = new String[sectionsNode.get("Section Names").size()];
+		for (JsonNode sectionName : sectionsNode.get("Section Names")) {
+			sectionNames[idx] = sectionName.asText();
+			idx++;
+		}
+		
+		idx = 0;
+		Color[] sectionColors = new Color[sectionsNode.get("Section Colors").size()];
+		for (JsonNode sectionColor : sectionsNode.get("Section Colors")) {
+			int[] rgb = new int[3];
 			int i = 0;
-			String[] add = new String[fileNode.get(sectionName).size()];
-			for (JsonNode n : fileNode.get(sectionName)) {
-				add[i] = n.asText();
+			for (JsonNode x : sectionColor) {
+				rgb[i] = x.asInt();
 				i++;
 			}
-			displayText.add(add);
+			sectionColors[idx] = new Color(rgb[0], rgb[1], rgb[2]);
+			idx++;
 		}
+		
+//		TODO change pages length
+//		Page[] pages = new Page[10];
+//		
+//		for (JsonNode sectionName : sectionsNode.get("Section Names")) {
+//			idx = 0;
+//			String[] add = new String[textNode.get(sectionName).size()];
+//			for (JsonNode n : textNode.get(sectionName)) {
+//				add[idx] = n.asText();
+//				idx++;
+//			}
+////			displayText.add(add);
+//		}
 		
 //		TODO add pages
 //		TODO find a way to make specific adjustments to pages (text size, positioning, etc.)
 //		TODO update the section colors while making new sections
-		page = new PageManager(null, new int[]{0, 4, 6}, 
-				new String[]{"Introduction", "The Cross", "The First Layer", 
-							"The Second Layer", "The Cross 2.0", 
-							"The Corner Fix", "The Solve", "Conclusion"}, 
-				new Color[] {new Color(60, 60, 60), new Color(80, 40, 40), 
-							new Color(80, 60, 40), new Color(40, 80, 40)});
+		pageManager = new PageManager(null, new int[] {0, 4, 6}, sectionNames, sectionColors);
 	}
 	
 	
@@ -94,12 +109,12 @@ public class DrawingSurface extends PApplet
 //			pop();
 //		}
 		
-		if (page.onTitlePage())
+		if (pageManager.onTitlePage())
 			goButton.draw(this);
 		else {
-			if (page.getPage() >= 1)
+			if (pageManager.getPage() >= 1)
 				nextButton.draw(this);
-			if (page.getPage() >= 2)
+			if (pageManager.getPage() >= 2)
 				backButton.draw(this);
 		}
 	}
@@ -109,19 +124,19 @@ public class DrawingSurface extends PApplet
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
 		
-		if (page.onTitlePage()) {
+		if (pageManager.onTitlePage()) {
 			if (goButton.pointOver(uMouseX, uMouseY))
-				page.changePage(1);
+				pageManager.changePage(1);
 		} else {
-			if (page.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
-				page.changePage(1);
-			if (page.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY)) {
-				for (int x : page.getTitlePages())
-					if (page.getPage() == x + 1) {
-						page.changePage(-1);
+			if (pageManager.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
+				pageManager.changePage(1);
+			if (pageManager.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY)) {
+				for (int x : pageManager.getTitlePages())
+					if (pageManager.getPage() == x + 1) {
+						pageManager.changePage(-1);
 						break;
 					}
-				page.changePage(-1);
+				pageManager.changePage(-1);
 			}
 		}
 	}
