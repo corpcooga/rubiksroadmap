@@ -39,6 +39,7 @@ public class PageManager
 			p.text(""+pageNum, 10, 30);
 			p.pop();
 		}
+		
 		pages[pageNum].draw(p);
 	}
 	

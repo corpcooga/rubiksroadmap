@@ -41,6 +41,13 @@ public class DrawingSurface extends PApplet
 		int idx;
 		
 		idx = 0;
+		int[] titlePages = new int[sectionsNode.get("Title Pages").size()];
+		for (JsonNode titlePage : sectionsNode.get("Title Pages")) {
+			titlePages[idx] = titlePage.asInt();
+			idx++;
+		}
+		
+		idx = 0;
 		String[] sectionNames = new String[sectionsNode.get("Section Names").size()];
 		for (JsonNode sectionName : sectionsNode.get("Section Names")) {
 			sectionNames[idx] = sectionName.asText();
@@ -76,7 +83,7 @@ public class DrawingSurface extends PApplet
 //		TODO add pages
 //		TODO find a way to make specific adjustments to pages (text size, positioning, etc.)
 //		TODO update the section colors while making new sections
-		pageManager = new PageManager(null, new int[] {0, 4, 6}, sectionNames, sectionColors);
+		pageManager = new PageManager(null, titlePages, sectionNames, sectionColors);
 	}
 	
 	
@@ -98,9 +105,10 @@ public class DrawingSurface extends PApplet
 	public void draw()
 	{
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
-//		background(sectionColors[page.getSection()].getRGB());
 		
-//		page.displayPage(this, displayText);
+//		pageManager.draw(this);
+		
+//		background(sectionColors[page.getSection()].getRGB());
 		
 //		if (!page.onTitlePage()) {
 //			push();
