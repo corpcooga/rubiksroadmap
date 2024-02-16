@@ -41,12 +41,10 @@ public class Image extends GraphicalElement
 	
 //	Methods
 	
-//	TODO add way to deal with this.image being null
 	public void draw(PApplet p)
 	{
-//		if (image == null)
-//			image = p.loadImage(imagePath);
-		p.image(image, getX(), getY(), getWidth(), getHeight());
+		if (image != null)
+			p.image(image, getX(), getY(), getWidth(), getHeight());
 	}
 	
 }

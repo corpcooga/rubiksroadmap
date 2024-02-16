@@ -145,31 +145,31 @@ public class X
 		p.pop();
 	}
 	
-	public int getPage()
-	{
-		return pageNum;
-	}
-	
-	public void changePage(int amount)
-	{
-		pageNum += amount;
-	}
-	
-	public boolean onTitlePage()
-	{
-		for (int x : titlePages)
-			if (pageNum == x)
-				return true;
-		return false;
-	}
-	
-	public int getSection()
-	{
-		int section = -1;
-		for (int x : titlePages)
-			if (x <= pageNum)
-				section += 1;
-		return section;
-	}
+//	public int getPage()
+//	{
+//		return pageNum;
+//	}
+//	
+//	public void changePage(int amount)
+//	{
+//		pageNum += amount;
+//	}
+//	
+//	public boolean onTitlePage()
+//	{
+//		for (int x : titlePages)
+//			if (pageNum == x)
+//				return true;
+//		return false;
+//	}
+//	
+//	public int getSection()
+//	{
+//		int section = -1;
+//		for (int x : titlePages)
+//			if (x <= pageNum)
+//				section += 1;
+//		return section;
+//	}
 	
 }
