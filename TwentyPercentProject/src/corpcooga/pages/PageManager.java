@@ -7,9 +7,9 @@ public class PageManager
 {
 //	Fields
 	
-	private Color[] sectionColors;
 	private Page[] pages;
 	private String[] sectionNames;
+	private Color[] sectionColors;
 	private int[] titlePages;
 	
 	private int pageNum;
