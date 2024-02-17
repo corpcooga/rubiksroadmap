@@ -47,13 +47,6 @@ public class Button extends GraphicalElement
 	
 //	Methods
 	
-	public boolean pointOver(double x, double y)
-	{
-		if (x >= getX() && x <= getX() + getWidth() && y >= getY() && y <= getY() + getHeight())
-			return true;
-		return false;
-	}
-	
 	public void draw(PApplet p)
 	{
 		p.push();
@@ -77,6 +70,13 @@ public class Button extends GraphicalElement
 		p.text(text, getX() + getWidth() / 2, getY() + getHeight() / 2);
 		
 		p.pop();
+	}
+	
+	public boolean pointOver(double x, double y)
+	{
+		if (x >= getX() && x <= getX() + getWidth() && y >= getY() && y <= getY() + getHeight())
+			return true;
+		return false;
 	}
 	
 	public String toString()

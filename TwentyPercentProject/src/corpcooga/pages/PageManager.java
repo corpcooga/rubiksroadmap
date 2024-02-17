@@ -1,6 +1,8 @@
 package corpcooga.pages;
 
 import java.awt.Color;
+
+import corpcooga.canvas.DrawingSurface;
 import processing.core.PApplet;
 
 public class PageManager 
@@ -31,16 +33,35 @@ public class PageManager
 	
 	public void draw(PApplet p)
 	{
+		p.push();
+		
 		p.background(sectionColors[getSection()].getRGB());
 		
+//		page number display
 		if (!onTitlePage()) {
-			p.push();
 			p.textSize(18);
 			p.text(""+pageNum, 10, 30);
-			p.pop();
 		}
 		
-		pages[pageNum].draw(p);
+//		p.imageMode(PApplet.CENTER);
+		p.textAlign(PApplet.CENTER);
+		p.fill(240);
+		
+		int y = 75;
+		p.textSize(50);
+		if (onTitlePage()) {
+			p.textSize(100);
+			y = 130;
+		}
+		
+		if (pageNum == 0)
+			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
+		else
+			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
+		
+//		pages[pageNum].draw(p);
+		
+		p.pop();
 	}
 	
 	public int getPage()

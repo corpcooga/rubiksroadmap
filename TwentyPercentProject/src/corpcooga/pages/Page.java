@@ -20,6 +20,11 @@ public class Page
 		this.images = images;
 	}
 	
+	public Page()
+	{
+		this(null, null);
+	}
+	
 	
 //	Methods
 	
@@ -31,6 +36,16 @@ public class Page
 		for (Image i : images)
 			if (i != null)
 				i.draw(p);
+	}
+	
+	public void setTexts(Text[] newText)
+	{
+		texts = newText;
+	}
+	
+	public void setImages(Image[] newImages)
+	{
+		images = newImages;
 	}
 	
 }

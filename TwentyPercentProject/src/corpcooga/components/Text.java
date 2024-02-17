@@ -17,10 +17,14 @@ public class Text extends GraphicalElement
 		this.text = text;
 	}
 	
+	public Text(String text)
+	{
+		this.text = text;
+	}
+	
 	public Text()
 	{
-		super();
-		this.text = "";
+		text = "";
 	}
 	
 	

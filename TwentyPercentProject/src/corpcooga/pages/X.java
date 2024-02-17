@@ -36,23 +36,23 @@ public class X
 		p.imageMode(PApplet.CENTER);
 		p.fill(240);
 		
-		int y = 75;
-		p.textSize(50);
-		if (onTitlePage()) {
-			p.textSize(100);
-			y = 130;
-		}
-		
-		if (pageNum > 0) {
-			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
-			p.textAlign(PApplet.LEFT);
-			p.textSize(22);
-		}
+//		int y = 75;
+//		p.textSize(50);
+//		if (onTitlePage()) {
+//			p.textSize(100);
+//			y = 130;
+//		}
+//		
+//		if (pageNum > 0) {
+//			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
+//			p.textAlign(PApplet.LEFT);
+//			p.textSize(22);
+//		}
 		
 		switch(pageNum)
 		{
 		case 0:
-			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
+//			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
 			p.image(p.loadImage("resources/img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			

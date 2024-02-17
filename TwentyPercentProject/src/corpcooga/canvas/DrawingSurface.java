@@ -1,8 +1,7 @@
 package corpcooga.canvas;
 
-import corpcooga.components.Button;
-import corpcooga.pages.Page;
-import corpcooga.pages.PageManager;
+import corpcooga.components.*;
+import corpcooga.pages.*;
 
 import java.awt.Color;
 import java.io.File;
@@ -40,6 +39,7 @@ public class DrawingSurface extends PApplet
 		
 		int idx;
 		
+//		title pages
 		idx = 0;
 		int[] titlePages = new int[sectionsNode.get("Title Pages").size()];
 		for (JsonNode titlePage : sectionsNode.get("Title Pages")) {
@@ -47,6 +47,7 @@ public class DrawingSurface extends PApplet
 			idx++;
 		}
 		
+//		section names
 		idx = 0;
 		String[] sectionNames = new String[sectionsNode.get("Section Names").size()];
 		for (JsonNode sectionName : sectionsNode.get("Section Names")) {
@@ -54,6 +55,7 @@ public class DrawingSurface extends PApplet
 			idx++;
 		}
 		
+//		section colors
 		idx = 0;
 		Color[] sectionColors = new Color[sectionsNode.get("Section Colors").size()];
 		for (JsonNode sectionColor : sectionsNode.get("Section Colors")) {
@@ -67,23 +69,35 @@ public class DrawingSurface extends PApplet
 			idx++;
 		}
 		
-//		TODO change pages length
-//		Page[] pages = new Page[10];
-//		
-//		for (JsonNode sectionName : sectionsNode.get("Section Names")) {
-//			idx = 0;
-//			String[] add = new String[textNode.get(sectionName).size()];
-//			for (JsonNode n : textNode.get(sectionName)) {
-//				add[idx] = n.asText();
-//				idx++;
-//			}
-////			displayText.add(add);
-//		}
+//		pages
+//		TODO change pages length or use ArrayList
+		Page[] pages = new Page[20];
+		for (int x = 0; x < pages.length; x++)
+			pages[x] = new Page();
 		
-//		TODO add pages
+		idx = 0;
+//		loop through each section
+		for (String sectionName : sectionNames)
+			for (JsonNode sectionTextNode: textNode.get(sectionName))
+				
+//				loop through pages in each section
+				for (JsonNode pageTextNode : sectionTextNode) {
+					Text[] text = new Text[pageTextNode.size()];
+					int i = 0;
+					
+//					loop through text in each page
+					for (JsonNode textNode : pageTextNode) {
+						text[i] = new Text(textNode.asText());
+						i++;
+					}
+					
+					pages[idx].setTexts(text);
+					idx++;
+				}
+		
 //		TODO find a way to make specific adjustments to pages (text size, positioning, etc.)
 //		TODO update the section colors while making new sections
-		pageManager = new PageManager(null, titlePages, sectionNames, sectionColors);
+		pageManager = new PageManager(pages, titlePages, sectionNames, sectionColors);
 	}
 	
 	
@@ -106,16 +120,7 @@ public class DrawingSurface extends PApplet
 	{
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
 		
-//		pageManager.draw(this);
-		
-//		background(sectionColors[page.getSection()].getRGB());
-		
-//		if (!page.onTitlePage()) {
-//			push();
-//			textSize(18);
-//			text(""+page.getPage(), 10, 30);
-//			pop();
-//		}
+		pageManager.draw(this);
 		
 		if (pageManager.onTitlePage())
 			goButton.draw(this);

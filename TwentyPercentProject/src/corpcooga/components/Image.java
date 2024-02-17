@@ -8,7 +8,6 @@ public class Image extends GraphicalElement
 //	Fields
 	
 	private PImage image;
-//	private String imagePath;
 	
 	
 //	Constructors
@@ -23,19 +22,17 @@ public class Image extends GraphicalElement
 	{
 		super(x, y, width, height);
 		image = loadImage(imagePath);
-//		this.imagePath = imagePath;
-//		this.image = null;
 	}
 	
 	public Image(float x, float y, float width, float height)
 	{
 		super(x, y, width, height);
-		this.image = null;
+		image = null;
 	}
 	
 	public Image()
 	{
-		this.image = null;
+		image = null;
 	}
 	
 	
