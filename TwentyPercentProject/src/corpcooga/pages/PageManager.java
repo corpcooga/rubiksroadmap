@@ -40,12 +40,10 @@ public class PageManager
 //		page number display
 		if (!onTitlePage()) {
 			p.textSize(18);
-			p.text(""+pageNum, 10, 30);
+			p.text(""+pageNum, 10, 27);
 		}
 		
-//		p.imageMode(PApplet.CENTER);
 		p.textAlign(PApplet.CENTER);
-		p.fill(240);
 		
 		int y = 75;
 		p.textSize(50);

@@ -75,6 +75,8 @@ public class DrawingSurface extends PApplet
 		for (int x = 0; x < pages.length; x++)
 			pages[x] = new Page();
 		
+//		TODO find out if dimensions that refer to DRAWING_WIDTH and DRAWING_HEIGHT work in json
+//		TODO make each piece of text in textinfo.json have coordinates, dimensions, size, and alignment
 		idx = 0;
 //		loop through each section
 		for (String sectionName : sectionNames)
@@ -95,8 +97,6 @@ public class DrawingSurface extends PApplet
 					idx++;
 				}
 		
-//		TODO find a way to make specific adjustments to pages (text size, positioning, etc.)
-//		TODO update the section colors while making new sections
 		pageManager = new PageManager(pages, titlePages, sectionNames, sectionColors);
 	}
 	

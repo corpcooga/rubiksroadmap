@@ -49,6 +49,7 @@ public class X
 //			p.textSize(22);
 //		}
 		
+//		TODO transfer labels and small text boxes to textinfo.json
 		switch(pageNum)
 		{
 		case 0:
