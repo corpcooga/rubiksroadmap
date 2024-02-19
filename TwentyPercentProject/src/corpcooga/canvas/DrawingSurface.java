@@ -3,13 +3,7 @@ package corpcooga.canvas;
 import corpcooga.components.*;
 import corpcooga.pages.*;
 
-import java.awt.Color;
-import java.io.File;
-import java.io.IOException;
-
 import processing.core.PApplet;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DrawingSurface extends PApplet
 {
@@ -19,7 +13,6 @@ public class DrawingSurface extends PApplet
 	
 	private PageManager pageManager;
 	private Button goButton, backButton, nextButton;
-	private JsonNode textNode, sectionsNode;
 	
 	private double uMouseX, uMouseY;
 	
@@ -28,76 +21,14 @@ public class DrawingSurface extends PApplet
 	
 	public DrawingSurface()
 	{
-//		JSON file text reading system
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			textNode = mapper.readTree(new File("resources/data/textinfo.json"));
-			sectionsNode = mapper.readTree(new File("resources/data/sectioninfo.json"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		TextInfoManager infoManager = new TextInfoManager();
 		
-		int idx;
+		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages(), 
+							infoManager.readSectionNames(), infoManager.readSectionColors());
 		
-//		title pages
-		idx = 0;
-		int[] titlePages = new int[sectionsNode.get("Title Pages").size()];
-		for (JsonNode titlePage : sectionsNode.get("Title Pages")) {
-			titlePages[idx] = titlePage.asInt();
-			idx++;
-		}
-		
-//		section names
-		idx = 0;
-		String[] sectionNames = new String[sectionsNode.get("Section Names").size()];
-		for (JsonNode sectionName : sectionsNode.get("Section Names")) {
-			sectionNames[idx] = sectionName.asText();
-			idx++;
-		}
-		
-//		section colors
-		idx = 0;
-		Color[] sectionColors = new Color[sectionsNode.get("Section Colors").size()];
-		for (JsonNode sectionColor : sectionsNode.get("Section Colors")) {
-			int[] rgb = new int[3];
-			int i = 0;
-			for (JsonNode x : sectionColor) {
-				rgb[i] = x.asInt();
-				i++;
-			}
-			sectionColors[idx] = new Color(rgb[0], rgb[1], rgb[2]);
-			idx++;
-		}
-		
-//		pages
-//		TODO change pages length or use ArrayList
-		Page[] pages = new Page[20];
-		for (int x = 0; x < pages.length; x++)
-			pages[x] = new Page();
-		
-//		TODO find out if dimensions that refer to DRAWING_WIDTH and DRAWING_HEIGHT work in json
-//		TODO make each piece of text in textinfo.json have coordinates, dimensions, size, and alignment
-		idx = 0;
-//		loop through each section
-		for (String sectionName : sectionNames)
-			for (JsonNode sectionTextNode: textNode.get(sectionName))
-				
-//				loop through pages in each section
-				for (JsonNode pageTextNode : sectionTextNode) {
-					Text[] text = new Text[pageTextNode.size()];
-					int i = 0;
-					
-//					loop through text in each page
-					for (JsonNode textNode : pageTextNode) {
-						text[i] = new Text(textNode.asText());
-						i++;
-					}
-					
-					pages[idx].setTexts(text);
-					idx++;
-				}
-		
-		pageManager = new PageManager(pages, titlePages, sectionNames, sectionColors);
+		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
+		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
+		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
 	}
 	
 	
@@ -106,13 +37,13 @@ public class DrawingSurface extends PApplet
 	public void settings()
 	{
 		setSize(DRAWING_WIDTH, DRAWING_HEIGHT);
+//		TODO find a way to use these methods
+//		fullScreen();
+//		smooth(8);
 	}
 	
 	public void setup()
 	{
-		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
-		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
-		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
 		textFont(createFont("resources/fonts/avenir.ttf", 69));
 	}
 	

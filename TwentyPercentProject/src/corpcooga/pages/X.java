@@ -14,7 +14,7 @@ public class X
 //									"The Corner Fix", "The Solve", "Conclusion"};
 //	private int[] titlePages = {0, 4, 6};
 //			
-//	private int pageNum;
+	private int pageNum;
 	
 	
 //	Constructors

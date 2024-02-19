@@ -57,7 +57,7 @@ public class PageManager
 		else
 			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
 		
-//		pages[pageNum].draw(p);
+		pages[pageNum].draw(p);
 		
 		p.pop();
 	}
