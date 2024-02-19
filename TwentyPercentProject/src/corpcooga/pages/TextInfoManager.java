@@ -92,6 +92,7 @@ public class TextInfoManager
 		return sectionColors;
 	}
 	
+//	TODO skip title pages, manage them in some other method
 	public Page[] readPages()
 	{
 //		TODO change pages length or use ArrayList
@@ -104,40 +105,34 @@ public class TextInfoManager
 		
 //		loop through each section
 		for (String sectionName : readSectionNames())
-			for (JsonNode sectionTextNode: textNode.get(sectionName))
+//			loop through pages in each section
+			for (JsonNode pageTextNode : textNode.get(sectionName)) {
+				Text[] text = new Text[pageTextNode.size()];
+				int i = 0;
 				
-//				loop through pages in each section
-				for (JsonNode pageTextNode : sectionTextNode) {
-					Text[] text = new Text[pageTextNode.size()];
-					int i = 0;
-					
-//					loop through text in each page
-					for (JsonNode textNode : pageTextNode) {
-						int[] settings;
-//						text in the text object
-						String textText;
-//						check if text has default or specific settings
-						if (textNode.isTextual()) {
-							textText = textNode.asText();
-							settings = readSettings(this.textNode.get("defaultSettings"));
-						} else {
-							textText = textNode.get(0).asText();
-//							TODO make way to specify only 4 settings values
-							settings = new int[textNode.get(1).size()];
-							int j = 0;
-							for (JsonNode setting : textNode.get(1)) {
-								settings[j] = setting.asInt();
-								j++;
-							}
-						}
-						text[i] = new Text(textText, settings[0], settings[1], settings[2], 
-											settings[3], settings[4], settings[5]);
-						i++;
+//				loop through text in each page
+				for (JsonNode textNode : pageTextNode) {
+					int[] settings;
+//					text in the text object
+					String textText;
+//					check if text has default or specific settings
+					if (textNode.isTextual()) {
+						textText = textNode.asText();
+						settings = readSettings(this.textNode.get("defaultSettings"));
+					} else {
+						textText = textNode.get(0).asText();
+//						TODO make way to specify only 4 settings values
+						settings = readSettings(textNode.get(1));
 					}
+					text[i] = new Text(textText, settings[0], settings[1], settings[2], 
+										settings[3], settings[4], settings[5]);
+					i++;
 					
-					pages[idx].setTexts(text);
-					idx++;
 				}
+				
+				pages[idx].setTexts(text);
+				idx++;
+			}
 		
 		return pages;
 	}
