@@ -3,7 +3,12 @@
 		[
 			[
 				"The Rubik's Cube is very misunderstood. Most people say things like, \"I just peel the stickers off,\" \"I can solve 5 sides,\" and \"Wow, you must be really smart if you can solve the Rubix (incorrect spelling) Cube!\" These Rubik's Cube) say to sound smart.\n\nYou're probably wondering why this matters. It doesn't. Just don't go around doing these things if you don't know what you're talking about.\n\nAnyway, what is the Rubik's Cube? It's a simple puzzle and configured in many different ways. When it is put into a \"scrambled\" state, it can be extremely difficult, nearly impossible, to solve without any guidance. Luckily, many methods have been created to make this process easier, and now pretty much anyone can solve it, including you!\n\nI'll be going over a method for beginners that is easy to understand, so if you're scared or think you're not capable or \"not smart enough\", don't worry! I even taught my dog how to do it*!\n\nIf you're excited to solve your first Rubik's Cube, that's great! But before we get into how to solve it, you'll have to know a few important things.",
-				"*I don't have a dog, nor did I teach him how to solve the Rubik's Cube"
+				[
+					"*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 
+					[
+						100, 120, "drawingWidth -200", "drawingHeight -100", 15, "leftAlign"
+					]
+				]
 			],
 			[
 				"First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to solve the cube by getting one side at a time makes it much more difficult. This is what a solved side versus a solved layer looks like:",
@@ -44,5 +49,9 @@
 		],
 	"Conclusion":
 		[
+		],
+	"defaultSettings":
+		[
+			100, 120, "drawingWidth -200", "drawingHeight -100", 22, "leftAlign"
 		]
 }

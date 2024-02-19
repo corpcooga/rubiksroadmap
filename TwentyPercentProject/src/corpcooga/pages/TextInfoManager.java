@@ -17,7 +17,7 @@ public class TextInfoManager
 {
 //	Fields
 	
-	public static final Map<String, Integer> infoMap = new HashMap<String, Integer>() 
+	public static final Map<String, Integer> settingsMap = new HashMap<String, Integer>() 
 	{{
 		put("drawingWidth", DrawingSurface.DRAWING_WIDTH);
 		put("drawingHeight", DrawingSurface.DRAWING_HEIGHT);
@@ -92,7 +92,6 @@ public class TextInfoManager
 		return sectionColors;
 	}
 	
-//	TODO use a helper method when reading the text coordinates, dimensions, size, and alignment
 	public Page[] readPages()
 	{
 //		TODO change pages length or use ArrayList
@@ -123,6 +122,32 @@ public class TextInfoManager
 				}
 		
 		return pages;
+	}
+	
+//	TODO code for when to use the default rather than specific settings
+	private int[] readSettings(JsonNode settingsNode)
+	{
+		int[] settings = new int[settingsNode.size()];
+		int idx = 0;
+		
+//		loop through each setting
+		for (JsonNode setting : settingsNode)
+		{
+//			get the setting as a split up string
+			String[] strSplit = setting.asText().split(" ");
+//			first value in the string
+			Object var = settingsMap.get(strSplit[0]);
+//			second value in the string--coordinate shift of var
+			int val = strSplit.length > 1 ? Integer.parseInt(strSplit[1]) : 0;
+			
+			if (var != null)
+				settings[idx] = (int)var + val;
+			else
+				settings[idx] = setting.asInt();
+			idx++;
+		}
+		
+		return settings;	
 	}
 	
 }
