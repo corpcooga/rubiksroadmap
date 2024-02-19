@@ -121,11 +121,15 @@ public class TextInfoManager
 						settings = readSettings(this.textNode.get("defaultSettings"));
 					} else {
 						textText = textNode.get(0).asText();
-//						TODO make way to specify only 4 settings values
 						settings = readSettings(textNode.get(1));
 					}
-					text[i] = new Text(textText, settings[0], settings[1], settings[2], 
-										settings[3], settings[4], settings[5]);
+					if (settings.length == 6) {
+						text[i] = new Text(textText, settings[0], settings[1], settings[2], 
+											settings[3], settings[4], settings[5]);
+					} else {
+						text[i] = new Text(textText, settings[0], settings[1], 
+								Integer.MAX_VALUE, Integer.MAX_VALUE, settings[2], settings[3]);
+					}
 					i++;
 					
 				}
