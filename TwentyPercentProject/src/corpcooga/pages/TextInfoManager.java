@@ -92,7 +92,6 @@ public class TextInfoManager
 		return sectionColors;
 	}
 	
-//	TODO skip title pages, manage them in some other method
 	public Page[] readPages()
 	{
 //		TODO change pages length or use ArrayList
@@ -131,9 +130,10 @@ public class TextInfoManager
 								Integer.MAX_VALUE, Integer.MAX_VALUE, settings[2], settings[3]);
 					}
 					i++;
-					
 				}
-				
+				for (int x : readTitlePages())
+					if (idx == x)
+						idx++;
 				pages[idx].setTexts(text);
 				idx++;
 			}
