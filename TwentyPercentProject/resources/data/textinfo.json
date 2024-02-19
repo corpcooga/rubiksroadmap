@@ -6,7 +6,7 @@
 				[
 					"*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 
 					[
-						100, 120, "drawingWidth -200", "drawingHeight -100", 15, "leftAlign"
+						100, 670, "drawingWidth -200", "drawingHeight -100", 15, "leftAlign"
 					]
 				]
 			],

@@ -30,12 +30,14 @@ public class Page
 	
 	public void draw(PApplet p)
 	{
-		for (Text t : texts)
-			if (t != null)
-				t.draw(p);
-		for (Image i : images)
-			if (i != null)
-				i.draw(p);
+		if (texts != null)
+			for (Text t : texts)
+				if (t != null)
+					t.draw(p);
+		if (images != null)
+			for (Image i : images)
+				if (i != null)
+					i.draw(p);
 	}
 	
 	public void setTexts(Text[] newText)

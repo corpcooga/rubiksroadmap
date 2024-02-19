@@ -113,7 +113,25 @@ public class TextInfoManager
 					
 //					loop through text in each page
 					for (JsonNode textNode : pageTextNode) {
-						text[i] = new Text(textNode.asText());
+						int[] settings;
+//						text in the text object
+						String textText;
+//						check if text has default or specific settings
+						if (textNode.isTextual()) {
+							textText = textNode.asText();
+							settings = readSettings(this.textNode.get("defaultSettings"));
+						} else {
+							textText = textNode.get(0).asText();
+//							TODO make way to specify only 4 settings values
+							settings = new int[textNode.get(1).size()];
+							int j = 0;
+							for (JsonNode setting : textNode.get(1)) {
+								settings[j] = setting.asInt();
+								j++;
+							}
+						}
+						text[i] = new Text(textText, settings[0], settings[1], settings[2], 
+											settings[3], settings[4], settings[5]);
 						i++;
 					}
 					
@@ -124,9 +142,11 @@ public class TextInfoManager
 		return pages;
 	}
 	
-//	TODO code for when to use the default rather than specific settings
 	private int[] readSettings(JsonNode settingsNode)
 	{
+		if (settingsNode == null)
+			throw new IllegalArgumentException("JsonNode cannot be null");
+		
 		int[] settings = new int[settingsNode.size()];
 		int idx = 0;
 		
@@ -135,9 +155,9 @@ public class TextInfoManager
 		{
 //			get the setting as a split up string
 			String[] strSplit = setting.asText().split(" ");
-//			first value in the string
+//			either int value or variable value
 			Object var = settingsMap.get(strSplit[0]);
-//			second value in the string--coordinate shift of var
+//			coordinate shift of var
 			int val = strSplit.length > 1 ? Integer.parseInt(strSplit[1]) : 0;
 			
 			if (var != null)
