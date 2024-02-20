@@ -19,8 +19,10 @@ public class TextInfoManager
 	
 	public static final Map<String, Integer> settingsMap = new HashMap<String, Integer>() 
 	{{
-		put("drawingWidth", DrawingSurface.DRAWING_WIDTH);
-		put("drawingHeight", DrawingSurface.DRAWING_HEIGHT);
+		put("width", DrawingSurface.DRAWING_WIDTH);
+		put("height", DrawingSurface.DRAWING_HEIGHT);
+		put("halfWidth", DrawingSurface.DRAWING_WIDTH / 2);
+		put("halfHeight", DrawingSurface.DRAWING_HEIGHT / 2);
 		put("leftAlign", PApplet.LEFT);
 		put("centerAlign", PApplet.CENTER);
 	}};
@@ -95,8 +97,6 @@ public class TextInfoManager
 		for (int x = 0; x < pages.length; x++)
 			pages[x] = new Page();
 		int idx = 0;
-		
-//		TODO add coordinates, dimensions, size, and alignment in textinfo.json
 		
 //		loop through each section
 		for (String sectionName : readSectionNames())

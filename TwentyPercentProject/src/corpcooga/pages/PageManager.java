@@ -43,15 +43,14 @@ public class PageManager
 			p.text(""+pageNum, 10, 27);
 		}
 		
+//		title display
 		p.textAlign(PApplet.CENTER);
-		
 		int y = 75;
 		p.textSize(50);
 		if (onTitlePage()) {
-			p.textSize(100);
 			y = 130;
+			p.textSize(100);
 		}
-		
 		if (pageNum == 0)
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
 		else

@@ -13,14 +13,80 @@
 			[
 				"First, the Rubik's Cube is solved in layers, not sides. Surprisingly, trying to solve the cube by getting one side at a time makes it much more difficult. This is what a solved side versus a solved layer looks like:",
 				[
+					"Side",
+					[
+						"halfWidth -200", 220, 36, "centerAlign" 
+					]
+				],
+				[
+					"Layer",
+					[
+						"halfWidth +200", 220, 36, "centerAlign" 
+					]
+				],
+				[
 					"In the solved side, the entire face is yellow, but the parts along its edge don't match up. In the solved layer, the difference is that the colors along the edge do line up.\n\nThat may have been a bit confusing, but don't worry! This idea of solving in layers is built into this tutorial, so it will happen naturally. Also, here's some quick nomenclature that I'll be using to identify certain pieces:",
 					[
 						null, 430, null, null, null, null
+					]
+				],
+				[
+					"Center Pieces",
+					[
+						"halfWidth -300", 620, 30, "centerAlign" 
+					]
+				],
+				[
+					"Edge Pieces",
+					[
+						"halfWidth", 620, 30, "centerAlign" 
+					]
+				],
+				[
+					"Corner Pieces",
+					[
+						"halfWidth +300", 620, 30, "centerAlign" 
 					]
 				]
 			],
 			[
 				"Lastly, you need to learn about turning notation. Each of the six sides has a letter representing it, and indicates a turn to that side. It should be turned clockwise from the perspective of that side. Note that while doing the following turns, the leftmost of the three sides shown should point towards you.",
+				[
+					"F",
+					[
+						"halfWidth -500", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"B",
+					[
+						"halfWidth -300", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"U",
+					[
+						"halfWidth -100", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"D",
+					[
+						"halfWidth +100", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"L",
+					[
+						"halfWidth +300", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"R",
+					[
+						"halfWidth +500", 355, 36, "centerAlign" 
+					]
+				],
 				[
 					"These letters represent the sides: Front, Back, Up, Down, Left, Right. These can be reversed by an apostrophe (known as a \"prime\" symbol) following it, which makes it turn counter-clockwise. The number 2 following it means to turn the side twice.\n\nFor example, B' means to turn the back side (second image) counter-clockwise. 2R means to turn the right side (last image) twice.\n\nAnd that's all you really need to know about for now. So buckle up and get your cube out, because this is going to be a fun, easy, and relaxing experience. Also, did I forget to mention that there are more than 43 quintillion possible configurations of the Rubik's Cube? OOPS...",
 					[
@@ -32,17 +98,42 @@
 	"The Cross":
 		[
 			[
-				"The first step to solving the Rubik's Cube is by making a white cross-shaped pattern.\n\nThe pattern, as shown in the photo, is made up of a white center piece, and four white edge pieces (edge pieces with the white and another color). But one very important thing to notice is that the other color on the white edge pieces line up with the center pieces on the other sides. ",
-				"To accomplish this, you will mostly have to use your intuition. Luckily, I can give you a bit of help to make this easier. Instead of putting the white edge pieces directly into position, you can line them up around the yellow center piece, opposite of the white one. This pattern is known as the \"daisy\", shown on the left.\n\nAs you can see, the white edge pieces don't have to be lined up with the adjacent center pieces. This pattern is a bit easier to make without that restriction.",
-				"Once you get the white edge pieces lined up, all you have to do is rotate them into place. To do this, turn the daisy around until one of its white edge pieces' colored part lines up with the color of the adjacent center piece. Then, turn that side twice! Repeat this for all other three edge pieces.\n\nIf you've done everything right, you should have completed The Cross!"
+				[
+					"The first step to solving the Rubik's Cube is by making a white cross-shaped pattern.\n\nThe pattern, as shown in the photo, is made up of a white center piece, and four white edge pieces (edge pieces with the white and another color). But one very important thing to notice is that the other color on the white edge pieces line up with the center pieces on the other sides. ",
+					[
+						null, null, "width -400", null, null, null
+					]
+				],
+				[
+					"To accomplish this, you will mostly have to use your intuition. Luckily, I can give you a bit of help to make this easier. Instead of putting the white edge pieces directly into position, you can line them up around the yellow center piece, opposite of the white one. This pattern is known as the \"daisy\", shown on the left.\n\nAs you can see, the white edge pieces don't have to be lined up with the adjacent center pieces. This pattern is a bit easier to make without that restriction.",
+					[
+						300, 316, "width -400", null, null, null
+					]
+				],
+				[
+					"Once you get the white edge pieces lined up, all you have to do is rotate them into place. To do this, turn the daisy around until one of its white edge pieces' colored part lines up with the color of the adjacent center piece. Then, turn that side twice! Repeat this for all other three edge pieces.\n\nIf you've done everything right, you should have completed The Cross!",
+					[
+						null, 540, null, null, null, null
+					]
+				]
 			]
 		],
 	"The First Layer":
 		[
 			[
 				"The next step is filling out a layer. To do this, we just need to insert white corner pieces between parts of The Cross. First, make sure you're holding the cube so that The Cross is pointing down. This might be a bit confusing at first, but it will make things easier.",
-				"Then, find a white corner piece. It should have white and two other colors on it, like the one shown in the photo (it doesn't have to be blue and orange). If the piece you found is already lined up next to the yellow center piece, you don't need to worry about this next part. Otherwise, make sure to follow along.",
-				"The corner piece should be in in the position as shown on the left. Make sure you hold your cube as shown on the right, so that the corner piece is on the bottom right, and execute the following algorigthm: [R U R' U']. This algorithm orients the corner piece next to the yellow center piece. Get used to doing this algorithm, as it comes up a lot."
+				[
+					"Then, find a white corner piece. It should have white and two other colors on it, like the one shown in the photo (it doesn't have to be blue and orange). If the piece you found is already lined up next to the yellow center piece, you don't need to worry about this next part. Otherwise, make sure to follow along.",
+					[
+						null, 230, "width -350", null, null, null
+					]
+				],
+				[
+					"The corner piece should be in in the position as shown on the left. Make sure you hold your cube as shown on the right, so that the corner piece is on the bottom right, and execute the following algorigthm: [R U R' U']. This algorithm orients the corner piece next to the yellow center piece. Get used to doing this algorithm, as it comes up a lot.",
+					[
+						250, 380, "width -500", null, null, null
+					]
+				]
 			]
 		],
 	"The Second Layer":
@@ -62,6 +153,6 @@
 		],
 	"defaultSettings":
 		[
-			100, 120, "drawingWidth -200", "drawingHeight -100", 22, "leftAlign"
+			100, 120, "width -200", "height -100", 22, "leftAlign"
 		]
 }
