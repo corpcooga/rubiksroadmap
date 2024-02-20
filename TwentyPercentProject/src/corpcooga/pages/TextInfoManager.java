@@ -13,6 +13,7 @@ import processing.core.PApplet;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+// TODO try using get() more instead of looping through information
 public class TextInfoManager 
 {
 //	Fields
@@ -116,24 +117,31 @@ public class TextInfoManager
 					String textText;
 //					check if text has default or specific settings
 					if (textNode.isTextual()) {
+//						default settings
 						textText = textNode.asText();
 						settings = readSettings(this.textNode.get("defaultSettings"));
 					} else {
+//						specific settings
 						textText = textNode.get(0).asText();
 						settings = readSettings(textNode.get(1));
 					}
 					if (settings.length == 6) {
+//					6 settings are specified
 						text[i] = new Text(textText, settings[0], settings[1], settings[2], 
 											settings[3], settings[4], settings[5]);
 					} else {
+//					4 settings are specified
 						text[i] = new Text(textText, settings[0], settings[1], 
 								Integer.MAX_VALUE, Integer.MAX_VALUE, settings[2], settings[3]);
 					}
 					i++;
 				}
+//				skip through title pages
 				for (int x : readTitlePages())
 					if (idx == x)
 						idx++;
+				
+//				set all text on page at idx
 				pages[idx].setTexts(text);
 				idx++;
 			}
@@ -152,6 +160,21 @@ public class TextInfoManager
 //		loop through each setting
 		for (JsonNode setting : settingsNode)
 		{
+//			if setting is listed as null, use the default setting
+			if (setting.isNull()) {
+				if (settings.length == 6)
+//					6 settings are specified
+					settings[idx] = textNode.get("defaultSettings").get(idx).asInt();
+				else {
+//					4 settings are specified
+					int defaultIdx = idx;
+					if (defaultIdx == 2 || defaultIdx == 3)
+						defaultIdx += 2;
+					settings[idx] = textNode.get("defaultSettings").get(defaultIdx).asInt(); 
+				}
+				idx++;
+				continue;
+			}
 //			get the setting as a split up string
 			String[] strSplit = setting.asText().split(" ");
 //			either int value or variable value
@@ -160,8 +183,10 @@ public class TextInfoManager
 			int val = strSplit.length > 1 ? Integer.parseInt(strSplit[1]) : 0;
 			
 			if (var != null)
+//				value retrieved is a variable
 				settings[idx] = (int)var + val;
 			else
+//				value retrieved is an int
 				settings[idx] = setting.asInt();
 			idx++;
 		}

@@ -58,13 +58,13 @@ public class X
 			break;
 			
 		case 1:
-			p.text(text.get(0)[0], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
-			p.textSize(15);
-			p.text(text.get(0)[1], 100, 670);
+//			p.text(text.get(0)[0], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			p.textSize(15);
+//			p.text(text.get(0)[1], 100, 670);
 			break;
 			
 		case 2:
-			p.text(text.get(0)[2], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			p.text(text.get(0)[2], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.push();
 			p.textAlign(PApplet.CENTER);
@@ -75,7 +75,7 @@ public class X
 			p.image(p.loadImage("resources/img/solved_layer.png"), DrawingSurface.DRAWING_WIDTH / 2 + 200, 320, 180, 180);
 			p.pop();
 			
-			p.text(text.get(0)[3], 100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			p.text(text.get(0)[3], 100, 430, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.push();
 			p.textAlign(PApplet.CENTER);
