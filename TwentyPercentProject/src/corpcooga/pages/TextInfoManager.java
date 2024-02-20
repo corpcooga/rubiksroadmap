@@ -13,7 +13,6 @@ import processing.core.PApplet;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-// TODO try using get() more instead of looping through information
 public class TextInfoManager 
 {
 //	Fields
@@ -80,13 +79,9 @@ public class TextInfoManager
 		int idx = 0;
 		
 		for (JsonNode sectionColor : file) {
-			int[] rgb = new int[3];
-			int i = 0;
-			for (JsonNode color : sectionColor) {
-				rgb[i] = color.asInt();
-				i++;
-			}
-			sectionColors[idx] = new Color(rgb[0], rgb[1], rgb[2]);
+			sectionColors[idx] = new Color(sectionColor.get(0).asInt(), 
+											sectionColor.get(1).asInt(), 
+											sectionColor.get(2).asInt());
 			idx++;
 		}
 		
@@ -155,36 +150,43 @@ public class TextInfoManager
 		{
 //			if setting is listed as null, use the default setting
 			if (setting.isNull()) {
-				if (settings.length == 6)
+				if (settings.length == 6) {
 //					6 settings are specified
-					settings[idx] = textNode.get("defaultSettings").get(idx).asInt();
-				else {
+					settings[idx] = parseSettingVal(
+							textNode.get("defaultSettings")
+							.get(idx).asText());
+				} else {
 //					4 settings are specified
-					int defaultIdx = idx;
-					if (defaultIdx == 2 || defaultIdx == 3)
-						defaultIdx += 2;
-					settings[idx] = textNode.get("defaultSettings").get(defaultIdx).asInt(); 
+					int offset = idx == 2 || idx == 3 ? 2 : 0;
+					settings[idx] = parseSettingVal(
+							textNode.get("defaultSettings")
+							.get(idx + offset).asText());
 				}
 				idx++;
 				continue;
 			}
-//			get the setting as a split up string
-			String[] strSplit = setting.asText().split(" ");
-//			either int value or variable value
-			Object var = settingsMap.get(strSplit[0]);
-//			coordinate shift of var
-			int val = strSplit.length > 1 ? Integer.parseInt(strSplit[1]) : 0;
-			
-			if (var != null)
-//				value retrieved is a variable
-				settings[idx] = (int)var + val;
-			else
-//				value retrieved is an int
-				settings[idx] = setting.asInt();
+			settings[idx] = parseSettingVal(setting.asText());
 			idx++;
 		}
 		
 		return settings;	
+	}
+	
+	private int parseSettingVal(String mapVal)
+	{
+//		get the setting as a split up string
+		String[] strSplit = mapVal.split(" ");
+//		either int value or variable value
+		Integer var = settingsMap.get(strSplit[0]);
+//		coordinate shift of var
+		int val = strSplit.length > 1 ? Integer.parseInt(strSplit[1]) : 0;
+		
+		if (var != null)
+//			value retrieved is a variable
+			return var + val;
+		else
+//			value retrieved is an int
+			return Integer.parseInt(mapVal);
 	}
 	
 }

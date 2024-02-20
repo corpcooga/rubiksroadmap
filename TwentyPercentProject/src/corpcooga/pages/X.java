@@ -27,7 +27,6 @@ public class X
 	
 //	Methods
 	
-//	TODO add buttons that interact with certain elements
 	public void displayPage(PApplet p, ArrayList<String[]> text)
 	{
 		p.push();
@@ -91,7 +90,7 @@ public class X
 			break;
 			
 		case 3:
-			p.text(text.get(0)[4], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			p.text(text.get(0)[4], 100, 120, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			
 			p.push();
 			p.textAlign(PApplet.CENTER);
@@ -110,7 +109,7 @@ public class X
 			p.text("R", DrawingSurface.DRAWING_WIDTH / 2 + 500, 355);
 			p.pop();
 			
-			p.text(text.get(0)[5], 100, 390, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
+//			p.text(text.get(0)[5], 100, 390, DrawingSurface.DRAWING_WIDTH - 200, DrawingSurface.DRAWING_HEIGHT - 100);
 			break;
 			
 		case 4:

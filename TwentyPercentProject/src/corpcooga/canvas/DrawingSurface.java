@@ -9,6 +9,7 @@ public class DrawingSurface extends PApplet
 {
 //	Fields
 	
+//	TODO make these match up with computer screen dimensions
 	public static final int DRAWING_WIDTH = 1280, DRAWING_HEIGHT = 800;
 	
 	private PageManager pageManager;
@@ -26,8 +27,9 @@ public class DrawingSurface extends PApplet
 		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages(), 
 							infoManager.readSectionNames(), infoManager.readSectionColors());
 		
-//		TODO add a button manager
 //		TODO change button fill color
+//		TODO add a button manager
+//		TODO add more interactive buttons
 		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
 		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
 		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);

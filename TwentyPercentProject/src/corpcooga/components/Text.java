@@ -14,20 +14,22 @@ public class Text extends GraphicalElement
 	
 	public Text(String text, int[] settings)
 	{
-		super(settings[0], settings[1], settings[2], settings[3]);
+		super(settings[0], settings[1]);
 		
 		this.text = text;
 		
 		if (settings.length == 6) {
 //			6 specified settings
+			setWidth(settings[2]);
+			setHeight(settings[3]);
 			textSize = settings[4];
-			textAlign = (int)settings[5];
+			textAlign = settings[5];
 		} else {
 //			4 specified settings
 			setWidth(0);
 			setHeight(0);
 			textSize = settings[2];
-			textAlign = (int)settings[3];
+			textAlign = settings[3];
 		}
 	}
 	

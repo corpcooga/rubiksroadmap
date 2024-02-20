@@ -19,9 +19,14 @@ public abstract class GraphicalElement extends PApplet
 		this.height = height;
 	}
 	
+	public GraphicalElement(int x, int y)
+	{
+		this(x, y, 0, 0);
+	}
+	
 	public GraphicalElement()
 	{
-		this(0, 0, 0, 0);
+		this(0, 0);
 	}
 	
 	
