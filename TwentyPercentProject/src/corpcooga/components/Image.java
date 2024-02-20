@@ -12,19 +12,19 @@ public class Image extends GraphicalElement
 	
 //	Constructors
 	
-	public Image(float x, float y, float width, float height, PImage image)
+	public Image(int x, int y, int width, int height, PImage image)
 	{
 		super(x, y, width, height);
 		this.image = image;
 	}
 	
-	public Image(float x, float y, float width, float height, String imagePath)
+	public Image(int x, int y, int width, int height, String imagePath)
 	{
 		super(x, y, width, height);
 		image = loadImage(imagePath);
 	}
 	
-	public Image(float x, float y, float width, float height)
+	public Image(int x, int y, int width, int height)
 	{
 		super(x, y, width, height);
 		image = null;

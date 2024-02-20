@@ -16,7 +16,7 @@ public class Button extends GraphicalElement
 	
 //	Constructors
 	
-	public Button(String text, float x, float y, float width, float height,
+	public Button(String text, int x, int y, int width, int height,
 			int bWidth, int bRound, int tSize, Color fCol, Color bCol, Color tCol)
 	{
 		super(x, y, width, height);
@@ -29,12 +29,12 @@ public class Button extends GraphicalElement
 		borderColor = bCol;
 	}
 	
-	public Button(String text, float x, float y, float width, float height, int bWidth, int bRound, int tSize)
+	public Button(String text, int x, int y, int width, int height, int bWidth, int bRound, int tSize)
 	{
 		this(text, x, y, width, height, bWidth, bRound, tSize, Color.white, Color.black, Color.black);
 	}
 	
-	public Button(String text, float x, float y, float width, float height)
+	public Button(String text, int x, int y, int width, int height)
 	{
 		this(text, x, y, width, height, (int)(width / 20), (int)(height / 3), (int)(height * 0.5));
 	}

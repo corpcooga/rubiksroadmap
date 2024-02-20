@@ -6,12 +6,12 @@ public abstract class GraphicalElement extends PApplet
 {
 //	Fields
 	
-	private float x, y, width, height;
+	private int x, y, width, height;
 	
 	
 //	Constructors
 	
-	public GraphicalElement(float x, float y, float width, float height)
+	public GraphicalElement(int x, int y, int width, int height)
 	{
 		this.x = x;
 		this.y = y;
@@ -27,24 +27,44 @@ public abstract class GraphicalElement extends PApplet
 	
 //	Methods
 	
-	public float getX()
+	public int getX()
 	{
 		return x;
 	}
 	
-	public float getY()
+	public int getY()
 	{
 		return y;
 	}
 	
-	public float getWidth()
+	public int getWidth()
 	{
 		return width;
 	}
 	
-	public float getHeight()
+	public int getHeight()
 	{
 		return height;
+	}
+	
+	public void setX(int x)
+	{
+		this.x = x;
+	}
+	
+	public void setY(int y)
+	{
+		this.y = y;
+	}
+	
+	public void setWidth(int width)
+	{
+		this.width = width;
+	}
+	
+	public void setHeight(int height)
+	{
+		this.height = height;
 	}
 	
 	public abstract void draw(PApplet p);

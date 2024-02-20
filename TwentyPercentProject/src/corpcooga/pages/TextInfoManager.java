@@ -125,15 +125,8 @@ public class TextInfoManager
 						textText = textNode.get(0).asText();
 						settings = readSettings(textNode.get(1));
 					}
-					if (settings.length == 6) {
-//					6 settings are specified
-						text[i] = new Text(textText, settings[0], settings[1], settings[2], 
-											settings[3], settings[4], settings[5]);
-					} else {
-//					4 settings are specified
-						text[i] = new Text(textText, settings[0], settings[1], 
-								Integer.MAX_VALUE, Integer.MAX_VALUE, settings[2], settings[3]);
-					}
+					
+					text[i] = new Text(textText, settings);
 					i++;
 				}
 //				skip through title pages
