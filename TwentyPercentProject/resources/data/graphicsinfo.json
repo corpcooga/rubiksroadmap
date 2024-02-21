@@ -49,9 +49,21 @@
 					]
 				],
 				[
+					"center_pieces.png",
+					[
+						"halfWidth -300", 680, null, null, null
+					]
+				],
+				[
 					"Edge Pieces",
 					[
 						"halfWidth", 620, 30, "centerAlign" 
+					]
+				],
+				[
+					"edge_pieces.png",
+					[
+						"halfWidth", 680, null, null, null
 					]
 				],
 				[
@@ -59,14 +71,32 @@
 					[
 						"halfWidth +300", 620, 30, "centerAlign" 
 					]
+				],
+				[
+					"corner_pieces.png",
+					[
+						"halfWidth +300", 680, null, null, null
+					]
 				]
 			],
 			[
 				"Lastly, you need to learn about turning notation. Each of the six sides has a letter representing it, and indicates a turn to that side. It should be turned clockwise from the perspective of that side. Note that while doing the following turns, the leftmost of the three sides shown should point towards you.",
 				[
+					"front_side.png",
+					[
+						"halfWidth -500", 270, null, null, null
+					]
+				],
+				[
 					"F",
 					[
 						"halfWidth -500", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"back_side.png",
+					[
+						"halfWidth -300", 270, null, null, null
 					]
 				],
 				[
@@ -76,9 +106,21 @@
 					]
 				],
 				[
+					"up_side.png",
+					[
+						"halfWidth -100", 270, null, null, null
+					]
+				],
+				[
 					"U",
 					[
 						"halfWidth -100", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"down_side.png",
+					[
+						"halfWidth +100", 270, null, null, null
 					]
 				],
 				[
@@ -88,9 +130,21 @@
 					]
 				],
 				[
+					"left_side.png",
+					[
+						"halfWidth +300", 270, null, null, null
+					]
+				],
+				[
 					"L",
 					[
 						"halfWidth +300", 355, 36, "centerAlign" 
+					]
+				],
+				[
+					"right_side.png",
+					[
+						"halfWidth +500", 270, null, null, null
 					]
 				],
 				[
@@ -117,9 +171,21 @@
 					]
 				],
 				[
+					"the_cross.png",
+					[
+						"width -200", 200, 200, 200, null
+					]
+				],
+				[
 					"To accomplish this, you will mostly have to use your intuition. Luckily, I can give you a bit of help to make this easier. Instead of putting the white edge pieces directly into position, you can line them up around the yellow center piece, opposite of the white one. This pattern is known as the \"daisy\", shown on the left.\n\nAs you can see, the white edge pieces don't have to be lined up with the adjacent center pieces. This pattern is a bit easier to make without that restriction.",
 					[
 						300, 316, "width -400", null, null, null
+					]
+				],
+				[
+					"the_daisy.png",
+					[
+						180, 410, 200, 200, null
 					]
 				],
 				[
@@ -141,9 +207,27 @@
 					]
 				],
 				[
+					"example_corner_piece.png",
+					[
+						"width -160", 290, 140, 140, null
+					]
+				],
+				[
+					"first_layer_corner_up.png",
+					[
+						"160", 450, 140, 140, null
+					]
+				],
+				[
 					"The corner piece should be in in the position as shown on the left. Make sure you hold your cube as shown on the right, so that the corner piece is on the bottom right, and execute the following algorigthm: [R U R' U']. This algorithm orients the corner piece next to the yellow center piece. Get used to doing this algorithm, as it comes up a lot.",
 					[
 						250, 380, "width -500", null, null, null
+					]
+				],
+				[
+					"first_layer_corner_down.png",
+					[
+						"width -160", 450, 140, 140, null
 					]
 				]
 			]
