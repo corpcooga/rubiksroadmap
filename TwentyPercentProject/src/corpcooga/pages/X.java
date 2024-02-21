@@ -27,7 +27,7 @@ public class X
 	
 //	Methods
 	
-	public void displayPage(PApplet p, ArrayList<String[]> text)
+	public void displayPage(PApplet p)
 	{
 		p.push();
 		
@@ -39,7 +39,7 @@ public class X
 		{
 		case 0:
 //			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
-			p.image(p.loadImage("resources/img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
+//			p.image(p.loadImage("resources/img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
 			break;
 			
 		case 1:

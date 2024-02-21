@@ -3,36 +3,30 @@ package corpcooga.components;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Image extends GraphicalElement
+public class Image extends GraphicsElement
 {
 //	Fields
 	
-	private PImage image;
+	private String imagePath;
+	private int imageMode;
 	
 	
 //	Constructors
 	
-	public Image(int x, int y, int width, int height, PImage image)
+	public Image(String imagePath, int settings[])
 	{
-		super(x, y, width, height);
-		this.image = image;
-	}
-	
-	public Image(int x, int y, int width, int height, String imagePath)
-	{
-		super(x, y, width, height);
-		image = loadImage(imagePath);
-	}
-	
-	public Image(int x, int y, int width, int height)
-	{
-		super(x, y, width, height);
-		image = null;
+		super(settings[0], settings[1], settings[2], settings[3]);
+		try {
+			this.imagePath = "resources/img/" + imagePath;
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
+		imageMode = settings[4];
 	}
 	
 	public Image()
 	{
-		image = null;
+		imagePath = "";
 	}
 	
 	
@@ -40,8 +34,11 @@ public class Image extends GraphicalElement
 	
 	public void draw(PApplet p)
 	{
-		if (image != null)
-			p.image(image, getX(), getY(), getWidth(), getHeight());
+		p.push();
+		p.imageMode(imageMode);
+		if (imagePath != null)
+			p.image(p.loadImage(imagePath), getX(), getY(), getWidth(), getHeight());
+		p.pop();
 	}
 	
 }

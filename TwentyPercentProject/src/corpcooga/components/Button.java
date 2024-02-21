@@ -5,7 +5,7 @@ import java.awt.Color;
 import processing.core.PApplet;
 
 //TODO use PApplet methods somehow in this class
-public class Button extends GraphicalElement
+public class Button extends GraphicsElement
 {
 //	Fields
 	

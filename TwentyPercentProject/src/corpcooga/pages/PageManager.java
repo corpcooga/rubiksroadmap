@@ -51,9 +51,11 @@ public class PageManager
 			y = 130;
 			p.textSize(100);
 		}
-		if (pageNum == 0)
+		if (pageNum == 0) {
+			p.imageMode(PApplet.CENTER);
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
-		else
+			p.image(p.loadImage("resources/img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
+		} else
 			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
 		
 		pages[pageNum].draw(p);

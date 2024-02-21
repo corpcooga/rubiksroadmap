@@ -2,7 +2,7 @@ package corpcooga.components;
 
 import processing.core.PApplet;
 
-public class Text extends GraphicalElement
+public class Text extends GraphicsElement
 {
 //	Fields
 	

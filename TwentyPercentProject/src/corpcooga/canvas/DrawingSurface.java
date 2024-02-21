@@ -32,7 +32,7 @@ public class DrawingSurface extends PApplet
 	
 	public DrawingSurface()
 	{
-		TextInfoManager infoManager = new TextInfoManager();
+		GraphicsInfoManager infoManager = new GraphicsInfoManager();
 		
 		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages(), 
 							infoManager.readSectionNames(), infoManager.readSectionColors());

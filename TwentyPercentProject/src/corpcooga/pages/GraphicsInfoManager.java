@@ -2,6 +2,7 @@ package corpcooga.pages;
 
 import corpcooga.canvas.DrawingSurface;
 import corpcooga.components.Text;
+import corpcooga.components.Image;
 
 import java.awt.Color;
 import java.util.Map;
@@ -13,7 +14,7 @@ import processing.core.PApplet;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class TextInfoManager 
+public class GraphicsInfoManager 
 {
 //	Fields
 	
@@ -27,17 +28,17 @@ public class TextInfoManager
 		put("centerAlign", PApplet.CENTER);
 	}};
 	
-	private JsonNode textNode, sectionsNode;
+	private JsonNode graphicsInfo, sectionsInfo;
 	
 	
 //	Constructors
 	
-	public TextInfoManager()
+	public GraphicsInfoManager()
 	{
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			textNode = mapper.readTree(new File("resources/data/textinfo.json"));
-			sectionsNode = mapper.readTree(new File("resources/data/sectioninfo.json"));
+			graphicsInfo = mapper.readTree(new File("resources/data/graphicsinfo.json"));
+			sectionsInfo = mapper.readTree(new File("resources/data/sectioninfo.json"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -48,7 +49,7 @@ public class TextInfoManager
 	
 	public int[] readTitlePages()
 	{
-		JsonNode file = sectionsNode.get("Title Pages");
+		JsonNode file = sectionsInfo.get("Title Pages");
 		int[] titlePages = new int[file.size()];
 		int idx = 0;
 		
@@ -62,7 +63,7 @@ public class TextInfoManager
 	
 	public String[] readSectionNames()
 	{
-		JsonNode file = sectionsNode.get("Section Names");
+		JsonNode file = sectionsInfo.get("Section Names");
 		String[] sectionNames = new String[file.size()];
 		int idx = 0;
 		
@@ -76,7 +77,7 @@ public class TextInfoManager
 	
 	public Color[] readSectionColors()
 	{
-		JsonNode file = sectionsNode.get("Section Colors");
+		JsonNode file = sectionsInfo.get("Section Colors");
 		Color[] sectionColors = new Color[file.size()];
 		int idx = 0;
 		
@@ -101,27 +102,42 @@ public class TextInfoManager
 //		loop through each section
 		for (String sectionName : readSectionNames())
 //			loop through pages in each section
-			for (JsonNode pageTextNode : textNode.get(sectionName)) {
-				Text[] text = new Text[pageTextNode.size()];
+			for (JsonNode pageNode : graphicsInfo.get(sectionName)) {
+				Text[] texts = new Text[pageNode.size()];
+				Image[] images = new Image[pageNode.size()];
 				int i = 0;
 				
-//				loop through text in each page
-				for (JsonNode textNode : pageTextNode) {
+//				loop through graphic elements in each page
+				for (JsonNode graphicsNode : pageNode) {
 					int[] settings;
-//					text in the text object
-					String textText;
-//					check if text has default or specific settings
-					if (textNode.isTextual()) {
+//					text in the graphics element
+					String graphicsText;
+//					TODO make default settings for text and for images
+//					check if graphics element has default or specific settings
+					if (graphicsNode.isTextual()) {
 //						default settings
-						textText = textNode.asText();
-						settings = readSettings(this.textNode.get("defaultSettings"));
+						graphicsText = graphicsNode.asText();
+						settings = readSettings(graphicsInfo.get("defaultSettings").get("textDefault"));
 					} else {
 //						specific settings
-						textText = textNode.get(0).asText();
-						settings = readSettings(textNode.get(1));
+						graphicsText = graphicsNode.get(0).asText();
+						settings = readSettings(graphicsNode.get(1));
 					}
 					
-					text[i] = new Text(textText, settings);
+//					get last 4 characters of graphicsText
+					String lastChars;
+					if (graphicsText.length() > 4)
+						lastChars = graphicsText.substring(graphicsText.length() - 4);
+					else
+						lastChars = graphicsText;
+						
+					if (lastChars.equals(".png"))
+//						graphicsText is an image file
+						images[i] = new Image(graphicsText, settings);
+					else
+//						graphicsText is a string of text
+						texts[i] = new Text(graphicsText, settings);
+					
 					i++;
 				}
 //				skip through title pages
@@ -130,7 +146,8 @@ public class TextInfoManager
 						idx++;
 				
 //				set all text on page at idx
-				pages[idx].setTexts(text);
+				pages[idx].setTexts(texts);
+				pages[idx].setImages(images);
 				idx++;
 			}
 		
@@ -151,16 +168,21 @@ public class TextInfoManager
 //			if setting is listed as null, use the default setting
 			if (setting.isNull()) {
 				if (settings.length == 6) {
-//					6 settings are specified
+//					6 settings are specified, text
 					settings[idx] = parseSettingVal(
-							textNode.get("defaultSettings")
+							graphicsInfo.get("defaultSettings").get("textDefault")
 							.get(idx).asText());
-				} else {
-//					4 settings are specified
+				} else if (settings.length == 4) {
+//					4 settings are specified, text
 					int offset = idx == 2 || idx == 3 ? 2 : 0;
 					settings[idx] = parseSettingVal(
-							textNode.get("defaultSettings")
+							graphicsInfo.get("defaultSettings").get("textDefault")
 							.get(idx + offset).asText());
+				} else {
+//					5 settings are specified, image
+					settings[idx] = parseSettingVal(
+							graphicsInfo.get("defaultSettings").get("imageDefault")
+							.get(idx).asText());
 				}
 				idx++;
 				continue;

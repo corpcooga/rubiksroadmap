@@ -2,7 +2,7 @@ package corpcooga.components;
 
 import processing.core.PApplet;
 
-public abstract class GraphicalElement extends PApplet
+public abstract class GraphicsElement
 {
 //	Fields
 	
@@ -11,7 +11,7 @@ public abstract class GraphicalElement extends PApplet
 	
 //	Constructors
 	
-	public GraphicalElement(int x, int y, int width, int height)
+	public GraphicsElement(int x, int y, int width, int height)
 	{
 		this.x = x;
 		this.y = y;
@@ -19,12 +19,12 @@ public abstract class GraphicalElement extends PApplet
 		this.height = height;
 	}
 	
-	public GraphicalElement(int x, int y)
+	public GraphicsElement(int x, int y)
 	{
 		this(x, y, 0, 0);
 	}
 	
-	public GraphicalElement()
+	public GraphicsElement()
 	{
 		this(0, 0);
 	}
