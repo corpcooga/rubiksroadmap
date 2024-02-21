@@ -106,7 +106,6 @@ public class GraphicsInfoManager
 		return titlePageImages;
 	}
 	
-//	TODO clean up code
 	public Page[] readPages()
 	{
 		Page[] pages = new Page[getNumPages()];
@@ -117,43 +116,36 @@ public class GraphicsInfoManager
 //		loop through each section
 		for (String sectionName : readSectionNames())
 //			loop through pages in each section
-			for (JsonNode pageNode : graphicsInfo.get(sectionName)) {
+			for (JsonNode pageNode : graphicsInfo.get(sectionName))
+			{
+//				2 extra text for page header and page number
 				Text[] texts = new Text[pageNode.size() + 2];
 				Image[] images = new Image[pageNode.size()];
 				int i = 0;
 				
-//				page header
-				texts[texts.length - 1] = new Text(sectionName, 
-						DrawingSurface.DRAWING_WIDTH / 2, 75, 50, PApplet.CENTER);
-				
 //				loop through graphic elements in each page
-				for (JsonNode graphicsNode : pageNode) {
-					int[] settings;
-//					text in the graphics element
+				for (JsonNode graphicsNode : pageNode)
+				{
+//					string in the graphics element
 					String graphicsText;
+//					settings of the graphics element
+					int[] settings;
+					
 //					check if graphics element has default or specific settings
 					if (graphicsNode.isTextual()) {
-//						default text settings
+//						default settings
 						graphicsText = graphicsNode.asText();
-						settings = readSettings(graphicsInfo.get("defaultSettings").get("textDefault"));
+						settings = readSettings(graphicsInfo.get("defaultSettings").get(
+								isImage(graphicsText) ? "imageDefault" : "textDefault"));
 					} else {
-//						specific settings--text or image
+//						specific settings
 						graphicsText = graphicsNode.get(0).asText();
 						settings = readSettings(graphicsNode.get(1));
 					}
 					
-//					get last 4 characters of graphicsText
-					String lastChars;
-					if (graphicsText.length() > 4)
-						lastChars = graphicsText.substring(graphicsText.length() - 4);
-					else
-						lastChars = graphicsText;
-						
-					if (lastChars.equals(".png"))
-//						graphicsText is an image file
+					if (isImage(graphicsText))
 						images[i] = new Image(graphicsText, settings);
 					else
-//						graphicsText is a string of text
 						texts[i] = new Text(graphicsText, settings);
 					
 					i++;
@@ -163,6 +155,9 @@ public class GraphicsInfoManager
 					if (idx == x)
 						idx++;
 				
+//				page header
+				texts[texts.length - 1] = new Text(sectionName, 
+						DrawingSurface.DRAWING_WIDTH / 2, 75, 50, PApplet.CENTER);
 //				page number
 				texts[texts.length - 2] = new Text(""+idx, 10, 27, 18, PApplet.LEFT);
 				
@@ -189,15 +184,6 @@ public class GraphicsInfoManager
 		}
 		
 		return pages;
-	}
-	
-	private int getNumPages()
-	{
-		int numPages = 0;
-		for (String sectionName : readSectionNames()) {
-			numPages += graphicsInfo.get(sectionName).size() + 1;
-		}
-		return numPages;
 	}
 	
 	private int[] readSettings(JsonNode settingsNode)
@@ -230,10 +216,9 @@ public class GraphicsInfoManager
 							graphicsInfo.get("defaultSettings").get("imageDefault")
 							.get(idx).asText());
 				}
-				idx++;
-				continue;
-			}
-			settings[idx] = parseSettingVal(setting.asText());
+			} else 
+				settings[idx] = parseSettingVal(setting.asText());
+			
 			idx++;
 		}
 		
@@ -255,6 +240,25 @@ public class GraphicsInfoManager
 		else
 //			value retrieved is an int
 			return Integer.parseInt(mapVal);
+	}
+	
+	private boolean isImage(String str)
+	{
+		String lastChars;
+		if (str.length() > 4)
+			lastChars = str.substring(str.length() - 4);
+		else
+			lastChars = str;
+		
+		return lastChars.equals(".png");
+	}
+	
+	private int getNumPages()
+	{
+		int numPages = 0;
+		for (String sectionName : readSectionNames())
+			numPages += graphicsInfo.get(sectionName).size() + 1;
+		return numPages;
 	}
 	
 }
