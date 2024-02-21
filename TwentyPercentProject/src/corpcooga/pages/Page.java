@@ -2,6 +2,8 @@ package corpcooga.pages;
 
 import corpcooga.components.Image;
 import corpcooga.components.Text;
+
+import java.awt.Color;
 import processing.core.PApplet;
 
 public class Page
@@ -11,13 +13,21 @@ public class Page
 	private Text[] texts;
 	private Image[] images;
 	
+	private Color backgroundColor;
+	
 	
 //	Constructors
 	
-	public Page(Text[] texts, Image[] images)
+	public Page(Text[] texts, Image[] images, Color backgroundColor)
 	{
 		this.texts = texts;
 		this.images = images;
+		this.backgroundColor = backgroundColor;
+	}
+	
+	public Page(Text[] texts, Image[] images)
+	{
+		this(texts, images, null);
 	}
 	
 	public Page()
@@ -30,6 +40,7 @@ public class Page
 	
 	public void draw(PApplet p)
 	{
+		p.background(backgroundColor != null ? backgroundColor.getRGB() : 60);
 		if (texts != null)
 			for (Text t : texts)
 				if (t != null)
@@ -48,6 +59,11 @@ public class Page
 	public void setImages(Image[] newImages)
 	{
 		images = newImages;
+	}
+	
+	public void setBackgroundColor(Color newColor)
+	{
+		backgroundColor = newColor;
 	}
 	
 }

@@ -61,7 +61,7 @@ public class GraphicsInfoManager
 		return titlePages;
 	}
 	
-	public String[] readSectionNames()
+	private String[] readSectionNames()
 	{
 		JsonNode file = sectionsInfo.get("Section Names");
 		String[] sectionNames = new String[file.size()];
@@ -75,7 +75,7 @@ public class GraphicsInfoManager
 		return sectionNames;
 	}
 	
-	public Color[] readSectionColors()
+	private Color[] readSectionColors()
 	{
 		JsonNode file = sectionsInfo.get("Section Colors");
 		Color[] sectionColors = new Color[file.size()];
@@ -106,6 +106,7 @@ public class GraphicsInfoManager
 		return titlePageImages;
 	}
 	
+//	TODO clean up code
 	public Page[] readPages()
 	{
 		Page[] pages = new Page[getNumPages()];
@@ -166,7 +167,11 @@ public class GraphicsInfoManager
 				texts[texts.length - 2] = new Text(""+idx, 10, 27, 18, PApplet.LEFT);
 				
 //				instantiate page at idx
-				pages[idx] = new Page(texts, images);
+				int section = -1;
+				for (int x : readTitlePages())
+					if (x <= idx)
+						section += 1;
+				pages[idx] = new Page(texts, images, readSectionColors()[section]);
 				
 				idx++;
 			}
@@ -179,7 +184,7 @@ public class GraphicsInfoManager
 					"Rubik's Roadmap" : readSectionNames()[idx], 
 					DrawingSurface.DRAWING_WIDTH / 2, 130, 100, PApplet.CENTER)};
 			Image[] images = {readTitlePageImages()[idx]};
-			pages[titlePageIdx] = new Page(texts, images);
+			pages[titlePageIdx] = new Page(texts, images, readSectionColors()[idx]);
 			idx++;
 		}
 		

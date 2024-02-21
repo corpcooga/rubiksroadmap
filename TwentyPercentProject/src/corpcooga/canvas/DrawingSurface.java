@@ -34,8 +34,7 @@ public class DrawingSurface extends PApplet
 	{
 		GraphicsInfoManager infoManager = new GraphicsInfoManager();
 		
-		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages(), 
-							infoManager.readSectionNames(), infoManager.readSectionColors());
+		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages());
 		
 //		TODO change button fill color
 //		TODO add a button manager

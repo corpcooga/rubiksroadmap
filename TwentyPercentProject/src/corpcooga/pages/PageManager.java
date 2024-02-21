@@ -1,30 +1,23 @@
 package corpcooga.pages;
 
-import java.awt.Color;
 import processing.core.PApplet;
 
 public class PageManager 
 {
 //	Fields
 	
-//	TODO see if sectionNames is necessary
 	private Page[] pages;
 	private int[] titlePages;
-	private String[] sectionNames;
-	private Color[] sectionColors;
-	
 	
 	private int pageNum;
 	
 	
 //	Constructors
 	
-	public PageManager(Page[] pages, int[] titlePages, String[] sectionNames, Color[] sectionColors)
+	public PageManager(Page[] pages, int[] titlePages)
 	{
 		this.pages = pages;
 		this.titlePages = titlePages;
-		this.sectionNames = sectionNames;
-		this.sectionColors = sectionColors;
 		pageNum = 0;
 	}
 	
@@ -33,10 +26,7 @@ public class PageManager
 	
 	public void draw(PApplet p)
 	{
-		p.push();
-		p.background(sectionColors[getSection()].getRGB());
 		pages[pageNum].draw(p);
-		p.pop();
 	}
 	
 	public int getPage()
@@ -47,16 +37,6 @@ public class PageManager
 	public int[] getTitlePages()
 	{
 		return titlePages;
-	}
-	
-	public String[] getSectionNames()
-	{
-		return sectionNames;
-	}
-	
-	public Color[] getSectionColors()
-	{
-		return sectionColors;
 	}
 	
 	public void changePage(int amount)
