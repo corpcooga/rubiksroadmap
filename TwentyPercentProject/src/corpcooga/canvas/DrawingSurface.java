@@ -16,7 +16,7 @@ public class DrawingSurface extends PApplet
 							DRAWING_HEIGHT = 800;
 	
 //	static {
-//        // Obtain screen dimensions dynamically
+//        // obtain screen dimensions dynamically
 //        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 //        DRAWING_WIDTH = (int)screenSize.getWidth();
 //        DRAWING_HEIGHT = (int)screenSize.getHeight();
@@ -35,7 +35,8 @@ public class DrawingSurface extends PApplet
 		GraphicsInfoManager infoManager = new GraphicsInfoManager();
 		
 		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages(), 
-							infoManager.readSectionNames(), infoManager.readSectionColors());
+							infoManager.readSectionNames(), infoManager.readSectionColors(), 
+							infoManager.getTitlePageImages());
 		
 //		TODO change button fill color
 //		TODO add a button manager

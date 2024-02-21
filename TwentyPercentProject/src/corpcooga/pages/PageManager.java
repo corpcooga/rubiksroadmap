@@ -3,6 +3,7 @@ package corpcooga.pages;
 import java.awt.Color;
 
 import corpcooga.canvas.DrawingSurface;
+import corpcooga.components.Image;
 import processing.core.PApplet;
 
 public class PageManager 
@@ -10,21 +11,24 @@ public class PageManager
 //	Fields
 	
 	private Page[] pages;
+	private int[] titlePages;
 	private String[] sectionNames;
 	private Color[] sectionColors;
-	private int[] titlePages;
+	private Image[] titlePageImages;
+	
 	
 	private int pageNum;
 	
 	
 //	Constructors
 	
-	public PageManager(Page[] pages, int[] titlePages, String[] sectionNames, Color[] sectionColors)
+	public PageManager(Page[] pages, int[] titlePages, String[] sectionNames, Color[] sectionColors, Image[] titlePageImages)
 	{
 		this.pages = pages;
 		this.titlePages = titlePages;
 		this.sectionNames = sectionNames;
 		this.sectionColors = sectionColors;
+		this.titlePageImages = titlePageImages;
 		pageNum = 0;
 	}
 	
@@ -51,12 +55,14 @@ public class PageManager
 			y = 130;
 			p.textSize(100);
 		}
-		if (pageNum == 0) {
-			p.imageMode(PApplet.CENTER);
+		if (pageNum == 0)
 			p.text("Rubik's Roadmap", DrawingSurface.DRAWING_WIDTH / 2, y);
-			p.image(p.loadImage("resources/img/roadmap_logo.png"), DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500);
-		} else
+		else
 			p.text(sectionNames[getSection()], DrawingSurface.DRAWING_WIDTH / 2, y);
+		
+//		title page image display
+		if (onTitlePage())
+			titlePageImages[getSection()].draw(p);
 		
 		pages[pageNum].draw(p);
 		

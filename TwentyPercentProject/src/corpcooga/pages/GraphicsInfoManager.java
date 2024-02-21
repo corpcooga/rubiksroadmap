@@ -91,6 +91,21 @@ public class GraphicsInfoManager
 		return sectionColors;
 	}
 	
+	public Image[] getTitlePageImages()
+	{
+		JsonNode file = sectionsInfo.get("Title Page Images");
+		Image[] titlePageImages = new Image[file.size()];
+		int idx = 0;
+		
+		for (JsonNode titlePageImage : file) {
+			titlePageImages[idx] = new Image(titlePageImage.asText(), 
+					new int[] {DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500, PApplet.CENTER});
+			idx++;
+		}
+		
+		return titlePageImages;
+	}
+	
 	public Page[] readPages()
 	{
 //		TODO change pages length or use ArrayList

@@ -1,7 +1,6 @@
 package corpcooga.components;
 
 import processing.core.PApplet;
-import processing.core.PImage;
 
 public class Image extends GraphicsElement
 {
