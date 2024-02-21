@@ -12,7 +12,7 @@ public class Text extends GraphicsElement
 	
 //	Constructors
 	
-	public Text(String text, int[] settings)
+	public Text(String text, int... settings)
 	{
 		super(settings[0], settings[1]);
 		

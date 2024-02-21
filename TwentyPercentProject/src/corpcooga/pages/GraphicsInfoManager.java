@@ -91,7 +91,7 @@ public class GraphicsInfoManager
 		return sectionColors;
 	}
 	
-	public Image[] getTitlePageImages()
+	private Image[] readTitlePageImages()
 	{
 		JsonNode file = sectionsInfo.get("Title Page Images");
 		Image[] titlePageImages = new Image[file.size()];
@@ -99,7 +99,7 @@ public class GraphicsInfoManager
 		
 		for (JsonNode titlePageImage : file) {
 			titlePageImages[idx] = new Image(titlePageImage.asText(), 
-					new int[] {DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500, PApplet.CENTER});
+					DrawingSurface.DRAWING_WIDTH / 2, 390, 500, 500, PApplet.CENTER);
 			idx++;
 		}
 		
@@ -108,33 +108,35 @@ public class GraphicsInfoManager
 	
 	public Page[] readPages()
 	{
-//		TODO change pages length or use ArrayList
-		Page[] pages = new Page[20];
-		for (int x = 0; x < pages.length; x++)
-			pages[x] = new Page();
+		Page[] pages = new Page[getNumPages()];
 		int idx = 0;
+		
+//		read non-title pages
 		
 //		loop through each section
 		for (String sectionName : readSectionNames())
 //			loop through pages in each section
 			for (JsonNode pageNode : graphicsInfo.get(sectionName)) {
-				Text[] texts = new Text[pageNode.size()];
+				Text[] texts = new Text[pageNode.size() + 2];
 				Image[] images = new Image[pageNode.size()];
 				int i = 0;
+				
+//				page header
+				texts[texts.length - 1] = new Text(sectionName, 
+						DrawingSurface.DRAWING_WIDTH / 2, 75, 50, PApplet.CENTER);
 				
 //				loop through graphic elements in each page
 				for (JsonNode graphicsNode : pageNode) {
 					int[] settings;
 //					text in the graphics element
 					String graphicsText;
-//					TODO make default settings for text and for images
 //					check if graphics element has default or specific settings
 					if (graphicsNode.isTextual()) {
-//						default settings
+//						default text settings
 						graphicsText = graphicsNode.asText();
 						settings = readSettings(graphicsInfo.get("defaultSettings").get("textDefault"));
 					} else {
-//						specific settings
+//						specific settings--text or image
 						graphicsText = graphicsNode.get(0).asText();
 						settings = readSettings(graphicsNode.get(1));
 					}
@@ -160,13 +162,37 @@ public class GraphicsInfoManager
 					if (idx == x)
 						idx++;
 				
-//				set all text on page at idx
-				pages[idx].setTexts(texts);
-				pages[idx].setImages(images);
+//				page number
+				texts[texts.length - 2] = new Text(""+idx, 10, 27, 18, PApplet.LEFT);
+				
+//				instantiate page at idx
+				pages[idx] = new Page(texts, images);
+				
 				idx++;
 			}
 		
+//		read title pages
+		
+		idx = 0;
+		for (int titlePageIdx : readTitlePages()) {
+			Text[] texts = {new Text(titlePageIdx == 0 ? 
+					"Rubik's Roadmap" : readSectionNames()[idx], 
+					DrawingSurface.DRAWING_WIDTH / 2, 130, 100, PApplet.CENTER)};
+			Image[] images = {readTitlePageImages()[idx]};
+			pages[titlePageIdx] = new Page(texts, images);
+			idx++;
+		}
+		
 		return pages;
+	}
+	
+	private int getNumPages()
+	{
+		int numPages = 0;
+		for (String sectionName : readSectionNames()) {
+			numPages += graphicsInfo.get(sectionName).size() + 1;
+		}
+		return numPages;
 	}
 	
 	private int[] readSettings(JsonNode settingsNode)

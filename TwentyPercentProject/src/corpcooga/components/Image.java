@@ -12,7 +12,7 @@ public class Image extends GraphicsElement
 	
 //	Constructors
 	
-	public Image(String imagePath, int settings[])
+	public Image(String imagePath, int... settings)
 	{
 		super(settings[0], settings[1], settings[2], settings[3]);
 		try {
