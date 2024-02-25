@@ -1,5 +1,6 @@
 package corpcooga.components;
 
+import java.awt.Color;
 import processing.core.PApplet;
 
 public class Text extends GraphicsElement
@@ -8,15 +9,17 @@ public class Text extends GraphicsElement
 	
 	private String text;
 	private int textSize, textAlign;
+	private Color textColor;
 	
 	
 //	Constructors
 	
-	public Text(String text, int... settings)
+	public Text(String text, Color textColor, int... settings)
 	{
 		super(settings[0], settings[1]);
 		
 		this.text = text;
+		this.textColor = textColor;
 		
 		if (settings.length == 6) {
 //			6 specified settings
@@ -46,6 +49,7 @@ public class Text extends GraphicsElement
 		p.push();
 		p.textSize(textSize);
 		p.textAlign(textAlign);
+		p.fill(textColor.getRGB());
 		
 		if (getWidth() == 0 && getHeight() == 0)
 //			unbounded text
@@ -55,6 +59,11 @@ public class Text extends GraphicsElement
 			p.text(text, getX(), getY(), getWidth(), getHeight());
 		
 		p.pop();
+	}
+	
+	public void setTextColor(Color c)
+	{
+		textColor = c;
 	}
 	
 }

@@ -1,10 +1,10 @@
 package corpcooga.components;
 
 import corpcooga.canvas.DrawingSurface;
+
 import java.awt.Color;
 import processing.core.PApplet;
 
-//TODO use PApplet methods somehow in this class
 public class Button extends GraphicsElement
 {
 //	Fields
@@ -34,6 +34,11 @@ public class Button extends GraphicsElement
 		this(text, x, y, width, height, bWidth, bRound, tSize, Color.white, Color.black, Color.black);
 	}
 	
+	public Button(String text, int x, int y, int width, int height, Color fCol, Color bCol, Color tCol)
+	{
+		this(text, x, y, width, height, (int)(width / 20), (int)(height / 3), (int)(height * 0.5), fCol, bCol, tCol);
+	}
+	
 	public Button(String text, int x, int y, int width, int height)
 	{
 		this(text, x, y, width, height, (int)(width / 20), (int)(height / 3), (int)(height * 0.5));
@@ -54,13 +59,13 @@ public class Button extends GraphicsElement
 //		Button body
 		p.strokeWeight(borderWidth);
 		p.fill(fillColor.getRGB());
+		p.stroke(borderColor.getRGB());
 		if (pointOver(p.mouseX * DrawingSurface.DRAWING_WIDTH / p.width, 
 				p.mouseY * DrawingSurface.DRAWING_HEIGHT / p.height)) {
-			p.fill(fillColor.getRed() * 3/4, fillColor.getGreen() * 3/4, fillColor.getBlue() * 3/4);
+			p.fill(fillColor.getRed() * .8f, fillColor.getGreen() * .8f, fillColor.getBlue() * .8f);
 			if (p.mousePressed)
-				p.fill(fillColor.getRed() / 2, fillColor.getGreen() / 2, fillColor.getBlue() / 2);
+				p.fill(fillColor.getRed() * .5f, fillColor.getGreen() * .5f, fillColor.getBlue() * .5f);
 		}
-		p.stroke(borderColor.getRGB());
 		p.rect(getX(), getY(), getWidth(), getHeight(), borderRound);
 		
 //		Button text

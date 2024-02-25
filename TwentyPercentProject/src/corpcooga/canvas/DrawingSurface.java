@@ -3,9 +3,9 @@ package corpcooga.canvas;
 import corpcooga.components.*;
 import corpcooga.pages.*;
 
+import java.awt.Color;
 //import java.awt.Dimension;
 //import java.awt.Toolkit;
-
 import processing.core.PApplet;
 
 public class DrawingSurface extends PApplet
@@ -32,16 +32,15 @@ public class DrawingSurface extends PApplet
 	
 	public DrawingSurface()
 	{
-		GraphicsInfoManager infoManager = new GraphicsInfoManager();
+		GraphicsInfoReader infoManager = new GraphicsInfoReader();
 		
 		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages());
 		
-//		TODO change button fill color
 //		TODO add a button manager
 //		TODO add more interactive buttons
-		backButton = new Button("Back", 40, DRAWING_HEIGHT - 80, 100, 50);
-		nextButton = new Button("Next", DRAWING_WIDTH - 140, DRAWING_HEIGHT - 80, 100, 50);
-		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100);
+		backButton = new Button("Back", 35, DRAWING_HEIGHT - 80, 100, 50, new Color(220, 20, 60), Color.black, Color.black);
+		nextButton = new Button("Next", DRAWING_WIDTH - 135, DRAWING_HEIGHT - 80, 100, 50, new Color(30, 144, 255), Color.black, Color.black);
+		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, DRAWING_HEIGHT - 150, 200, 100, new Color(20, 240, 80), Color.black, Color.black);
 	}
 	
 	
@@ -64,6 +63,8 @@ public class DrawingSurface extends PApplet
 	{
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
 		
+//		Color textColor = new GraphicsInfoReader().readSectionColors()[pageManager.getSection()];
+//		fill(textColor.getRed() * 5.5f, textColor.getGreen() * 5.5f, textColor.getBlue() * 5.5f);
 		pageManager.draw(this);
 		
 		if (pageManager.onTitlePage())

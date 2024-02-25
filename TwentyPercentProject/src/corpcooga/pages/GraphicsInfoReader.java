@@ -14,7 +14,7 @@ import processing.core.PApplet;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class GraphicsInfoManager 
+public class GraphicsInfoReader 
 {
 //	Fields
 	
@@ -33,7 +33,7 @@ public class GraphicsInfoManager
 	
 //	Constructors
 	
-	public GraphicsInfoManager()
+	public GraphicsInfoReader()
 	{
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -75,7 +75,7 @@ public class GraphicsInfoManager
 		return sectionNames;
 	}
 	
-	private Color[] readSectionColors()
+	public Color[] readSectionColors()
 	{
 		JsonNode file = sectionsInfo.get("Section Colors");
 		Color[] sectionColors = new Color[file.size()];
@@ -146,7 +146,7 @@ public class GraphicsInfoManager
 					if (isImage(graphicsText))
 						images[i] = new Image(graphicsText, settings);
 					else
-						texts[i] = new Text(graphicsText, settings);
+						texts[i] = new Text(graphicsText, getTextColor(idx), settings);
 					
 					i++;
 				}
@@ -156,17 +156,14 @@ public class GraphicsInfoManager
 						idx++;
 				
 //				page header
-				texts[texts.length - 1] = new Text(sectionName, 
+				texts[texts.length - 1] = new Text(sectionName, getTextColor(idx), 
 						DrawingSurface.DRAWING_WIDTH / 2, 75, 50, PApplet.CENTER);
 //				page number
-				texts[texts.length - 2] = new Text(""+idx, 10, 27, 18, PApplet.LEFT);
+				texts[texts.length - 2] = new Text(""+idx, getTextColor(idx), 
+						10, 27, 18, PApplet.LEFT);
 				
 //				instantiate page at idx
-				int section = -1;
-				for (int x : readTitlePages())
-					if (x <= idx)
-						section += 1;
-				pages[idx] = new Page(texts, images, readSectionColors()[section]);
+				pages[idx] = new Page(texts, images, readSectionColors()[getSection(idx)]);
 				
 				idx++;
 			}
@@ -177,7 +174,7 @@ public class GraphicsInfoManager
 		for (int titlePageIdx : readTitlePages()) {
 			Text[] texts = {new Text(titlePageIdx == 0 ? 
 					"Rubik's Roadmap" : readSectionNames()[idx], 
-					DrawingSurface.DRAWING_WIDTH / 2, 130, 100, PApplet.CENTER)};
+					getTextColor(titlePageIdx), DrawingSurface.DRAWING_WIDTH / 2, 130, 100, PApplet.CENTER)};
 			Image[] images = {readTitlePageImages()[idx]};
 			pages[titlePageIdx] = new Page(texts, images, readSectionColors()[idx]);
 			idx++;
@@ -240,6 +237,29 @@ public class GraphicsInfoManager
 		else
 //			value retrieved is an int
 			return Integer.parseInt(mapVal);
+	}
+	
+	private int getSection(int pageNum)
+	{
+		int section = -1;
+		for (int x : readTitlePages())
+			if (x <= pageNum)
+				section += 1;
+		return section;
+	}
+	
+	private Color getTextColor(int pageNum)
+	{
+		Color sectionColor = readSectionColors()[getSection(pageNum)];
+		int[] rgb = {(int)(sectionColor.getRed() * 5.5), 
+					(int)(sectionColor.getGreen() * 5.5), 
+					(int)(sectionColor.getBlue() * 5.5)};
+		
+		for (int i = 0; i < 3; i++)
+			if (rgb[i] > 255)
+				rgb[i] = 255;
+		
+		return new Color(rgb[0], rgb[1], rgb[2]);
 	}
 	
 	private boolean isImage(String str)
