@@ -34,6 +34,11 @@ public class PageManager
 		return pageNum;
 	}
 	
+	public int getNumPages()
+	{
+		return pages.length;
+	}
+	
 	public int[] getTitlePages()
 	{
 		return titlePages;

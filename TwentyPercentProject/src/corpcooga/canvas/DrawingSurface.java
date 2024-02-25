@@ -3,7 +3,6 @@ package corpcooga.canvas;
 import corpcooga.components.*;
 import corpcooga.pages.*;
 
-import java.awt.Color;
 //import java.awt.Dimension;
 //import java.awt.Toolkit;
 import processing.core.PApplet;
@@ -23,7 +22,7 @@ public class DrawingSurface extends PApplet
 //    }
 	
 	private PageManager pageManager;
-	private Button goButton, backButton, nextButton;
+	private ButtonManager buttonManager;
 	
 	private double uMouseX, uMouseY;
 	
@@ -36,11 +35,12 @@ public class DrawingSurface extends PApplet
 		
 		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages());
 		
-//		TODO add a button manager
 //		TODO add more interactive buttons
-		backButton = new Button("Back", 35, DRAWING_HEIGHT - 80, 100, 50, new Color(220, 20, 60), Color.black, Color.black);
-		nextButton = new Button("Next", DRAWING_WIDTH - 135, DRAWING_HEIGHT - 80, 100, 50, new Color(30, 144, 255), Color.black, Color.black);
-		goButton = new Button("Go!", DRAWING_WIDTH / 2 - 100, DRAWING_HEIGHT - 150, 200, 100, new Color(20, 240, 80), Color.black, Color.black);
+		buttonManager = new ButtonManager(new Button[] {
+				new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100),
+				new Button("Next", DRAWING_WIDTH - 135, DRAWING_HEIGHT - 80, 100, 50),
+				new Button("Back", 35, DRAWING_HEIGHT - 80, 100, 50)},
+				pageManager);
 	}
 	
 	
@@ -63,40 +63,15 @@ public class DrawingSurface extends PApplet
 	{
 		scale((float)width / DRAWING_WIDTH, (float)height / DRAWING_HEIGHT);
 		
-//		Color textColor = new GraphicsInfoReader().readSectionColors()[pageManager.getSection()];
-//		fill(textColor.getRed() * 5.5f, textColor.getGreen() * 5.5f, textColor.getBlue() * 5.5f);
 		pageManager.draw(this);
-		
-		if (pageManager.onTitlePage())
-			goButton.draw(this);
-		else {
-			if (pageManager.getPage() >= 1)
-				nextButton.draw(this);
-			if (pageManager.getPage() >= 2)
-				backButton.draw(this);
-		}
+		buttonManager.draw(this);
 	}
 	
 	public void mousePressed()
 	{
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
-		
-		if (pageManager.onTitlePage()) {
-			if (goButton.pointOver(uMouseX, uMouseY))
-				pageManager.changePage(1);
-		} else {
-			if (pageManager.getPage() >= 1 && nextButton.pointOver(uMouseX, uMouseY))
-				pageManager.changePage(1);
-			if (pageManager.getPage() >= 2 && backButton.pointOver(uMouseX, uMouseY)) {
-				for (int x : pageManager.getTitlePages())
-					if (pageManager.getPage() == x + 1) {
-						pageManager.changePage(-1);
-						break;
-					}
-				pageManager.changePage(-1);
-			}
-		}
+		buttonManager.clickAt(uMouseX, uMouseY);
 	}
 
 }

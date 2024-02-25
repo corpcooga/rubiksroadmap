@@ -75,7 +75,7 @@ public class GraphicsInfoReader
 		return sectionNames;
 	}
 	
-	public Color[] readSectionColors()
+	private Color[] readSectionColors()
 	{
 		JsonNode file = sectionsInfo.get("Section Colors");
 		Color[] sectionColors = new Color[file.size()];
