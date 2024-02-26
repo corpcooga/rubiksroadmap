@@ -201,13 +201,13 @@
 			[
 				"The next step is filling out a layer. To do this, we just need to insert white corner pieces between parts of The Cross. First, make sure you're holding the cube so that The Cross is pointing down. This might be a bit confusing at first, but it will make things easier.",
 				[
-					"Then, find a white corner piece. It should have white and two other colors on it, like the one shown in the photo (it doesn't have to be blue and orange). If the piece you found is already lined up next to the yellow center piece, you don't need to worry about this next part. Otherwise, make sure to follow along.",
+					"Then, find a white corner piece. It should have white and two other colors on it. The end goal is shown on the right; notice how it's lined up with the colors around it. If the corner piece you chose is next to the yellow center piece, you can skim through this next part. If it's stuck next to the white center piece, follow along with the next steps.",
 					[
 						null, 230, "width -350", null, null, null
 					]
 				],
 				[
-					"example_corner_piece.png",
+					"white_corner_end.png",
 					[
 						"width -160", 290, 140, 140, null
 					]
@@ -215,19 +215,31 @@
 				[
 					"first_layer_corner_up.png",
 					[
-						"160", 450, 140, 140, null
+						160, 445, 140, 140, null
 					]
 				],
 				[
 					"The corner piece should be in in the position as shown on the left. Make sure you hold your cube as shown on the right, so that the corner piece is on the bottom right, and execute the following algorigthm: [R U R' U']. This algorithm orients the corner piece next to the yellow center piece. Get used to doing this algorithm, as it comes up a lot.",
 					[
-						250, 380, "width -500", null, null, null
+						250, 375, "width -500", null, null, null
 					]
 				],
 				[
 					"first_layer_corner_down.png",
 					[
-						"width -160", 450, 140, 140, null
+						"width -160", 445, 140, 140, null
+					]
+				],
+				[
+					"corner_piece_out.png",
+					[
+						160, 620, 140, 140, null
+					]
+				],
+				[
+					"The corner piece should now be next to the yellow center piece as shown. Lastly, we just need to get the piece into its final position. Rotate the top (yellow) side until the colors on the corner piece match up with the center pieces around it, as shown in the photo to the left.",
+					[
+						250, 550, "width -350", null, null, null
 					]
 				]
 			]
