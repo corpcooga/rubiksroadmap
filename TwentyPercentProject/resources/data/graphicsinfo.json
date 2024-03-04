@@ -285,6 +285,21 @@
 		],
 	"The Second Layer":
 		[
+			[
+				"Now that the first layer is solved, we need to fill in the second layer. This will be a bit more difficult because we need to make sure that the pieces that we've already solved stay in place.\n\nStart by finding an edge piece with two colors that aren't yellow. Ensure that it's adjacent to the yellow side.",
+				[
+					"edge_piece_found.png",
+					[
+						150, 300, null, null, null
+					]
+				],
+				[
+					"Rotate the top (yellow) side until the color of the piece lines up with the color of the center piece below.",
+					[
+						220, 260, "width -320", null, null, null
+					]
+				]
+			]
 		],
 	"The Cross 2.0":
 		[

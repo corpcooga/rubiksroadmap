@@ -18,7 +18,7 @@ public class PageManager
 	{
 		this.pages = pages;
 		this.titlePages = titlePages;
-		pageNum = 8;
+		pageNum = 10;
 	}
 	
 	
