@@ -244,7 +244,43 @@
 				]
 			],
 			[
-				"All that's left to do now for the corner piece is to repeat an algorithm until it goes into the correct orientation! Use the algorithm: [R U R' U'], the same one we used to take the corner piece out."
+				"All that's left to do now for the corner piece is to get it into the correct orientation! Repeat the algorithm: [R U R' U'] until the white part of the corner piece matches with the white pieces around it. Notice that this algorithm is the same one we used to take the corner piece out.\n\nNow that we have inserted one corner piece, we just need to repeat this process for the three other white corner pieces! Here's an example of what the cube might look like after each step:",
+				[
+					"roadmap_logo.png",
+					[
+						"halfWidth -350", 400, 160, 160, null
+					]
+				],
+				[
+					"roadmap_logo.png",
+					[
+						"halfWidth", 400, 160, 160, null
+					]
+				],
+				[
+					"roadmap_logo.png",
+					[
+						"halfWidth +350", 400, 160, 160, null
+					]
+				],
+				[
+					"roadmap_logo.png",
+					[
+						"halfWidth -180", 560, 160, 160, null
+					]
+				],
+				[
+					"roadmap_logo.png",
+					[
+						"halfWidth +180", 560, 160, 160, null
+					]
+				],
+				[
+					"Hopefully, your cube looks like the last image. If it does, you've solved the First Layer!",
+					[
+						null, 660, null, null, null, null
+					]
+				]
 			]
 		],
 	"The Second Layer":
