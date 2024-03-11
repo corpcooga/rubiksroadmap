@@ -246,31 +246,31 @@
 			[
 				"All that's left to do now for the corner piece is to get it into the correct orientation! Repeat the algorithm: [R U R' U'] until the white part of the corner piece matches with the white pieces around it. Notice that this algorithm is the same one we used to take the corner piece out.\n\nNow that we have inserted one corner piece, we just need to repeat this process for the three other white corner pieces! Here's an example of what the cube might look like after each step:",
 				[
-					"roadmap_logo.png",
+					"first_layer_corner_up.png",
 					[
 						"halfWidth -350", 400, 160, 160, null
 					]
 				],
 				[
-					"roadmap_logo.png",
+					"first_layer_1.png",
 					[
 						"halfWidth", 400, 160, 160, null
 					]
 				],
 				[
-					"roadmap_logo.png",
+					"first_layer_2.png",
 					[
 						"halfWidth +350", 400, 160, 160, null
 					]
 				],
 				[
-					"roadmap_logo.png",
+					"first_layer_3.png",
 					[
 						"halfWidth -180", 560, 160, 160, null
 					]
 				],
 				[
-					"roadmap_logo.png",
+					"first_layer_4.png",
 					[
 						"halfWidth +180", 560, 160, 160, null
 					]
