@@ -6,7 +6,7 @@
 				[
 					"*I don't have a dog, nor did I teach him how to solve the Rubik's Cube", 
 					[
-						null, 670, 15, null
+						null, 670, 16, null
 					]
 				]
 			],
@@ -286,17 +286,41 @@
 	"The Second Layer":
 		[
 			[
-				"Now that the first layer is solved, we need to fill in the second layer. This will be a bit more difficult because we need to make sure that the pieces that we've already solved stay in place.\n\nStart by finding an edge piece with two colors that aren't yellow. Ensure that it's adjacent to the yellow side.",
+				"Now that the first layer is solved, we need to fill in the second layer. Start by finding an edge piece with two colors that aren't yellow. Ensure that it's adjacent to the yellow side; it should not be stuck in the second layer. If there are no edge pieces like this, skim through to the note at the end to get the piece mentioned, then come back to properly insert it into the second layer.",
 				[
-					"edge_piece_found.png",
+					"edge_piece_lineup.png",
 					[
 						150, 300, null, null, null
 					]
 				],
 				[
-					"Rotate the top (yellow) side until the color of the piece lines up with the color of the center piece below.",
+					"Rotate the top (yellow) side until the color of the piece (in this case, the red-green edge piece) lines up with the color of the center piece below as shown. From here, there are two algorithms you need to know to insert the piece into the second layer.",
 					[
 						220, 260, "width -320", null, null, null
+					]
+				],
+				[
+					"To choose the correct algorithm, take note of the position of the edge piece in relation to the spot where it will be inserted. This spot is in between two center pieces, whose colors correspond to the colors of the edge piece. As seen in the previous image, the edge piece is on the left of its insertion location. It can also be to the right, as shown in the image to the right.",
+					[
+						null, 370, "width -310", null, null, null
+					]
+				],
+				[
+					"edge_piece_lineup_alt.png",
+					[
+						"width -150", 430, null, null, null
+					]
+				],
+				[
+					"Hold the cube with the edge piece facing you. If the edge piece is to the left of the insertion spot, use the following algorithm: [U R U' R' U' F' U F]. If it's on the right, use this algorithm: [U' L' U L U F U' F']. Hopefully, your edge piece has been inserted! All that's left is to repeat this process for the other 3 edge pieces.",
+					[
+						null, 510, null, null, null, null
+					]
+				],
+				[
+					"Note: if an edge piece is stuck in the second layer in the wrong orientation, you need to remove it to insert it properly. Hold the cube with the piece you want to remove on the right, then execute the first algorithm (located in the previous paragraph). This will remove the piece and allow you to reinsert it properly. This process may need to be repeated for a few edge pieces.", 
+					[
+						null, 630, null, null, 16, null
 					]
 				]
 			]
