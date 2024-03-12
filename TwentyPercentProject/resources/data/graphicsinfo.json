@@ -318,7 +318,7 @@
 					]
 				],
 				[
-					"Note: if an edge piece is stuck in the second layer in the wrong orientation, you need to remove it to insert it properly. Hold the cube with the piece you want to remove on the right, then execute the first algorithm (located in the previous paragraph). This will remove the piece and allow you to reinsert it properly. This process may need to be repeated for a few edge pieces.", 
+					"Note: if an edge piece is stuck in the second layer in the wrong orientation, you need to remove it to insert it properly. Hold the cube with the piece you want to remove on the right, then execute the algorithm: [U R U' R' U' F' U F] (same algorithm as the first one in the previous paragraph). This will remove the piece and allow you to reinsert it properly. This process may need to be repeated for a few edge pieces.", 
 					[
 						null, 630, null, null, 16, null
 					]
@@ -327,6 +327,95 @@
 		],
 	"The Cross 2.0":
 		[
+			[
+				"The rest of the solve is mostly just following along with algorithms. At this point, there are 4 ways the yellow edge pieces on your cube could look like:",
+				[
+					"No Yellow Edges",
+					[
+						"halfWidth -420", 335, 18, "centerAlign" 
+					]
+				],
+				[
+					"no_yellow_edges.png",
+					[
+						"halfWidth -420", 250, 120, 120, null
+					]
+				],
+				[
+					"L Shape",
+					[
+						"halfWidth -140", 335, 18, "centerAlign" 
+					]
+				],
+				[
+					"L_yellow_edges.png",
+					[
+						"halfWidth -140", 250, 120, 120, null
+					]
+				],
+				[
+					"Line Shape",
+					[
+						"halfWidth +140", 335, 18, "centerAlign" 
+					]
+				],
+				[
+					"line_yellow_edges.png",
+					[
+						"halfWidth +140", 250, 120, 120, null
+					]
+				],
+				[
+					"Already Solved",
+					[
+						"halfWidth +420", 335, 18, "centerAlign" 
+					]
+				],
+				[
+					"cross_2.0.png",
+					[
+						"halfWidth +420", 250, 120, 120, null
+					]
+				],
+				[
+					"Notice that this only looks at the yellows of edge pieces, so you can disregard the yellow corner pieces at this point. If your cube looks like the last image, you can skip this entire section! Otherwise, skim through until you find the case that matches your cube, and follow along from there.", 
+					[
+						null, 370, null, null, null, null
+					]
+				],
+				[
+					"Let's start with the first case. From here, use this algorithm from any orientation to make it look like the L shape: [F R U R' U' F']. To help you remember this algorithm, notice that it contains an algorithm we used previously: [R U R' U']. The only difference is that it starts with [F] and ends with [F'].\n\nAnyway, we need to use this algorithm 2 more times from different orientations to solve the yellow cross.", 
+					[
+						300, 485, "width -400", null, null, null
+					]
+				],
+				[
+					"no_yellow_edges.png",
+					[
+						180, 580, 200, 200, null
+					]
+				]
+			],
+			[
+				[
+					"For the second case, your yellow edges should be in the \"L\" shape as shown to the right. Hold the cube with one yellow edge on the left and the other on the back, and execute the same algorithm mentioned previously: [F R U R' U' F']. This will give you the line shape.\n\nHere's the third case. Hold the cube with one yellow edge on the left and the other on the right. For the last time (or first, if your cube already looked like this), execute the algorithm: [F R U R' U' F']. Now your cube should have a yellow cross on the top!", 
+					[
+						null, null, "width -320", null, null, null
+					]
+				],
+				[
+					"L_yellow_edges.png",
+					[
+						"width -160", 160, null, null, null
+					]
+				],
+				[
+					"line_yellow_edges.png",
+					[
+						"width -160", 275, null, null, null
+					]
+				]
+			]
 		],
 	"The Corner Fix":
 		[
