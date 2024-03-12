@@ -366,19 +366,19 @@
 					]
 				],
 				[
-					"Already Solved",
+					"Cross Shape",
 					[
 						"halfWidth +420", 335, 18, "centerAlign" 
 					]
 				],
 				[
-					"cross_2.0.png",
+					"cross_yellow_edges.png",
 					[
 						"halfWidth +420", 250, 120, 120, null
 					]
 				],
 				[
-					"Notice that this only looks at the yellows of edge pieces, so you can disregard the yellow corner pieces at this point. If your cube looks like the last image, you can skip this entire section! Otherwise, skim through until you find the case that matches your cube, and follow along from there.", 
+					"Notice that this only looks at the yellows of edge pieces, so you can disregard the yellow corner pieces at this point. Some yellow corner pieces may be oriented in a way that makes it hard to tell which one you have, so make sure you correctly determine your case. Then, follow along with the corresponding case.", 
 					[
 						null, 370, null, null, null, null
 					]
@@ -413,6 +413,12 @@
 					"line_yellow_edges.png",
 					[
 						"width -160", 275, null, null, null
+					]
+				],
+				[
+					"Here's the last case, where it looks like we've already solved the yellow cross.", 
+					[
+						300, 485, "width -400", null, null, null
 					]
 				]
 			]
