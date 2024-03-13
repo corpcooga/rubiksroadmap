@@ -1,18 +1,18 @@
 {
 	"Title Pages":
 		[
-			0, 4, 6, 9, 11
+			0, 4, 6, 9, 11, 14
 		],
 	"Section Names":
 		[
-			"Introduction", "The Cross", "The First Layer", "The Second Layer", "The Cross 2.0", "The Corner Fix", "The Solve", "Conclusion"
+			"Introduction", "The Cross", "The First Layer", "The Second Layer", "The Cross 2.0", "The Corners", "The Solve", "Conclusion"
 		],
 	"Section Colors":
 		[
-			[40, 40, 40], [60, 35, 35], [65, 45, 35], [35, 60, 35], [35, 35, 60]
+			[40, 40, 40], [60, 35, 35], [65, 45, 35], [35, 60, 35], [35, 35, 60], [45, 35, 65]
 		],
 	"Title Page Images":
 		[
-			"roadmap_logo.png", "the_cross.png", "first_layer.png", "second_layer.png", "cross_2.0.png"
+			"roadmap_logo.png", "the_cross.png", "first_layer.png", "second_layer.png", "cross_2.0.png", "the_corners.png"
 		]
 }

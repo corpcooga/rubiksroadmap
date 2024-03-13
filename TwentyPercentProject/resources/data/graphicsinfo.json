@@ -276,7 +276,7 @@
 					]
 				],
 				[
-					"Hopefully, your cube looks like the last image. If it does, you've solved the First Layer!",
+					"Hopefully, your cube looks like the last image. If it does, you've solved The First Layer!",
 					[
 						null, 660, null, null, null, null
 					]
@@ -312,7 +312,7 @@
 					]
 				],
 				[
-					"Hold the cube with the edge piece facing you. If the edge piece is to the left of the insertion spot, use the following algorithm: [U R U' R' U' F' U F]. If it's on the right, use this algorithm: [U' L' U L U F U' F']. Hopefully, your edge piece has been inserted! All that's left is to repeat this process for the other 3 edge pieces.",
+					"Hold the cube with the edge piece facing you. If the edge piece is to the left of the insertion spot, use the following algorithm: [U R U' R' U' F' U F]. If it's on the right, use this algorithm: [U' L' U L U F U' F']. After you've inserted an edge, just repeat this process for the other 3 edge pieces to solve The Second Layer!",
 					[
 						null, 510, null, null, null, null
 					]
@@ -435,7 +435,7 @@
 				]
 			]
 		],
-	"The Corner Fix":
+	"The Corners":
 		[
 		],
 	"The Solve":
