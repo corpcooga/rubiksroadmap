@@ -437,6 +437,33 @@
 		],
 	"The Corners":
 		[
+			[
+				"The second to last step is getting all the yellow corner pieces in the right spot. Just like how we aligned the yellow edges, we're going to repeat an algorithm from different orientations to accomplish this.",
+				[
+					"Find a yellow corner piece that matches the colors of the center pieces around it. For example, a blue-orange-yellow corner piece surrounded by the blue, orange, and yellow center pieces. Do not rotate the yellow side to match up any corner piece, and ensure that the yellow edges that we solved stay in place.\n\nIf there are no corner pieces like this, use the next algorithm from anywhere to get one.",
+					[
+						null, 210, "width -400", null, null, null
+					]
+				],
+				[
+					"yellow_corner_aligned.png",
+					[
+						"width -200", 280, 200, 200, null
+					]
+				],
+				[
+					"Hold the corner piece on the front left, and execute the following algorithm: [R U' L' U  R' U' L U]. Then, check all of the corner pieces. If they all match up with the center pieces around them like the first corner piece you found, you're done with this step! Otherwise, you just need to use the algorithm one more time from the same place, and the corner pieces should all line up.\n\nAnd look at that! You've finished The Corners!",
+					[
+						null, 405, null, null, null, null
+					]
+				],
+				[
+					"This step was so quick and easy that I didn't have enough to fill up the whole page. This part only serves one purpose: to fill the blank space left in the screen. If you're reading this, you're wasting time! You should probably go to the next section. Okay. Goodbye.", 
+					[
+						null, 630, null, null, 16, null
+					]
+				]
+			]
 		],
 	"The Solve":
 		[
