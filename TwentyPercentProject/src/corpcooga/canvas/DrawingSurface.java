@@ -3,8 +3,6 @@ package corpcooga.canvas;
 import corpcooga.components.*;
 import corpcooga.pages.*;
 
-//import java.awt.Dimension;
-//import java.awt.Toolkit;
 import processing.core.PApplet;
 
 public class DrawingSurface extends PApplet
@@ -13,13 +11,6 @@ public class DrawingSurface extends PApplet
 	
 	public static final int DRAWING_WIDTH = 1280, 
 							DRAWING_HEIGHT = 800;
-	
-//	static {
-//        // obtain screen dimensions dynamically
-//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//        DRAWING_WIDTH = (int)screenSize.getWidth();
-//        DRAWING_HEIGHT = (int)screenSize.getHeight();
-//    }
 	
 	private PageManager pageManager;
 	private ButtonManager buttonManager;
@@ -35,7 +26,6 @@ public class DrawingSurface extends PApplet
 		
 		pageManager = new PageManager(infoManager.readPages(), infoManager.readTitlePages());
 		
-//		TODO add more interactive buttons
 		buttonManager = new ButtonManager(new Button[] {
 				new Button("Go!", DRAWING_WIDTH / 2 - 100, 650, 200, 100),
 				new Button("Next", DRAWING_WIDTH - 135, DRAWING_HEIGHT - 80, 100, 50),
@@ -49,9 +39,6 @@ public class DrawingSurface extends PApplet
 	public void settings()
 	{
 		size(DRAWING_WIDTH, DRAWING_HEIGHT);
-//		TODO find a way to use these methods
-//		fullScreen();
-//		smooth(8);
 	}
 	
 	public void setup()
