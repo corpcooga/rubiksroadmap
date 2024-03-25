@@ -506,7 +506,7 @@
 					]
 				],
 				[
-					"Repeat this method until you've solved the cube! [D] move, [R U R' U'] until the corner is oriented correctly, repeat. Again, never rotate the entire cube.\n\nIf you've done this correctly, then congratulations! You've officialy solved the Rubik's Cube!",
+					"Repeat this method until you've solved the cube! [D] move, [R U R' U'] until the corner is oriented correctly, repeat. Again, never rotate the entire cube, at least until the entire cube is solved.\n\nIf you've done this correctly, then congratulations! You've officialy solved the Rubik's Cube!",
 					[
 						null, 560, null, null, null, null
 					]
@@ -515,6 +515,9 @@
 		],
 	"Conclusion":
 		[
+			[
+				"So how was it? Hopefully, not too hard. I did my best to keep it simple, but some parts may have been unclear or hard to follow. At least we have a solved Rubik's Cube now!\n\nWell, if you're reading this, you've gone either one of two ways: solved the cube after putting in the hard work, or skipped through all the sections to see what was at the end. If you've skipped to this section, then I don't blame you. That's probably what I would have done.\n\nBut if you have solved the Rubik's Cube, you now have all the bragging rights. You don't have to fake it; now you can say, \"I don't peel the stickers off,\" \"I can solve all 6 sides,\" and \"I'm really smart because I can solve the Rubik's (correct spelling) Cube!\" And all those simpleton non-cubers won't know any better!\n\n\nAcknowledgements:\nThanks to JPerm (a cubing youtuber) for his tutorial on how to solve the Rubik's Cube. I referenced some parts of this video to make sure the solve was as easy and simple as possible.\n\nThanks to grubiks.com for letting me use their Rubik's Cube Solver 3x3x3. Although it was created with the intention to solve the cube for you, I instead used it for the photos of the Rubik's Cube in this tutorial.\n\nAnd thank you Mr. Shelby (my APCS teacher), for the help with coding this project!"
+			]
 		],
 	"defaultSettings":
 		{

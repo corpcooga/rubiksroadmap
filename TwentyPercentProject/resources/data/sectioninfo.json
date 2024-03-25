@@ -1,7 +1,7 @@
 {
 	"Title Pages":
 		[
-			0, 4, 6, 9, 11, 14, 16
+			0, 4, 6, 9, 11, 14, 16, 18
 		],
 	"Section Names":
 		[
@@ -9,10 +9,10 @@
 		],
 	"Section Colors":
 		[
-			[40, 40, 40], [60, 35, 35], [65, 45, 35], [35, 60, 35], [35, 35, 60], [45, 35, 65], [40, 60, 60]
+			[40, 40, 40], [60, 35, 35], [65, 45, 35], [35, 60, 35], [35, 35, 60], [45, 35, 65], [40, 60, 60], [40, 40, 40]
 		],
 	"Title Page Images":
 		[
-			"roadmap_logo.png", "the_cross.png", "first_layer.png", "second_layer.png", "cross_2.0.png", "the_corners.png", "roadmap_logo.png"
+			"roadmap_logo.png", "the_cross.png", "first_layer.png", "second_layer.png", "cross_2.0.png", "the_corners.png", "roadmap_logo.png", "roadmap_logo.png"
 		]
 }

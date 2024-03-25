@@ -28,7 +28,7 @@ public class ButtonManager
 //			go button
 			buttons[0].draw(p);
 		else {
-			if (pages.getPage() < pages.getNumPages())
+			if (pages.getPage() < pages.getNumPages() - 1)
 //				next button
 				buttons[1].draw(p);
 			if (pages.getPage() >= 2)
@@ -43,7 +43,7 @@ public class ButtonManager
 			if (buttons[0].pointOver(x, y))
 				pages.changePage(1);
 		} else {
-			if (pages.getPage() >= 1 && buttons[1].pointOver(x, y))
+			if (pages.getPage() < pages.getNumPages() - 1 && buttons[1].pointOver(x, y))
 				pages.changePage(1);
 			if (pages.getPage() >= 2 && buttons[2].pointOver(x, y)) {
 				for (int titlePage : pages.getTitlePages())
