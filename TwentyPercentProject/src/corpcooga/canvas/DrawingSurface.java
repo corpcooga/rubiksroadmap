@@ -43,6 +43,7 @@ public class DrawingSurface extends PApplet
 	
 	public void setup()
 	{
+		super.windowTitle("Rubik's Roadmap");
 		textFont(createFont("resources/fonts/avenir.ttf", 69));
 	}
 	
@@ -59,6 +60,12 @@ public class DrawingSurface extends PApplet
 		uMouseX = mouseX * DRAWING_WIDTH / width;
 		uMouseY = mouseY * DRAWING_HEIGHT / height;
 		buttonManager.clickAt(uMouseX, uMouseY);
+	}
+	
+	public void keyPressed()
+	{
+		if (key == ESC)
+			key = 0;
 	}
 
 }

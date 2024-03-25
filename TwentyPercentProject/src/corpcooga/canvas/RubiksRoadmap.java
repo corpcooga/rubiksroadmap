@@ -9,8 +9,6 @@ public class RubiksRoadmap
 		DrawingSurface drawing = new DrawingSurface();
 		PApplet.runSketch(new String[]{""}, drawing);
 		drawing.windowResizable(true);
-//		TODO make window not exit using escape button
-//		TODO find out how to make the window have a different title
 	}
 
 }
