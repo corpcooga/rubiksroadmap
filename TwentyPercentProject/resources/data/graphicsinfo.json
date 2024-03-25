@@ -467,6 +467,51 @@
 		],
 	"The Solve":
 		[
+			[
+				"Finally, we're just one step away from solving the Rubik's Cube! This step is probably the scariest one, because it's easy to get wrong, and doing so messes up the whole cube. If you follow along carefully, though, it'll be pretty easy and simple.",
+				[
+					"solve_hold_orientation.png",
+					[
+						150, 270, null, null, null
+					]
+				],
+				[
+					"Hold the cube with the white side up. Make sure that there is an unsolved yellow corner piece on the bottom right, as shown in the photo. You can rotate the entire cube to get a piece like this, but for the rest of the solve, make sure not to rotate the entire cube.",
+					[
+						220, 230, "width -320", null, null, null
+					]
+				],
+				[
+					"Next, repeat the famous algorithm: [R U R' U'] until the yellow corner piece orients itself correctly. Although the white side is messed up now, don't worry! Everything will solve itself if you follow along precisely. Your cube should look something like the photo on the right.",
+					[
+						null, 340, "width -300", null, null, null
+					]
+				],
+				[
+					"the_solve_first_corner.png",
+					[
+						"width -150", 380, null, null, null
+					]
+				],
+				[
+					"Now turn the bottom side with [D]. If the piece on the bottom right is in the wrong orientation, repeat [R U R' U'] until it gets into the correct orientation. Otherwise, keep doing [D] moves until it is an unsolved corner piece, and execute the method previously mentioned.",
+					[
+						220, 450, "width -320", null, null, null
+					]
+				],
+				[
+					"the_solve_second_corner.png",
+					[
+						150, 490, null, null, null
+					]
+				],
+				[
+					"Repeat this method until you've solved the cube! [D] move, [R U R' U'] until the corner is oriented correctly, repeat. Again, never rotate the entire cube.\n\nIf you've done this correctly, then congratulations! You've officialy solved the Rubik's Cube!",
+					[
+						null, 560, null, null, null, null
+					]
+				]
+			]
 		],
 	"Conclusion":
 		[
